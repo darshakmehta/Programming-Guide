@@ -1,0 +1,9 @@
+// File Structure in Computers are example of Post Order Traversal
+// Family Tree, Copy tree are example of Pre Order Traversal
+// Inorder Traversal are limited to Binary Search Trees
+
+//Worst case search complexity of BST is O(n) and for Balanced BST it is O(log n)
+
+//Iterative tree search is more efficient on most computers
+
+//Recursive tree search is more straightforward
