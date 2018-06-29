@@ -260,7 +260,6 @@ class LinkedList
 			n = n / 10;
 		}
 		return head;
-
 	}
 	
 	public Node sumListsForward(Node first, Node second) {
@@ -297,37 +296,77 @@ class LinkedList
 			n = n / 10;
 		}
 		return head;
+	}
+	
+	public String getString(Node head) { //Brute Force Approach
+		Node temp = head;
+		StringBuilder sb = new StringBuilder();
+		while(temp != null) {
+			sb.append(temp.data);
+			temp = temp.next;
+		}
+		return sb.toString();
+	}
+	
+	public boolean isPalindrome(String s) { //Brute Force Approach
+		StringBuilder sb = new StringBuilder(s);
+		String reverse = sb.reverse().toString();
+		return s.equals(reverse);
+	}
+	public boolean checkPalindrome(Node head) { //Brute Force Approach
+		String s = getString(head);
+		//System.out.println(s);
+		return isPalindrome(s);
+	}
 
+	public boolean isEqual(Node one, Node two) { //Reverse and Compare Approach
+		while(one != null && two !=null) {
+			if(one.data != two.data)
+				return false;
+			one = one.next;
+			two = two.next;
+		}
+		return one == null && two == null;
+	}
+
+	public boolean checkPalindromeReverseList(Node head) { //Reverse and Compare Approach
+		Node reverse = reverseLinkedList(head);
+		return isEqual(head, reverse);
+
+	}
+
+	public Node reverseLinkedList(Node node) { //Reverse and Compare Approach
+		Node head = null;
+		Node temp = node;
+		while(temp != null) {
+			Node new_node = new Node(temp.data);
+			new_node.next = head;
+			head = new_node;
+			temp = temp.next;
+		}
+		return head;
 	}
 
 	public static void main (String[] args) throws java.lang.Exception
 	{
-		/*LinkedList first = new LinkedList();
-		first.append(7);
-		first.append(1);
-		first.append(6);
-		LinkedList second = new LinkedList();
-		second.append(5);
-		second.append(9);
-		second.append(2);
-		LinkedList sum = new LinkedList();
-		sum.head = sum.sumListsReverse(first.head, second.head);
-		sum.printList();*/
-		
-		LinkedList first = new LinkedList();
-		first.append(6);
-		first.append(1);
-		first.append(7);
-		LinkedList second = new LinkedList();
-		second.append(2);
-		second.append(9);
-		second.append(5);
-		LinkedList sum = new LinkedList();
-		sum.head = sum.sumListsForward(first.head, second.head);
-		sum.printList();
-		
+		LinkedList linkedList = new LinkedList();
+		linkedList.append(0);
+		linkedList.append(1);
+		linkedList.append(2);
+		// linkedList.append(2);
+		linkedList.append(1);
+		linkedList.append(0);
+		//System.out.println(linkedList.checkPalindrome(linkedList.head)); //Brute Force Approach
+		System.out.println(linkedList.checkPalindromeReverseList(linkedList.head)); //Reverse and Compare Approach
+		//linkedList.printList();
 	}
 }
 
+/*** 
 
-/*** TODO: Implement reverse and forward sum using Recursive approach considering different length of linked lists ***/
+TODO: 
+
+1) Use recursive approach and also use class to return multiple values 
+2) Use STACK i.e. Iterative approach using Runner Technique
+
+***/
