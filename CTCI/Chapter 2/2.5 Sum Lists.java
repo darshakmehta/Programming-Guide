@@ -207,26 +207,124 @@ class LinkedList
 		middle.next = temp.next;
 		return true;
 	}
+	
+	public Node partition(Node node, int key){
+		Node head = node;
+		Node tail = node;
+		
+		while(node != null) {
+			Node next = node.next;
+			if(node.data < key) {
+				node.next = head;
+				head = node;
+			} else {
+				tail.next = node;
+				tail = node;
+			}
+			node = next;
+		}
+		tail.next = null;
+		return head;
+	}
+
+	public Node sumListsReverse(Node first, Node second) {
+		Node current1 = first;
+		Node current2 = second;
+		int index = 1;
+		int number1 = 0;
+		int number2 = 0;
+		while(current1 != null) {
+			number1 += current1.data * index;
+			index = index * 10;
+			current1 = current1.next;
+		}
+		index = 1;
+		while(current2 != null) {
+			number2 += current2.data * index;
+			index = index * 10;
+			current2 = current2.next;
+		}
+		int n = number1 + number2; 
+		Node head = null;
+		while(n != 0) {
+			Node new_node = new Node(n % 10);
+			if(head == null) {
+				head = new_node;
+			} else {
+				Node node = head;
+				while(node.next != null) {
+					node = node.next;
+				}
+				node.next = new_node;
+			}
+			n = n / 10;
+		}
+		return head;
+
+	}
+	
+	public Node sumListsForward(Node first, Node second) {
+		Node current1 = first;
+		Node current2 = second;
+		int index = 1;
+		int number1 = 0;
+		int number2 = 0;
+		while(current1 != null) {
+			if(index != 1)
+				number1 = number1 * index;
+			number1 += current1.data;
+			index = 10;
+			current1 = current1.next;
+		}
+		index = 1;
+		while(current2 != null) {
+			if(index != 1) 
+				number2 = number2 * index;
+			number2 += current2.data;
+			index = 10;
+			current2 = current2.next;
+		}
+		int n = number1 + number2; 
+		Node head = null;
+		while(n != 0) {
+			Node new_node = new Node(n % 10);
+			if(head == null) {
+				head = new_node;
+			} else {
+				new_node.next = head;
+				head = new_node;
+			}
+			n = n / 10;
+		}
+		return head;
+
+	}
 
 	public static void main (String[] args) throws java.lang.Exception
 	{
-		LinkedList linkedList = new LinkedList();
-		linkedList.append(3);
-		linkedList.append(3);
-		linkedList.append(3);
-		linkedList.append(3);
-		linkedList.append(4);
-		linkedList.append(4);
-		linkedList.append(4);
-		linkedList.append(4);
-		linkedList.append(5);
-		linkedList.append(5);
-		linkedList.append(7);
-		linkedList.append(8);
-		linkedList.removeDuplicates();
-		//linkedList.removeDuplicatesSortedList();
-		//linkedList.removeDuplicatesNoBuffer();
-		//linkedList.printList();
-		linkedList.kthToLastElements(2);		
+		/*LinkedList first = new LinkedList();
+		first.append(7);
+		first.append(1);
+		first.append(6);
+		LinkedList second = new LinkedList();
+		second.append(5);
+		second.append(9);
+		second.append(2);
+		LinkedList sum = new LinkedList();
+		sum.head = sum.sumListsReverse(first.head, second.head);
+		sum.printList();*/
+		
+		LinkedList first = new LinkedList();
+		first.append(6);
+		first.append(1);
+		first.append(7);
+		LinkedList second = new LinkedList();
+		second.append(2);
+		second.append(9);
+		second.append(5);
+		LinkedList sum = new LinkedList();
+		sum.head = sum.sumListsForward(first.head, second.head);
+		sum.printList();
+		
 	}
 }

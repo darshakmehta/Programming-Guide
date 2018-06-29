@@ -242,6 +242,3 @@ class LinkedList
 		newLinkedList.printList();
 	}
 }
-
-
-/*** TODO: Recursive approach ***/
