@@ -2,8 +2,31 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class OneAway //Linear time O(n) where n = length of largest string
+class OneAway  //Linear time O(n) where n = length of largest string
 {
+	public int oneEditReplace(char c1[], char c2[]) {
+		int numberOfOdds = 0;
+		for(int i = 0; i < c1.length; i++)
+			if(c1[i] != c2[i])
+				numberOfOdds++;
+		return numberOfOdds;
+	}
+	
+	public int oneEditInsert(char c1[], char c2[]) {
+		int j = 0;
+		int numberOfOdds = 0;
+		for(int i = 0; i < c1.length; i++) {
+			if(c1[i] != c2[j])
+				numberOfOdds++;
+			else {
+				j++;
+				if(j == c2.length)
+				    break;
+			}
+		}
+		return numberOfOdds;
+	}
+	
 	public static void main (String[] args) throws java.lang.Exception
 	{
 		Scanner  sc = new Scanner(System.in);
@@ -12,51 +35,24 @@ class OneAway //Linear time O(n) where n = length of largest string
 		char c1[] = s1.toCharArray();
 		char c2[] = s2.toCharArray();
 		boolean flag = false;
-
 		if(Math.abs(c1.length - c2.length) > 1) {
 			System.out.println(flag);
 		} else {
+			OneAway oneAway = new OneAway();
 			int numberOfOdds = 0;
-			if(c1.length > c2.length) {
-				int j = 0;
-				for(int i = 0; i < c1.length; i++) {
-					if(c1[i] != c2[j])
-						numberOfOdds++;
-					else {
-						j++;
-						if(j == c2.length)
-						    break;
-					}
-				}
-				if(numberOfOdds > 1)
-					flag = false;
-				else 
-					flag = true;
-			} else if(c1.length == c2.length) {
-				for(int i = 0; i < c1.length; i++) {
-					if(c1[i] != c2[i]) 
-						numberOfOdds++;
-				}
-				if(numberOfOdds > 1)
-					flag = false;
+			if(c1.length == c2.length) {
+				numberOfOdds = oneAway.oneEditReplace(c1,c2);	
+			} 
+			else {
+				if(c1.length > c2.length) 
+					numberOfOdds = oneAway.oneEditInsert(c1,c2);
 				else
-					flag = true;
-			} else {
-				int k = 0;
-				for(int i = 0; i < c2.length; i++) {
-					if(c1[k] != c2[i])
-						numberOfOdds++;
-					else {
-						k++;
-						if(k == c1.length)
-						    break;
-					}
-				}
-				if(numberOfOdds > 1)
-					flag = false;
-				else
-					flag = true;
+					numberOfOdds = oneAway.oneEditInsert(c2,c1);
 			}
+			if(numberOfOdds > 1)
+			    flag = false;
+			else
+			    flag = true;
 			System.out.println(flag);
 		}
 	}
@@ -64,6 +60,8 @@ class OneAway //Linear time O(n) where n = length of largest string
 
 /***
 
-TODO: 1. Merge insert and remove in one pass 2. Merge all into one pass
+TODO: 
+1. Merge insert and remove in one pass [Completed - by checking the length of string]
+2. Merge all into one pass
 
 ***/
