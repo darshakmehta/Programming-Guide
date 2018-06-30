@@ -131,9 +131,7 @@ class CircularLinkedList
 
 TODO:
 
-1. Sorted insert in the Circular LinkedList  O(n)
-
-2. Convert singly linked list into circular linked list O(n)
+1. Convert singly linked list into circular linked list O(n)
 Answer: 
 1. Traverse to the end of the list
 2. Assign last node next to head node
