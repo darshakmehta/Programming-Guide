@@ -9,3 +9,17 @@ class Solution
 		Scanner sc = new Scanner(System.in);
 	}
 }
+
+/***
+
+TODO: 
+
+1. Goal: 
+
+Implementation:
+
+Running Time:
+
+Space Time: 
+
+***/
