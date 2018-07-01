@@ -100,28 +100,29 @@ class BinarySearchTree {
 		            	root.left = deleteNode(root.left, key);
 			else if (key > root.key)
 		            	root.right = deleteNode(root.right, key);
-		            else {
-		            	if(root.left == null)
-		            		return root.right;
-		            	else if(root.right == null)
-		            		return root.left;
-		            	root.key = minValue(root.right);
-		            	
-		            	root.right = deleteNode(root.right, root.key);
-		            }
-		            return root;
+            else 
+            {
+            	if(root.left == null)
+            		return root.right;
+            	else if(root.right == null)
+            		return root.left;
+            	root.key = minValue(root.right);
+            	
+            	root.right = deleteNode(root.right, root.key);
+            }
+            return root;
 		}
 		
-		    int minValue(Node root)
-		    {
-		        int minv = root.key;
-		        while (root.left != null)
-		        {
-		            minv = root.left.key;
-		            root = root.left;
-		        }
-		        return minv;
-		    }
+	    public int minValue(Node root)
+	    {
+	        int minv = root.key;
+	        while (root.left != null)
+	        {
+	            minv = root.left.key;
+	            root = root.left;
+	        }
+	        return minv;
+	    }
 		
 		public static void main(String arg[]){
 			BinarySearchTree bst = new BinarySearchTree();
@@ -147,9 +148,5 @@ class BinarySearchTree {
 			System.out.println("Inorder: \t");
 			bst.inorder();
 			System.out.println();
-			
-			
 		}	
-			
-	
 }
