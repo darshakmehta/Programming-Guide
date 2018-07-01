@@ -52,6 +52,7 @@ class Ideone
 	}
 }
 
+/**
 
 //Solution 2
 
@@ -69,3 +70,6 @@ PAIR-EXISTS(S, x):
           return true
 
   return false
+
+
+**/

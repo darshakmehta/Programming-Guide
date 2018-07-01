@@ -23,7 +23,7 @@ class Solution
 		}
 	}
 	
-	public int binarySearch(int a[], int value){
+	public int binarySearch(int a[], int value){  //iterative
 		int low = 0;
 		int high = a.length - 1;
 		int mid;
