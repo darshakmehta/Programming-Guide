@@ -136,9 +136,9 @@ class CircularLinkedList
 		}
 	}
 
-	public Node loopDetection(Node last) {
-		Node slow = last;
-		Node fast = fast;
+	public Node loopDetection(Node head) {
+		Node slow = head;
+		Node fast = head;
 
 		//find collision
 		while(fast != null && fast.next != null) {
