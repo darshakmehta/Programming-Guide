@@ -186,4 +186,6 @@ TODO:
 
 1. Test the loop detection
 
+2. Application: Happy Numbers
+
 ***/
