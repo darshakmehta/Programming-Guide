@@ -33,8 +33,8 @@ class BinarySearchTree {
 			if(key < root.key) 
 			    root.left = insertNode(root.left, key);
 			else if (key > root.key)
-            		    root.right = insertNode(root.right, key);
-            		    return root;
+    		    root.right = insertNode(root.right, key);
+    		    return root;
 		}
 		
 		void inorder() {
