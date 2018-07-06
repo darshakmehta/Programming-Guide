@@ -23,50 +23,95 @@ class BinaryTree {
 		if(root == null)
 			return;
 		inOrderTraversal(root.left);
-		System.out.println(root.key + " ");
+		System.out.print(root.data + " ");
 		inOrderTraversal(root.right);
 	}
 
 	public void inOrder() {
-		public void inOrderTraversal(root);
+		inOrderTraversal(root);
 	}
 
-	public void insertNode(Node root, int key) {
+	public Node insertNode(Node root, int key) {
 		if(root == null) {
-			Npde new_node = new Node();
+			Node new_node = new Node(key);
 			root = new_node;
-			return;
+			return root;
 		}
 
 		Queue<Node> queue = new LinkedList<Node>();
-		q.add(root);
+		queue.add(root);
 
-		while(!q.isEmpty()) {
-			Node temp = q.peek();
-			q.remove();
+		while(!queue.isEmpty()) {
+			Node temp = queue.peek();
+			queue.remove();
 
 			if(temp.left == null) {
 				temp.left = new Node(key);
+				break;
 			} else {
-				q.add(temp.left);
+				queue.add(temp.left);
 			}
 			if(temp.right == null) {
 				temp.right = new Node(key);
+				break;
 			} else {
-				q.add(temp.right);
+				queue.add(temp.right);
 			}
 		}
-
+		return root;
 	}
 
 	public void insert(int key) {
-		public void insertNode(root, key);
+		root = insertNode(root, key);
+	}
+
+
+	public void deleteNode(Node root, int key) {
+
+		Queue<Node> queue = new LinkedList<Node>();
+		queue.add(root);
+		Node toDeleteNode = null;
+		Node temp = null;
+		while(!queue.isEmpty()) {
+			temp = queue.peek();
+			queue.remove();
+
+			if(temp.data == key) {
+				toDeleteNode = temp;
+			} 
+			if(temp.left) {
+				queue.push(temp.left);
+			}
+			if(temp.right) {
+				queue.push(temp.right);
+			}
+		}
+		int x = temp.data;
+		toDeleteNode.data = x;
+	}
+
+	public void delete(int key) {
+		deleteNode(root, key);
 	}
 
 	public static void main(String arg[]) {
 		BinaryTree tree = new BinaryTree();
 		tree.insert(10);
-
+		tree.insert(11);
+		tree.insert(9);
+		tree.insert(7);
+		tree.insert(15);
+		tree.insert(8);
+		tree.insert(12);
+		tree.delete(12);
 		tree.inOrder();
 	}
 }
+
+
+/***
+
+TODO: Complete the implementation of Deletion of Node in Binary Tree
+
+
+***/
