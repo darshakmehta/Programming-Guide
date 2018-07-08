@@ -144,3 +144,13 @@ class Solution {
 		return x;
     }
 }
+
+
+/***
+
+TODO:
+
+1. Memory Limit Exceed for initializing 10^8 size boolean array [Write a optimized version of Sieve]
+2. Check what to return if the value is N = 10^8
+
+***/
