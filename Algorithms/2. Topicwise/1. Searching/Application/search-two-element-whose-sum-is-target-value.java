@@ -4,8 +4,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-/* Name of the class has to be "Main" only if the class is public. */
-class Ideone
+class Solution
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
@@ -18,10 +17,10 @@ class Ideone
 		}
 		int result = -1;
 		int v = sc.nextInt();
-		Ideone ideone = new Ideone();
+		Solution solution = new Solution();
 		for(int i = 0; i< a.length ;i++){
 			int key = a[i];
-			result = ideone.binarySearch(a, v - key);
+			result = solution.binarySearch(a, v - key);
 			if(result != -1)
 				break;
 		}
