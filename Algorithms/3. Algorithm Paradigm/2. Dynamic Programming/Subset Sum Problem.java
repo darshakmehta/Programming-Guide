@@ -7,7 +7,6 @@ class SubsetSum
 	public static void findPath(boolean subset[][], int set[], int sum) {
 		int i = set.length;
 		int j = sum;
-		boolean flag = true;
 		System.out.print("The subset is ");
 		while(true) {
 			if(subset[i - 1][j]){
@@ -85,7 +84,7 @@ class SubsetSum
 		int set[] = {3, 34, 4, 12, 5, 2};
 		int n = set.length; //number of elements
 		int sum = 19; 
-		System.out.println(iSubsetSum(set, n, sum));
+		System.out.println(isSubsetSum(set, n, sum));
 		int set2[] = {1, 3, 5, 5, 2, 1, 1, 6};
 		System.out.println(partition(set2));
 	}
