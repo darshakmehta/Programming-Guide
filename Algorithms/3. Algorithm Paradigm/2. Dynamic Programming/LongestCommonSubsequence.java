@@ -88,7 +88,7 @@ class LongestCommonSubsequence
 			System.out.print(ans[k]);
 	}
 
-	public int lcsBottomUpSpaceOptimized(String x, String y) {
+	public int lcsBottomUpSpaceOptimized(String x, String y) { //Running time is O(m * n) and Space time is O(n)
 		int m = x.length();
 		int n = y.length();
 
