@@ -81,6 +81,8 @@ TODO:
 2. Implement using Using power of the matrix {{1,1},{1,0}} and also its optimized version {O(log n) and O(log n) for recursive stack else O(1)}
 3. Implement using recurrence formula in O(log n) time
 4. Implement using BigInteger (from class math of java) in Java for large numbers [Completed as class NthFibonacciOfLargeNumber]
+5. Using golden ratio, but it is not used practically. Since it is floating point number, we lost bits in calculation.
+Reference: https://www.geeksforgeeks.org/g-fact-18-2/
 
 Note: Maximum: n = 92; later it will overflow, for class FibonacciNumber
 
