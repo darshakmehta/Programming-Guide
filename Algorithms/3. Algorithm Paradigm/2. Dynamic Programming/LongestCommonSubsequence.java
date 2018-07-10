@@ -87,6 +87,41 @@ class LongestCommonSubsequence
 		for(int k=0;k<=temp;k++)
 			System.out.print(ans[k]);
 	}
+
+	public int lcsBottomUpSpaceOptimized(String x, String y) {
+		int m = x.length();
+		int n = y.length();
+
+		int dp[][] = new int[2][n + 1];
+
+		// Binary index, used to index 
+        // current row and previous row.
+		int bi = 0;
+
+		for(int i = 0; i <= m; i++) {
+			bi = i & 1;
+			for(int j = 0; j <= n; j++) {
+				System.out.println(i + " " + j + " bi: " + bi); //Print index i,j and current row index in dp table
+				if( i == 0 || j == 0)
+					dp[bi][j] = 0;
+				
+				else if(x.charAt(i - 1) == y.charAt(j - 1))
+					dp[bi][j] = 1 + dp[1 - bi][j - 1];
+				else
+					dp[bi][j] = Math.max(dp[1 - bi][j], dp[bi][j - 1]);
+					
+				/* Print DP table */
+				for(int p = 0; p < 2; p++) {
+					for(int o = 0; o <= n; o++) {
+						System.out.print(dp[p][o] + " ");
+					}
+					System.out.println();
+					
+				}
+			}
+		}
+		return dp[bi][n];
+	}
 	
 	public static void main (String[] args) throws java.lang.Exception
 	{
@@ -121,5 +156,9 @@ class LongestCommonSubsequence
 		System.out.println("Bottom Up Solution");
 		System.out.println("Length of common subsequence is: " + LCS.lcsBottomUp(p,q,p.length(),q.length(),c));
 		LCS.printBottomUpSolution(p,q,p.length(),q.length(),c);
+
+		System.out.println();
+		System.out.println("Bottom Up Solution Space Optimized");
+		System.out.println("Length of common subsequence is: " + LCS.lcsBottomUpSpaceOptimized(p,q));
 	}
 }
