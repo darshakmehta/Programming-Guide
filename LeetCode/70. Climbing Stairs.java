@@ -20,8 +20,6 @@ class Solution { //Dynamic Programming
 
 /***
 
-TODO:
-
 Approach 1: Brute Force 
 --> O(2^n) Size of recursion tree will be 2^n, i.e. Number of nodes = O(2^n); Space is O(n)
 
@@ -33,6 +31,8 @@ Approach 3: Dynamic Programming
 
 Approach 4: Fibonacci Number
 --> O(n) running time and O(1) space time
+
+TODO:
 
 Approach 5: Binets Method
 --> O(log(n)) running time and O(1) space time
