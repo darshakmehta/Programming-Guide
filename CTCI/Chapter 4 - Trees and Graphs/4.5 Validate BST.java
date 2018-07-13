@@ -141,7 +141,7 @@ class BinarySearchTree {
     		return true;
     	if(root.key < min || root.key > max)
     		return false;
-    	return (isBSTUtil(root.left, min, root.key -1) && isBSTUtil(root.right, root.key + 1, max));
+    	return (isBSTUtil(root.left, min, root.key - 1) && isBSTUtil(root.right, root.key + 1, max));
     }
 
     public boolean isBSTUtilUsingPointers(Node root, Node left, Node right) {
