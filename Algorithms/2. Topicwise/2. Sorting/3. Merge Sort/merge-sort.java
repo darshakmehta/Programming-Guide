@@ -77,6 +77,7 @@ class Solution
 
 /***
 
+Running time : O(n log(n))
 Memory: depends, Space complexity of merge sort is O(n)
 
 ***/
