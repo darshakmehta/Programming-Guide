@@ -73,3 +73,9 @@ With the following for loop, the code will TLE
         scanner.close();
     }
 }
+
+/***
+
+Reference: https://wcipeg.com/wiki/Prefix_sum_array_and_difference_array
+
+***/
