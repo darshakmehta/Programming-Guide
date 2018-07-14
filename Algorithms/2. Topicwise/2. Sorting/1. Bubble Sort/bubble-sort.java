@@ -1,11 +1,8 @@
-/* package whatever; // don't place package name! */
-
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-/* Name of the class has to be "Main" only if the class is public. */
-class Ideone
+class Solution
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
@@ -14,8 +11,8 @@ class Ideone
 		int a[] = new int[size];
 		for(int i = 0; i < size; i++)
 			a[i] = sc.nextInt();
-		Ideone ideone = new Ideone();
-		ideone.bubbleSort(a);
+		Solution solution = new Solution();
+		solution.bubbleSort(a);
 		for(int i = 0 ;i < a.length; i++)
 		System.out.print(a[i] + " ");
 	}
@@ -33,3 +30,9 @@ class Ideone
 		
 	}
 }
+
+/***
+
+Running time is O(n^2) independent of input data
+
+***/
