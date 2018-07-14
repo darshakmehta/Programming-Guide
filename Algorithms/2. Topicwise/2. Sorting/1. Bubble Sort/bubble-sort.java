@@ -33,6 +33,6 @@ class Solution
 
 /***
 
-Running time is O(n^2) independent of input data
+Running time is O(n^2) independent of input data. O(1) space complexity.
 
 ***/

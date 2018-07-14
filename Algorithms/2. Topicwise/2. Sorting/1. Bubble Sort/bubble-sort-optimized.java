@@ -39,6 +39,7 @@ class Solution
 
 /***
 
-Running time is O(n^2) in worst case, for nearly sorted data, it can be efficient using boolean "swapped"
+Running time is O(n^2) in worst case, for nearly sorted data, it can be efficient using boolean "swapped".
+O(1) space complexity.
 
 ***/
