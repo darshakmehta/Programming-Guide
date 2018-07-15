@@ -17,7 +17,7 @@ class Solution
 	public static int[] countSort(int a[]) {
 		int n = findMaxElement(a);
 		int index[] = new int[n + 1];
-		int b[] = new int[a.length];
+		int output[] = new int[a.length];
 		for(int i = 0; i < a.length; i++) {
 			index[a[i]]++;
 		}
@@ -27,10 +27,10 @@ class Solution
 		}
 		
 		for(int i = 0; i < a.length; i++) {
-			b[index[a[i]] - 1] = a[i];
+			output[index[a[i]] - 1] = a[i];
 			index[a[i]]--;
 		}
-		return b;
+		return output;
 	}
 	
 	public static void main (String[] args) throws java.lang.Exception
