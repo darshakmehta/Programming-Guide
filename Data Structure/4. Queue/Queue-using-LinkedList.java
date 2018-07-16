@@ -31,12 +31,12 @@ class MyQueue
 	public int remove() {
 		if(first == null)
 			return -1;
-		int x = first.data;
+		int data = first.data;
 		first = first.next;
 		if(first == null) {
 			last = null;
 		}
-		return x;
+		return data;
 	}
 
 	public int peek() {
