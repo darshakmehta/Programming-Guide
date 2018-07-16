@@ -12,7 +12,7 @@ class Solution
 		for(int i = 0; i < size; i++)
 			a[i] = sc.nextInt();
 		Solution solution = new Solution();
-		solution.bubbleSort(a);
+		solution.bubbleSortOptimized(a);
 		for(int i = 0 ;i < a.length; i++)
 		System.out.print(a[i] + " ");
 	}
@@ -34,6 +34,24 @@ class Solution
 				break;
 		}
 		
+	}
+
+	public void bubbleSortOptimized(int a[]) {
+		boolean isSorted = false;
+		int lastUnsorted = a.length - 1;
+
+		while(!isSorted) {
+			isSorted = true;
+			for(int i = 0; i < lastUnsorted; i++) {
+				if(a[i] > a[i+1]) {
+					int temp = a[i];
+					a[i] = a[i+1];
+					a[i+1] = temp;
+					isSorted = false;
+				}
+			}
+			lastUnsorted--;
+		}
 	}
 }
 
