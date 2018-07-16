@@ -18,13 +18,12 @@ class Stack
 	}
 
 	public void push(int key) {
+		Node new_node = new Node(key);
 		if(top == null) {
-			Node new_node = new Node(key);
 			top = new_node;
 			new_node.next = null;
 			return;
 		}
-		Node new_node = new Node(key);
 		new_node.next = top;
 		top = new_node;
 	}
@@ -32,10 +31,10 @@ class Stack
 	public int pop() {
 		if(top == null)
 			return -1; //underflow
-		int x = top.data;
+		int data = top.data;
 		Node temp = top;
 		top = top.next;
-		return x;
+		return data;
 	}
 
 	public boolean isEmpty() {
