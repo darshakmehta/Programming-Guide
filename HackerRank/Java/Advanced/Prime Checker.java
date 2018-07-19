@@ -3,7 +3,7 @@ class Prime {
     public void checkPrime(int ...a) { //use of varags
         for(int i : a) {
            BigInteger b = BigInteger.valueOf(i);
-           boolean flag = b.isProbablePrime(5);
+           boolean flag = b.isProbablePrime(5); //increase the certainty to pass all the test cases
             if(flag)
                 System.out.print(i + " ");
         }
