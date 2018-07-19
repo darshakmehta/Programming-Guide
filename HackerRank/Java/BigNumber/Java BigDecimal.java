@@ -27,3 +27,15 @@ Collections.sort(list, Collections.reverseOrder());
 for(int i = 0; i < list.size(); i++) {
     s[i] = list.get(i).toString();
 }
+
+/*** Perfect Solution to avoid distortion of input string; write your own comparator ***/
+ 
+// we are passing the range of element 0, n because array is of size n + 2
+Arrays.sort(s, 0, n, new Comparator<String>(){ 
+    @Override
+    public int compare(String s1, String s2) {
+        BigDecimal a = new BigDecimal(s1);
+        BigDecimal b = new BigDecimal(s2);
+        return b.compareTo(a); //descending order
+    }
+});
