@@ -21,7 +21,6 @@ class Stack
 		Node new_node = new Node(key);
 		if(top == null) {
 			top = new_node;
-			new_node.next = null;
 			return;
 		}
 		new_node.next = top;
@@ -32,7 +31,6 @@ class Stack
 		if(top == null)
 			return -1; //underflow
 		int data = top.data;
-		Node temp = top;
 		top = top.next;
 		return data;
 	}
