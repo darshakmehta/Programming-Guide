@@ -16,7 +16,7 @@ public class Solution{
 			boolean matchFound = false;
             Pattern r = Pattern.compile("<(.+)>([^<]+)</\\1>");
             Matcher m = r.matcher(line);
-
+            //The find method scans the input sequence looking for the next subsequence that matches the pattern.
             while (m.find()) {
                 System.out.println(m.group(2));
                 matchFound = true;
