@@ -1,10 +1,12 @@
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
-        boolean [][]a = new boolean[3001][3001];
+        Set<String> set = new HashSet<String>();
         
         for(int i = 0; i < obstacles.length; i++) {
-            a[obstacles[i][0]][obstacles[i][1]] = true;
+            String s = obstacles[i][0] + "," + obstacles[i][1];
+            set.add(s);
         }
+        int result = Integer.MIN_VALUE;
         char c = 'N';
         int j = 0;
         int i = 0;
@@ -12,8 +14,9 @@ class Solution {
             if(commands[k] > 0) {
                 int trace = commands[k];
                 if(c == 'N') {
-                    while(i >= 0 && j >= 0 && trace-- > 0) {
-                        if(!a[i][j]) {
+                    while(trace-- > 0) {
+                        String s = i + "," + j;
+                        if(!set.contains(s)) {
                             j++;
                         } else {
                             j--;
@@ -21,10 +24,9 @@ class Solution {
                         }
                     }
                 } else if(c == 'E') {
-                    
-                    while(i >= 0 && j >= 0 && trace-- > 0) {
-                        
-                        if(!a[i][j]) {
+                    while(trace-- > 0) {
+                        String s = i + "," + j;
+                        if(!set.contains(s)) {
                             i++;
                         } else {
                             i--;
@@ -32,10 +34,10 @@ class Solution {
                         }
                     }
                     
-                    
                 } else if(c == 'S') {
-                    while(i >= 0 && j >= 0 && trace-- > 0) {
-                        if(!a[i][j]) {
+                    while(trace-- > 0) {
+                        String s = i + "," + j;
+                        if(!set.contains(s)) {
                             j--;
                         } else {
                             j++;
@@ -43,8 +45,9 @@ class Solution {
                         }
                     }
                 } else if(c == 'W') {
-                    while(i >= 0 && j >= 0 && trace-- > 0) {
-                        if(!a[i][j]) {
+                    while(trace-- > 0) {
+                        String s = i + "," + j;
+                        if(!set.contains(s)) {
                             i--;
                         } else {
                             i++;
@@ -71,7 +74,9 @@ class Solution {
                 else if(c == 'E')
                     c = 'N';  
             }
+            
+            result = Math.max(result, Math.abs(i * i) + Math.abs(j  * j));
         }
-        return (Math.abs(i * i) + Math.abs(j  * j));
+        return result;
     }
 }
