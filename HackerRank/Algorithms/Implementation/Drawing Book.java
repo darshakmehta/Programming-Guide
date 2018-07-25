@@ -59,3 +59,14 @@ public class Solution {
         scanner.close();
     }
 }
+
+/***
+
+Intuition: We know that, if we start from page 1; the result will always be p/2 page turns.
+Now, since we can start turning from backwards as well;
+
+Formula: 
+If n is odd ==> (n - p) / 2
+If n is even ==> (n - p + 1) / 2
+
+***/
