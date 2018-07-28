@@ -6,6 +6,12 @@ import java.util.regex.*;
 
 public class Solution {
 
+    public void swap(int a[], int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = a[i];
+    }
+    
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
@@ -21,9 +27,7 @@ public class Solution {
             isSorted = true;
             for(int i = 0; i < lastUnsorted; i++) {
                 if(a[i] > a[i+1]) {
-                    int temp = a[i];
-                    a[i] = a[i+1];
-                    a[i+1] = temp;
+                    swap(a, i, i + 1);
                     isSorted = false;
                     countSwaps++;
                 }
