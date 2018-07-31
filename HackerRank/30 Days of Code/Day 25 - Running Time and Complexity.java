@@ -32,3 +32,14 @@ public class Solution {
         }
     }
 }
+
+/***
+
+TODO:
+
+Improved O( n^(1/2)) ) Algorithm
+*    Checks if n is divisible by 2 or any odd number from 3 to sqrt(n).
+*    The only way to improve on this is to check if n is divisible by 
+*   all KNOWN PRIMES from 2 to sqrt(n).
+
+***/
