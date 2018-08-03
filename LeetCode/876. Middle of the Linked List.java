@@ -18,7 +18,7 @@ class Solution {
                 second = second.next.next;
                 result = first;
             } else {
-                //result = first.next;
+                result = first.next;
                 break;
             }
         }
