@@ -11,7 +11,7 @@ class Solution {
         
         ListNode first = head;
         ListNode second = head.next;
-        ListNode result = null;
+        ListNode result = first;
         while(second != null) {
             if(second.next != null) {
                 first = first.next;
