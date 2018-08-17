@@ -18,7 +18,7 @@ static class TestDataUniqueValues {
         return 1;  
     }
 }
-
+ 
 static class TestDataExactlyTwoDifferentMinimums {
    
     public static int[] get_array() {
