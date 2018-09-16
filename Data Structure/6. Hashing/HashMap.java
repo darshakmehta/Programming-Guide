@@ -15,7 +15,9 @@ class Solution
 		Iterator iter = set.iterator();
 		while(iter.hasNext()) {
 			Map.Entry pair = (Map.Entry) iter.next();
-			System.out.println(pair.getKey() + " " + pair.getValue());
+			System.out.println(pair.getKey() + " " + pair.getValue());  
+			/* You need to typecast to use
+			For example: int x = (Integer) pair.getValue();*/
 		}
 	}
 }
