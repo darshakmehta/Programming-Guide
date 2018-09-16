@@ -14,3 +14,8 @@ Regex
 
 SHA-256
 1. http://www.baeldung.com/sha-256-hashing-java
+
+
+References:
+
+1. https://geeksforgeeks.org
