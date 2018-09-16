@@ -12,7 +12,7 @@ class StringSort {
 		for( int i = 1; i < c.length; i++) {
 			char temp = c[i];
 			for(j = i; j > 0; j--) {
-				if(temp > c[j-1]) {
+				if(temp >= c[j-1]) {
 					break;
 				} else {
 					c[j] = c[j-1];
