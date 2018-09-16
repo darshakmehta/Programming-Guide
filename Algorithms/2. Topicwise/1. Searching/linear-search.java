@@ -1,11 +1,8 @@
-/* package whatever; // don't place package name! */
-
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-/* Name of the class has to be "Main" only if the class is public. */
-class Ideone
+class Solution
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
@@ -16,8 +13,8 @@ class Ideone
 			a[i] = sc.nextInt();
 		}
 		int v = sc.nextInt();
-		Ideone ideone = new Ideone();
-		int result = ideone.linearSearch(a, v);
+		Solution solution = new Solution();
+		int result = solution.linearSearch(a, v);
 		if(result == -1) {
 			System.out.println("Value: " + v + " not found");
 		}else {
