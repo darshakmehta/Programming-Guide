@@ -31,3 +31,11 @@ class Solution
 		return -1;
 	}
 }
+
+/***
+
+Time complexity: O(n)
+
+Note: Linear search is rarely used, binary search and hash tables provide faster searching compared to Linear Search
+
+***/
