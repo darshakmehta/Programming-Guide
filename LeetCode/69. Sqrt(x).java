@@ -13,7 +13,7 @@ class Solution { //O(sqrt(n))
     }
 }
 
-class Solution { //O(log(n))
+class Solution { //O(log(n))  //Binary Search
     public int mySqrt(int x) {
         int result = 0;
         if(x == 0 || x == 1)
