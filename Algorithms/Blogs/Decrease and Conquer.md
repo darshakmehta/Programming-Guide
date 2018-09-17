@@ -9,7 +9,7 @@ Extend: Solution of smaller instance to obtain solution to original problem.
 
 Sometimes called as, incremental or inductive approach.
 
-# Example: Binary Search
+#### Example: Binary Search
 
 # Implementations of Decrease and Conquer
 
