@@ -9,6 +9,7 @@ import java.util.regex.*;
 public class ArrayManipulation {
 
     // Complete the arrayManipulation function below.
+    // Source: https://www.geeksforgeeks.org/prefix-sum-array-implementation-applications-competitive-programming/
     static long arrayManipulation(int n, int[][] queries) {
         long a[] = new long[n + 1];
         
@@ -77,5 +78,8 @@ With the following for loop, the code will TLE
 /***
 
 Reference: https://wcipeg.com/wiki/Prefix_sum_array_and_difference_array
+https://www.geeksforgeeks.org/prefix-sum-array-implementation-applications-competitive-programming/
+
+
 
 ***/
