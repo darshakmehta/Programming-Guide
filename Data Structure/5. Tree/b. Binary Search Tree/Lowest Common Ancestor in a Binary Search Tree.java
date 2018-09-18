@@ -61,7 +61,7 @@ class Tree
 Note: 
 
 1. Running time of Iterative solution of LCA is O(h) where h is the height of the tree
-2. Extra space of the functionc all stack for recursive function calls is avoided, by using iterative solution.
+2. Extra space of the function call stack for recursive function calls is avoided, by using iterative solution.
 
 TODO:
 
