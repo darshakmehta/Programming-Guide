@@ -89,18 +89,3 @@ class Tree
 	}
 }
 
-/***
-
-Note: 
-
-1. Running time of Iterative solution of LCA is O(h) where h is the height of the tree
-2. Extra space of the function call stack for recursive function calls is avoided, by using iterative solution.
-
-TODO:
-
-0. Extend above solution to return NULL if n1 or n2 or both are not present in the tree.
-1. LCA of Binary Tree
-2. LCA of Binary Tree using RMQ
-3. LCA of BST | BT using parent pointer
-
-***/
