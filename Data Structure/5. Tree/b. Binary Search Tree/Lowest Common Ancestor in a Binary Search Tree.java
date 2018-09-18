@@ -29,6 +29,22 @@ class Tree
 		return root;
 	}
 
+	public Node recursivelca(Node node, int n1, int n2)  // Recursive solution
+    { 
+        if (node == null) 
+            return null; 
+   
+        // If both n1 and n2 are smaller than root, then LCA lies in left 
+        if (node.data > n1 && node.data > n2) 
+            return lca(node.left, n1, n2); 
+   
+        // If both n1 and n2 are greater than root, then LCA lies in right 
+        if (node.data < n1 && node.data < n2)  
+            return lca(node.right, n1, n2); 
+   
+        return node; 
+    } 
+
 	public static void main (String[] args) throws java.lang.Exception
 	{
 		Tree tree = new Tree();
@@ -42,6 +58,8 @@ class Tree
 
         int v1 = 10, v2 = 14;
         Node t = tree.lca(tree.root, v1, v2);
+        System.out.println("LCA of " + v1 + " and " + v2 + " is " + t.data);
+        t = tree.recursivelca(tree.root, v1, v2);
         System.out.println("LCA of " + v1 + " and " + v2 + " is " + t.data);
   
         v1 = 14;
