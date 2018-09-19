@@ -1,0 +1,1 @@
+1. Read about Hash Table vs BST here https://www.geeksforgeeks.org/advantages-of-bst-over-hash-table/
