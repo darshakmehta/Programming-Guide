@@ -107,6 +107,7 @@ class BinaryTree {
 	}
 }
 
+/* Output: 7 11 15 10 8 9 12 */
 
 /***
 
