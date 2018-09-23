@@ -33,8 +33,7 @@ class BinaryTree {
 
 	public Node insertNode(Node root, int key) {
 		if(root == null) {
-			Node new_node = new Node(key);
-			root = new_node;
+			root = new Node(key);
 			return root;
 		}
 
@@ -66,7 +65,7 @@ class BinaryTree {
 	}
 
 
-	public void deleteNode(Node root, int key) {
+	/*public void deleteNode(Node root, int key) {
 
 		Queue<Node> queue = new LinkedList<Node>();
 		queue.add(root);
@@ -79,10 +78,10 @@ class BinaryTree {
 			if(temp.data == key) {
 				toDeleteNode = temp;
 			} 
-			if(temp.left) {
+			if(temp.left != null) {
 				queue.push(temp.left);
 			}
-			if(temp.right) {
+			if(temp.right != null) {
 				queue.push(temp.right);
 			}
 		}
@@ -92,7 +91,7 @@ class BinaryTree {
 
 	public void delete(int key) {
 		deleteNode(root, key);
-	}
+	}*/
 
 	public static void main(String arg[]) {
 		BinaryTree tree = new BinaryTree();
@@ -103,7 +102,7 @@ class BinaryTree {
 		tree.insert(15);
 		tree.insert(8);
 		tree.insert(12);
-		tree.delete(12);
+		//tree.delete(12);
 		tree.inOrder();
 	}
 }
@@ -112,6 +111,5 @@ class BinaryTree {
 /***
 
 TODO: Complete the implementation of Deletion of Node in Binary Tree
-
 
 ***/
