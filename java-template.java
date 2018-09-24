@@ -53,6 +53,12 @@ class Solution
 	public static void main (String[] args) throws java.lang.Exception
 	{
 		Scanner sc = new Scanner(System.in);
+		
+		/* Storing values of array in HashMap */
+		Map<Integer, Integer> hmap = new HashMap<Integer, Integer>();
+		for (int n : nums) {
+			hmap.put(n, hmap.getOrDefault(n, 0) + 1);
+		}
 	}
 }
 
