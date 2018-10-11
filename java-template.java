@@ -59,6 +59,16 @@ class Solution
 		for (int n : nums) {
 			hmap.put(n, hmap.getOrDefault(n, 0) + 1);
 		}
+
+		//Iterate HashMap
+		Set set = hmap.entrySet();
+		Iterator iter = set.iterator();
+		while(iter.hasNext()) {
+			Map.Entry pair = (Map.Entry) iter.next();
+			System.out.println(pair.getKey() + " " + pair.getValue());  
+			/* You need to typecast to use
+			For example: int x = (Integer) pair.getValue();*/
+		}
 	}
 }
 
