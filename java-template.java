@@ -50,6 +50,19 @@ class Solution
 
 	}
 
+	 public void printArr(int nums[]) {
+        for(int i : nums) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+
+    public void swap(int nums[], int a, int b) {
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
+    }
+    	
 	public int gcd(int a, int b) 
     { 
         if (b == 0) 
