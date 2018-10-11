@@ -14,3 +14,28 @@ class Solution {
         return profit;
     }
 }
+
+class Solution { //inefficient
+    public int maxProfit(int[] prices) {
+        int result = 0;
+        int x = 0;
+        for(int i = 1; i < prices.length; i++) {
+            x = prices[i] - prices[i - 1];
+            if(x > 0)
+                result += x;
+        }
+        return result;
+    }
+}
+
+class Solution { //efficient
+    public int maxProfit(int[] prices) {
+        int result = 0;
+        int x = 0;
+        for(int i = 1; i < prices.length; i++) {
+            if(prices[i] > prices[i - 1]) 
+                result += prices[i] - prices[i - 1];
+        }
+        return result;
+    }
+}
