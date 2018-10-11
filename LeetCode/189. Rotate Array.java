@@ -13,3 +13,16 @@ class Solution {
         System.arraycopy(copy, 0, nums, 0, n);
     }
 }
+
+class Solution { //efficient
+    public void rotate(int[] nums, int k) {
+        int n = nums.length;
+        int x = k % n;
+        int copy[] = new int[n];
+        if(x != 0) { //efficient 
+            System.arraycopy(nums, 0, copy, x, n - x);
+            System.arraycopy(nums, n - x, copy, 0, x);
+            System.arraycopy(copy, 0, nums, 0, n);
+        }
+    }
+}
