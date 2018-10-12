@@ -50,11 +50,20 @@ class Solution
 
 	}
 
-	 public void printArr(int nums[]) {
+	public void printArr(int nums[]) {
         for(int i : nums) {
             System.out.print(i + " ");
         }
         System.out.println();
+    }
+
+    public void print2DArr(int a[]) {
+    	for(int i = 0; i < 9; i++) {
+            for(int j = 0; j < 9; j++) {
+                System.out.print(board[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
 
     public void swap(int nums[], int a, int b) {
