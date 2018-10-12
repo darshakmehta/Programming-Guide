@@ -78,7 +78,7 @@ class Solution
 		/* Storing values of array in HashMap */
 		Map<Integer, Integer> hmap = new HashMap<Integer, Integer>();
 		for (int n : nums) {
-			hmap.put(n, hmap.getOrDefault(n, 0) + 1);
+			hmap.put(n, hmap.getOrDefault(n, 0) + 1); //inefficent over the count technique
 		}
 
 		//Iterate HashMap
