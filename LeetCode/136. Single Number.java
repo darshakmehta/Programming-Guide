@@ -12,9 +12,7 @@ class Solution {
 				listNum.put(nums[i], 1);
 			}
         }
-        
         int result = 0;
-        
         for (Map.Entry<Integer, Integer> entry : listNum.entrySet()) {
             int key = entry.getKey();
             int value = entry.getValue();
@@ -23,11 +21,20 @@ class Solution {
                 break;
             }
         }
-        
         return result;
+    }
+}
+
+class Solution { //Sorting
+    public int singleNumber(int[] nums) {
         
-        
-        
+        Arrays.sort(nums);
+        for(int i = 0; i < nums.length - 1; i+=2) {
+            if(nums[i]  != nums[i + 1]) {
+                return nums[i];
+            }            
+        }
+        return nums[nums.length - 1];
     }
 }
 
@@ -36,6 +43,7 @@ class Solution {
 /*** Method 1: Use hashing with element has key and number of occurence as value ***/
 /*** Method 2: Use XOR ***/
 /*** Method 3: Mathematical Equation = 2*(a+b+c+d) – (a + a + b + b + c + c + d) ***/
+/*** Method 4: Sorting ***/
 /*** 
 
 Note:
