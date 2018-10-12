@@ -41,7 +41,7 @@ class Solution { //Sorting
 
 
 /*** Method 1: Use hashing with element has key and number of occurence as value ***/
-/*** Method 2: Use XOR ***/
+/*** Method 2: Use XOR  --> Space Complexity = O(1) ***/
 /*** Method 3: Mathematical Equation = 2*(a+b+c+d) – (a + a + b + b + c + c + d) ***/
 /*** Method 4: Sorting ***/
 /*** 
