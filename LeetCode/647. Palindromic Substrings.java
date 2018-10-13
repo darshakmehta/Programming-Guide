@@ -19,3 +19,41 @@ class Solution {
         return count;
     }
 }
+
+class Solution {
+    int count = 0;
+    Map<String, Integer> hmap = new HashMap<String, Integer>(); //to find all the occurences or distinct occurences of substring
+    
+    public void extendPalindrome(String s, int left, int right) {
+        while(left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            int count = 1;
+            if(hmap.containsKey(s.substring(left, right + 1))) {
+                count = hmap.get(s.substring(left, right + 1)) + 1;
+            }
+            hmap.put(s.substring(left, right + 1), count);
+            count++;
+            left--;
+            right++;
+            
+        }
+    }
+    
+    public int countSubstrings(String s) {
+        if(s == null || s.length() == 0) return 0;    
+        
+        for(int i = 0; i < s.length(); i++) {
+            extendPalindrome(s, i, i);
+            extendPalindrome(s, i, i + 1);
+        }
+        
+        Set set = hmap.entrySet();
+        Iterator iter = set.iterator();
+        while(iter.hasNext()) {
+            Map.Entry pair = (Map.Entry) iter.next();
+            System.out.println(pair.getKey() + " " + pair.getValue());  
+        }
+        return count;
+    }
+    
+    
+}
