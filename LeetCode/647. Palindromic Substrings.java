@@ -57,3 +57,13 @@ class Solution {
     
     
 }
+
+
+/***
+
+DP solution
+
+1. https://www.geeksforgeeks.org/count-palindrome-sub-strings-string/
+2. https://leetcode.com/problems/palindromic-substrings/discuss/105749/Java-O(n2)-DP-solution/186029
+
+***/
