@@ -1,3 +1,7 @@
+/***
+Running time: O(N) where N = length of String
+***/
+
 class Solution {
     public int titleToNumber(String s) {
         int ans = 0;
