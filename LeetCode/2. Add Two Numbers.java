@@ -6,7 +6,7 @@
  *     ListNode(int x) { val = x; }
  * }
  */
-class Solution {
+class Solution { //Something is wronf
     public ListNode addTwoNumbers(ListNode first, ListNode second) {
         ListNode current1 = first;
 		ListNode current2 = second;
@@ -40,5 +40,40 @@ class Solution {
 			n = n / 10;
 		}
 		return head;
+    }
+}
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummyHead = new ListNode(0);
+        ListNode first = l1;
+        ListNode second = l2;
+        ListNode current = dummyHead;
+        int carry = 0;
+        
+        while (first != null || second != null) {
+            int x = (first != null) ? first.val : 0;
+            int y = (second != null) ? second.val : 0;
+            int sum = carry + x + y;
+            carry = sum / 10;
+            current.next = new ListNode(sum % 10);
+            current = current.next;
+            if (first != null) first = first.next;
+            if (second != null) second = second.next;
+        }
+        
+        if (carry > 0) {
+            current.next = new ListNode(carry);
+        }
+        
+        return dummyHead.next;
     }
 }
