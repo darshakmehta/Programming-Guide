@@ -77,3 +77,13 @@ class Solution {
         return dummyHead.next;
     }
 }
+
+/***
+
+Follow up
+
+What if the the digits in the linked list are stored in non-reversed order? For example:
+
+(3 → 4 → 2) + (4 → 6 → 5) = 8 → 0 → 7
+
+***/
