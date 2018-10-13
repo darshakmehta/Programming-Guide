@@ -57,10 +57,10 @@ class Solution
         System.out.println();
     }
 
-    public void print2DArr(int a[]) {
-    	for(int i = 0; i < 9; i++) {
-            for(int j = 0; j < 9; j++) {
-                System.out.print(board[i][j]+" ");
+    public void print2DArr(int a[][]) {
+    	for(int i = 0; i < a.length; i++) {
+            for(int j = 0; j < a[0].length; j++) {
+                System.out.print(a[i][j]+" ");
             }
             System.out.println();
         }
