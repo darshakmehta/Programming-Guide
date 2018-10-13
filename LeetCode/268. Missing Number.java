@@ -46,7 +46,19 @@ class Solution {
             missing = missing - nums[i] + i; 
         }
         return missing;
-        
+    }
+}
+
+//In other words, sum of 0 to n elements subtracted by all the elements will give the missing number
+
+class Solution {
+    public int missingNumber(int[] nums) {
+        int n = nums.length;
+        int missing = (n * (n + 1))/2;
+        for(int i = 0; i < nums.length; i++) {
+            missing = missing - nums[i];
+        }
+        return missing;
     }
 }
 
