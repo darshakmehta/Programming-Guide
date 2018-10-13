@@ -6,7 +6,7 @@
  *     ListNode(int x) { val = x; }
  * }
  */
-class Solution { //Something is wronf
+class Solution { //Does not work for large numbers, alternative use String or follow another solution below
     public ListNode addTwoNumbers(ListNode first, ListNode second) {
         ListNode current1 = first;
 		ListNode current2 = second;
