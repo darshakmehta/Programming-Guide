@@ -30,12 +30,14 @@ class Solution { //inefficient
 
 class Solution { //efficient
     public int maxProfit(int[] prices) {
-        int result = 0;
-        int x = 0;
-        for(int i = 1; i < prices.length; i++) {
-            if(prices[i] > prices[i - 1]) 
-                result += prices[i] - prices[i - 1];
+        int min = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for(int i = 0; i < prices.length; i++) {
+            if(prices[i] < min) 
+                min = prices[i];
+            else if(prices[i] - min > maxProfit)
+                maxProfit = prices[i] - min;
         }
-        return result;
+        return maxProfit;
     }
 }
