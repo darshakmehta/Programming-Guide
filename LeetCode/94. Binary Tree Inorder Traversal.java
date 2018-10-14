@@ -14,31 +14,22 @@ Think: Stack
  *     TreeNode(int x) { val = x; }
  * }
  */
+
 class Solution {
-    public List<Integer> inorderTraversal(TreeNode root) {
-        
-       	List<Integer> list = new ArrayList<Integer>();
-       	Stack<TreeNode> stack = new Stack<TreeNode>();
-        
-        TreeNode current = root;
-
-            while(current != null) {
-                stack.push(current);
-                current = current.left;
+   public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if(root == null) return list;
+        Stack<TreeNode> stack = new Stack<>();
+        while(root != null || !stack.empty()){
+            while(root != null){
+                stack.push(root);
+                root = root.left;
             }
-
-            while(stack.size() > 0) {
-                current = stack.pop();
-                list.add(current.val);
-                if(current != null) {
-                    current = current.right;
-                    
-                    while(current != null) {
-                        stack.push(current);
-                        current = current.left;
-                    }
-                }     
-            }
+            root = stack.pop();
+            list.add(root.val);
+            root = root.right;
+            
+        }
         return list;
     }
 }
