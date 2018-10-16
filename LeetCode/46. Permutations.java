@@ -1,6 +1,7 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
+        // Arrays.sort(nums); //not necessary
         if(nums.length == 0) return result;
         backtrack(result, new ArrayList<>(), nums);
         return result;
