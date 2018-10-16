@@ -52,3 +52,41 @@ class Solution {
 
 
 ***/
+
+/***
+
+/***
+Not recommended
+
+class Solution {
+    public ListNode oddEvenList(ListNode head) {
+        if(head == null) return head;
+        ListNode temp = head;
+        while(temp.next != null)
+            temp = temp.next;
+        
+        ListNode last = temp;
+        int index = 1;
+        ListNode current = head;
+        ListNode prev = head;
+        while(current.next != null  && current != last) {
+            if(index % 2 == 0) {
+                ListNode newnode = new ListNode(current.val);
+                temp.next = newnode;
+                temp = temp.next;
+                prev.next = current.next;
+            }
+            prev = current;
+            current = current.next;
+            index++;
+        }
+        if(index % 2 == 0) {
+             ListNode newnode = new ListNode(current.val);
+             temp.next = newnode;
+             prev.next = current.next;
+        }
+        return head;
+    }
+}
+
+***/
