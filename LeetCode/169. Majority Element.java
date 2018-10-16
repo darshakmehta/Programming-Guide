@@ -1,22 +1,13 @@
-/***
-Running time: O(N) where N = number of elements
-***/
-
-
 class Solution {
     public int majorityElement(int[] nums) {
         
-        Map<Integer, Integer> listNum = new HashMap<>();
-        for(int i = 0; i<nums.length; i++) {
-            if(listNum.containsKey(nums[i])) {
-				listNum.put(nums[i],listNum.get(nums[i])+1);
-			}else {
-				listNum.put(nums[i], 1);
-			}
+        Map<Integer, Integer> hmap = new HashMap<>();
+        for(int i = 0; i < nums.length; i++) {
+            hmap.put(nums[i], hmap.getOrDefault(nums[i], 0) + 1);
         }
         int result = 0;
         int max = Integer.MIN_VALUE;
-        for (Map.Entry<Integer, Integer> entry : listNum.entrySet()) {
+        for (Map.Entry<Integer, Integer> entry : hmap.entrySet()) {
             int key = entry.getKey();
             int value = entry.getValue();
             //System.out.println("key: " + key + " Value: " + value );
@@ -25,8 +16,12 @@ class Solution {
                 result = key;
             }
         }
-        
         return result;
-        
     }
 }
+
+/***
+
+Running time: O(N) where N = number of elements
+
+***/
