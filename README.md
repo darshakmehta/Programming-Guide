@@ -15,6 +15,9 @@ Regex
 SHA-256
 1. http://www.baeldung.com/sha-256-hashing-java
 
+Bit Manipulation
+1. https://github.com/tech-boy/Programming-Guide/blob/master/Bit-Manipulation.md
+
 
 References:
 
