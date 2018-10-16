@@ -99,6 +99,12 @@ class Solution
 			/* You need to typecast to use
 			For example: int x = (Integer) pair.getValue();*/
 		}
+
+		for (Map.Entry<Integer, Integer> entry : hmap.entrySet()) {
+            int key = entry.getKey();
+            int value = entry.getValue();
+            //System.out.println("key: " + key + " Value: " + value );
+        }
 	}
 }
 
