@@ -8,11 +8,12 @@
  * }
  */
 class Solution {
+    List<Double> sum = new ArrayList<Double>();
+    List<Double> count = new ArrayList<Double>();
+
     public List<Double> averageOfLevels(TreeNode root) {
-        List<Double> sum = new ArrayList<Double>();
-        List<Double> count = new ArrayList<Double>();
         
-        compute(sum, count, root, 0);
+        compute(root, 0);
         
         for(int i = 0; i < sum.size(); i++)
             sum.set(i, sum.get(i) / count.get(i));
@@ -20,7 +21,7 @@ class Solution {
         return sum;
     }
     
-    public void compute(List<Double> sum, List<Double> count, TreeNode root, int level) {
+    public void compute(TreeNode root, int level) {
         if(root == null) return;
         if(level == sum.size()) {
             sum.add(0.0);
@@ -30,8 +31,8 @@ class Solution {
         sum.set(level, sum.get(level) + (double)root.val);
         count.set(level, count.get(level) + 1);
         
-        compute(sum, count, root.left, level + 1);
-        compute(sum, count, root.right, level + 1);
+        compute(root.left, level + 1);
+        compute(root.right, level + 1);
         
     }
 }
