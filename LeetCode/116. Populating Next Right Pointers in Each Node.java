@@ -21,5 +21,22 @@ public class Solution {
         }
         
     } 
+}
+
+public class Solution { // Recursive
+    public void connect(TreeLinkNode root) {
+        helper(root);
+    }
     
+    public void helper(TreeLinkNode current) {
+        if(current == null || current.left == null) return;
+       
+        current.left.next = current.right;
+        
+        if(current.next != null)
+            current.right.next = current.next.left;
+        
+        helper(current.left);
+        helper(current.right);
+    }
 }
