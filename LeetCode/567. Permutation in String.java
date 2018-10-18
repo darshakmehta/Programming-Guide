@@ -17,7 +17,6 @@ class Solution {
                 hmap.put(tempc, hmap.get(tempc) - 1);
                 if (hmap.get(tempc)==0) count--;
             }
-
             end++;
 
             while (count == 0){
