@@ -1,18 +1,11 @@
-class Solution1 { //O(nlogn)
+class Solution { //O(nlogn)
     public List<Integer> topKFrequent(int[] nums, int k) {
         
         Map<Integer, Integer> hmap = new HashMap<Integer, Integer>();
         ArrayList<Integer> resultList = new ArrayList<Integer>();
         
-        for(int i : nums) {
-            int count = 0;
-            if(hmap.containsKey(i)) {
-                count = hmap.get(i);
-            }
-            hmap.put(i, ++count);
-        }
-        
-        
+        for(int i : nums) hmap.put(i, hmap.getOrDefault(i, 0) + 1);
+
         List<Map.Entry<Integer, Integer>> list = new LinkedList<Map.Entry<Integer, Integer>> (hmap.entrySet());
         
         Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
@@ -23,9 +16,7 @@ class Solution1 { //O(nlogn)
         
         HashMap<Integer, Integer> resultHmap = new LinkedHashMap<Integer, Integer>();
         
-        for(Map.Entry<Integer, Integer> pair: list) {
-            resultHmap.put(pair.getKey(), pair.getValue());
-        }
+        for(Map.Entry<Integer, Integer> pair: list) resultHmap.put(pair.getKey(), pair.getValue());
         
         Iterator iter = resultHmap.entrySet().iterator();
         int i = 0;
@@ -41,14 +32,11 @@ class Solution1 { //O(nlogn)
     }
 }
 
-class Solution2 { //O(n)
+class Solution { //O(n)
     public List<Integer> topKFrequent(int[] nums, int k) {
         
         Map<Integer, Integer> hmap = new HashMap<Integer, Integer>();
-        
-        for(int i : nums) {
-            hmap.put(i, hmap.getOrDefault(i, 0) + 1);
-        }
+        for(int i : nums) hmap.put(i, hmap.getOrDefault(i, 0) + 1);
         
         List<Integer> []bucket = new List[nums.length + 1];
         
