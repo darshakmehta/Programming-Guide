@@ -1,4 +1,4 @@
-class Solution {
+class Solution { //DFS Recursive
     Map<Character, String> hmap = new HashMap<>();
     public List<String> letterCombinations(String digits) {
         List<String> result = new ArrayList<String>();
@@ -24,3 +24,11 @@ class Solution {
         }
     }
 }
+
+/***
+
+TODO:
+1. FIFO Queue | BFS Solution
+
+
+***/
