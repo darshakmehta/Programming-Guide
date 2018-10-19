@@ -30,4 +30,11 @@ class WaysToCoverDistance
 Naive Solution is exponential, in worst case O(3^n)
 DP Solution is O(n)
 
+Similar Problems:
+1. https://www.hackerrank.com/challenges/ctci-recursive-staircase/problem
+2.
+
+References: 
+1. https://www.geeksforgeeks.org/count-number-of-ways-to-cover-a-distance/
+
 ***/
