@@ -4,7 +4,7 @@ import java.io.*;
 
 class CoinChanging //Running time is O(sum * input.size) Space O(sum)
 {
-
+	//This problem finds the number of coins require to achieve sum
 	/* Tabulated Method using bottom up fashion */
 	public static int coinChanging(int coins[], int sum) {
 		int n = coins.length;
@@ -21,7 +21,7 @@ class CoinChanging //Running time is O(sum * input.size) Space O(sum)
 				}
 			}
 		}
-	return dp[sum];
+	return dp[sum] > sum ? -1 : dp[sum]; //number of coins is greater than the sum
 
 	}
 
