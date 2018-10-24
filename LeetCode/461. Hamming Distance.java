@@ -42,6 +42,30 @@ class Solution {
     }
 }
 
+/** Update **/
+
+class Solution {
+    
+    public int hammingDistance(int x, int y) {
+        
+        StringBuilder sb1 = new StringBuilder(Integer.toBinaryString(x));        
+        StringBuilder sb2 = new StringBuilder(Integer.toBinaryString(y));
+
+        int l1 = sb1.length(), l2 = sb2.length();
+        
+        if(l1 > l2)
+            for(int i = (l1 - l2); i > 0; i--) sb2.insert(0, "0");
+        else
+            for(int i = (l2 - l1); i > 0; i--) sb1.insert(0, "0");
+
+        int count = 0;
+        for(int i = 0; i < sb1.length(); i++)
+            if(sb1.charAt(i) != sb2.charAt(i)) count++;
+        
+        return count;
+    }
+}
+
 /***
 
 Note: What does come to your mind first when you see this sentence "corresponding bits are different"? Yes, XOR! Also, do not forget there is a decent function Java provided: Integer.bitCount()
