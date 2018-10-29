@@ -5,6 +5,7 @@ class Solution {
     public void backtrack(StringBuffer sb, int open, int close, int n) {
         if(sb.length() == n * 2) {
             list.add(sb.toString());
+            System.out.println(sb.toString()); //Print all the possible solutions
             return;
         }
         
@@ -24,3 +25,21 @@ class Solution {
         return list;
     }
 }
+
+/*
+
+For example: n = 3
+
+((()))
+(()())
+(())()
+()(())
+()()()
+
+Algorithm:
+1. First we use n open bracket, followed by n close bracket
+2. Now when we backtrack, we remove all closed brackets and last open bracket and again fill the string
+Therefore,
+((())) => (() => (()()) and so on
+
+*/
