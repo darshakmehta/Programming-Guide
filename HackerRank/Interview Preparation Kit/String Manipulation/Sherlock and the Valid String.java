@@ -23,6 +23,16 @@ public class Solution {
                     result += Math.abs(hmap.get(c) - firstCount);
                 }
             } 
+            /* To be tested
+            if(hmap.containsKey(c)) {
+                if(hmap.get(c) != firstCount) {
+                    if(!flag && hmap.get(c) == 1) {
+                        flag = true;
+                    } else
+                        result += Math.abs(hmap.get(c) - firstCount);
+                }
+            } 
+            */
         }
         if(result > 1)
             return "NO";
