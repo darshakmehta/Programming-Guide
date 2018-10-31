@@ -94,10 +94,8 @@ class SubsetSum
 	        dp[0] = true; //Base case: dp[0] is true; (zero number consists of sum 0 is true)
 
 	        for (int i = 0; i < n; i++) {
-	            for (int j = sum; j > 0; j--) {
-	                if (j >= nums[i]) {
+	            for (int j = sum; j >= nums[i]; j--) {
 	                    dp[j] = dp[j] || dp[j-nums[i]];
-	                }
 	            }
 	        }
 	        return dp[sum];
