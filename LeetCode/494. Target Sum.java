@@ -43,5 +43,11 @@ Now, follow canPartition solution by checking sum % 2 == 0
 
 Reference: https://leetcode.com/problems/target-sum/discuss/97334/Java-(15-ms)-C++-(3-ms)-O(ns)-iterative-DP-solution-using-subset-sum-with-explanation
 
-
 ***/
+
+/**
+
+TODO:
+1. DFS Slution: https://leetcode.com/problems/target-sum/discuss/97333/Java-simple-DFS-with-memorization
+
+**/
