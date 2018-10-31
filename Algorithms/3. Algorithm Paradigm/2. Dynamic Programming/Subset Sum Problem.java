@@ -79,6 +79,31 @@ class SubsetSum
 
 	}
 
+	/* Space optimized Partition */
+	class Solution {
+	    public boolean canPartition(int[] nums) {
+	        int n = nums.length;
+	        int sum = 0;
+	        for (int i : nums)
+	            sum += i;
+
+	        if(sum % 2 != 0) return false;
+	        sum = sum / 2;
+
+	        boolean[] dp = new boolean[sum+1];
+	        dp[0] = true; //Base case: dp[0] is true; (zero number consists of sum 0 is true)
+
+	        for (int i = 0; i < n; i++) {
+	            for (int j = sum; j > 0; j--) {
+	                if (j >= nums[i]) {
+	                    dp[j] = dp[j] || dp[j-nums[i]];
+	                }
+	            }
+	        }
+	        return dp[sum];
+	    }
+	}
+
 	public static void main (String[] args) throws java.lang.Exception
 	{
 		int set[] = {3, 34, 4, 12, 5, 2};
