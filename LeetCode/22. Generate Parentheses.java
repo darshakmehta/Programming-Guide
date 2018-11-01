@@ -28,6 +28,12 @@ class Solution {
 
 /*
 
+It is an application of Catalan Numbers [Catalan numbers are a sequence of natural numbers that occurs in many interesting counting problems]
+- Count the number of expressions containing n pairs of parentheses which are correctly matched. For n = 3, possible expressions are ((())), ()(()), ()()(), (())(), (()()).
+The first few Catalan numbers for n = 0, 1, 2, 3, … are 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 
+
+Illustration: 
+
 For example: n = 3
 
 ((()))
