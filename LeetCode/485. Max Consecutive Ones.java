@@ -23,6 +23,7 @@ class Solution { //Improves 26% to 88%
             if(nums[i] == 1) {
                 consecutiveOne++;
             } else {
+                //if(consecutiveOne > max) max = consecutiveOne;
                 max = Math.max(max, consecutiveOne);
                 consecutiveOne = 0;
             }
