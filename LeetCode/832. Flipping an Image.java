@@ -23,3 +23,28 @@ class Solution {
         
     }
 }
+
+/* Usage of XOR */
+
+class Solution { // 100% Solution
+    public int[][] flipAndInvertImage(int[][] A) {
+        
+        int a[][] = new int[A.length][A[0].length];
+        
+        for(int i = 0; i < A.length; i++) {
+                int n = A[0].length - 1;        
+            for(int j = 0; j < A[0].length; j++) {
+                    a[i][j] = A[i][n--] ^ 1; //XOR
+            }
+        }
+        
+        return a;
+        
+    }
+}
+
+/***
+
+TODO: Inplace 
+
+**/
