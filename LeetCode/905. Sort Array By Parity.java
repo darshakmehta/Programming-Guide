@@ -1,4 +1,4 @@
-class Solution {
+class Solution { //Very Inefficient
     public int[] sortArrayByParity(int[] A) {
         LinkedList<Integer> queue = new LinkedList<Integer>();
             
@@ -16,3 +16,25 @@ class Solution {
         return A;
     }
 }
+
+class Solution { //100% Solution
+    public int[] sortArrayByParity(int[] A) {
+        int[] result = new int[A.length];
+        int left = 0, right = A.length - 1;
+        for(int i = 0; i < A.length; i++) {
+            if(A[i] % 2 == 0) {
+                result[left++] = A[i]; 
+            } else {
+                result[right--] = A[i];
+            }
+        }
+        
+        return result;
+    }
+}
+
+/***
+
+TODO: Inplace 
+
+**/
