@@ -43,8 +43,26 @@ class Solution { // 100% Solution
     }
 }
 
+class Solution { //Inplace
+    public int[][] flipAndInvertImage(int[][] A) {
+        
+        int n = A[0].length - 1;
+        for(int i = 0; i < A.length; i++) {
+            for(int j = 0; j < (A[0].length + 1) / 2; j++) {
+                int temp = A[i][n - j] ^ 1;
+                A[i][n - j] = A[i][j] ^ 1;
+                A[i][j] = temp;        
+            }
+        }
+        return A;     
+    }
+}
+
 /***
 
-TODO: Inplace 
+Inplace 
+My Idea: 
+1. Check first and last element in a row and swap their inverses
+2. Loop each row and half elements in column
 
 **/
