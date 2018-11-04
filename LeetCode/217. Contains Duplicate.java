@@ -60,9 +60,4 @@ If the only thing you need your collection for is to check if an element is pres
 
 If you need to store some data for your elements - use Map.
 
-
-Understanding: 
-
-Set solution {Solution 2} is cleaner and understandable
-
 ***/
