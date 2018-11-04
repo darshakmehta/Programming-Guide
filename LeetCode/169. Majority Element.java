@@ -20,12 +20,26 @@ class Solution {
     }
 }
 
+class Solution { //Boyer-Moore Voting Algorithm -> O(1) space time
+    public int majorityElement(int[] nums) {
+        int count = 0;
+        Integer candidate = null;
+
+        for (int num : nums) {
+            if (count == 0) 
+                candidate = num;
+            count += (num == candidate) ? 1 : -1;
+        }
+
+        return candidate;
+    }
+}
+
 /***
 
 Running time: O(N) where N = number of elements
 Space time: O(N) for n distinct elements
 
-TODO:
 Boyer-Moore Voting Algorithm -> O(1) space time
 
 
