@@ -14,7 +14,7 @@ class Solution { /*** Running time: O(N^2) where N = number of elements ***/
     }
 } 
 
-class Solution { //Efficient Solution
+class Solution { //Efficient Solution - 100%
     
     public void swap(int nums[], int a, int b) {
         int temp = nums[a];
@@ -39,7 +39,7 @@ class Solution { //Efficient Solution
     }
 }
 
-class Solution {
+class Solution { //Slower
     
     public void moveZeroes(int[] nums) {
         int slow = 0;
