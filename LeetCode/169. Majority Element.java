@@ -23,5 +23,10 @@ class Solution {
 /***
 
 Running time: O(N) where N = number of elements
+Space time: O(N) for n distinct elements
+
+TODO:
+Boyer-Moore Voting Algorithm -> O(1) space time
+
 
 ***/
