@@ -18,39 +18,28 @@ class Solution { //O(n) extra space
     }
 }
 
-/***
-
-Note: Think we surely have to negate anytime we are given an array with values from 1 to the length of array.
-
-TODO: Without extra space --> Try negation Technique
-Solution: {Missing Understanding}
-
-class Solution {
-    
-     public void printArr(int nums[]) {
-        for(int i : nums) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-    }
+class Solution { //Negation
     
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> res = new ArrayList<Integer>();
-        for (int i = 0 ; i != nums.length ; i++) {
-            int pos = Math.abs(nums[i])-1;
-            nums[pos] = - Math.abs(nums[pos]);
-            printArr(nums);
+        
+        for(int i = 0; i < nums.length; i++) {
+            int pos = Math.abs(nums[i]) - 1;
+            nums[pos] = -Math.abs(nums[pos]); //All the element position is negated
         }
         
-        
-        
-        for (int i = 0 ; i != nums.length; i++) {
-            if (nums[i] >= 0) res.add(i+1);
+        for(int i = 0; i < nums.length; i++) {
+            if(nums[i] >= 0)
+                res.add(i + 1); //add all those who are not negative number at index i
         }
+        
         return res;
     }
 }
 
+/***
 
+Note: Think we surely have to negate anytime we are given an array with values from 1 to the length of array.
+Without extra space --> Try negation Technique
 
 ***/
