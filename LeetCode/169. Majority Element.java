@@ -20,6 +20,23 @@ class Solution {
     }
 }
 
+class Solution { //Cleaner HashMap Solution
+    public int majorityElement(int[] nums) {
+        
+        Map<Integer, Integer> hmap = new HashMap<Integer, Integer>();
+        int count = 1;
+        int result = nums[0];
+        for(int i : nums) {
+            hmap.put(i, hmap.getOrDefault(i, 0) + 1);
+            if(hmap.get(i) > count) {
+                count = hmap.get(i);
+                result = i;
+            }
+        }
+        return result;
+    }
+}
+
 class Solution { //Boyer-Moore Voting Algorithm -> O(1) space time
     public int majorityElement(int[] nums) {
         int count = 0;
