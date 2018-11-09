@@ -11,3 +11,20 @@ class Solution {
         return Math.min(dp[n - 1], dp[n - 2]);
     }
 }
+
+/* Space Optimized */
+
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length;
+        int a = cost[0];
+        int b = cost[1];
+        int c = 0;
+        for(int i = 2; i < n; i++) {
+            c = Math.min(a, b) + cost[i];
+            a = b;
+            b = c;
+        }    
+        return Math.min(a, b);
+    }
+}
