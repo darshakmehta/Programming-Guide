@@ -1,7 +1,7 @@
 var obj = [
     { name: 'Darshak', id: 1},
     [
-      { name: 'Indrajeet', id: 1},
+      { name: 'Mehta', id: 1},
       [
         { name: 'Mehta', id: 1},
         { name: 'Love', id: 1},
