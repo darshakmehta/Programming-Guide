@@ -52,10 +52,9 @@ class Heap {
 		buildMaxHeap(a, n);
 		for(int i = n; i>=2; i--) {
 			swap(a, 1, i);
-			heap_size --;
+			heap_size--;
 			maxHeapify(a,1);
-		}
-		
+		}	
 	}
 	
 	public int heapMaximum(int a[]) {
@@ -109,7 +108,7 @@ class Heap {
 	public void heapDelete(int a[], int i) {
 		a[i] = a[heap_size];
 		heap_size--;
-		maxHeapify(a,i);
+		maxHeapify(a, i);
 	}
 	
 	public static void main(String arg[]) {

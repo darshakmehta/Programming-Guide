@@ -67,9 +67,9 @@ class LinkedList
 		}
 		if(temp == null)
 			return;
-		prev.next = temp.next;
-		
+		prev.next = temp.next;	
 	}
+	
 	public void deleteNode(int position) {
 
 		//LinkedList is empty 

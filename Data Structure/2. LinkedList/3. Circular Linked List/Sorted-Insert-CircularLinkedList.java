@@ -63,7 +63,6 @@ class CircularLinkedList
 		temp.next = new_node;
 		if(temp == last)
 			last = temp;
-
 	}
 
 	public void printList() {

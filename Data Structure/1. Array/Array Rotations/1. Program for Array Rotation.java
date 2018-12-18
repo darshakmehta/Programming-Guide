@@ -44,7 +44,7 @@ class Solution
 		int copy[] = new int[a.length];
 		if(x != 0) {
 			System.arraycopy(a, x, copy, 0, n - x);
-			System.arraycopy(a, 0, copy, n -x, x);
+			System.arraycopy(a, 0, copy, n - x, x);
 			System.arraycopy(copy, 0, a, 0, n);
 		}
 		
