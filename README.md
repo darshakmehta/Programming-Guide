@@ -27,4 +27,4 @@ Important Resources and References:
 
 # Tips:
 
-1. Split domain names by (".") ==> ("\\.")
+1. Split domain names by (".") ==> `("\\.")` [Java]
