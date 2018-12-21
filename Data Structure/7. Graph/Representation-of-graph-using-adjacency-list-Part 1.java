@@ -4,7 +4,6 @@ import java.io.*;
 
 class Graph
 {
-
 	int V;
 	LinkedList<Integer> adjListArray[];
 
@@ -16,6 +15,8 @@ class Graph
         }
 	}
 
+
+	/* Undirected Graph */
 	public void addEdge(int u, int v) {
 		this.adjListArray[u].addFirst(v);
 		this.adjListArray[v].addFirst(u);
