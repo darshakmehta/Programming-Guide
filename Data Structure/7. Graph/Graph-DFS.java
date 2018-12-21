@@ -4,7 +4,6 @@ import java.io.*;
 
 class Graph
 {
-
 	int V;
 	LinkedList<Integer> adjListArray[];
 
@@ -25,8 +24,8 @@ class Graph
 		for(int v = 0; v < V; v++) {
 			System.out.println("Adjacency list of vertex "+ v);
             System.out.print("head");
-            for(Integer pCrawl: adjListArray[v]){
-                System.out.print(" -> "+pCrawl);
+            for(Integer in: adjListArray[v]){
+                System.out.print(" -> " + in);
             }
             System.out.println("\n");
 		}
@@ -34,7 +33,7 @@ class Graph
 
 	public void DFSUtil(int s, boolean visited[]) {
 		visited[s] = true;
-		System.out.println(s + " ");
+		System.out.print(s + " ");
 
 		Iterator<Integer> i = adjListArray[s].listIterator();
 			while(i.hasNext()) {
@@ -67,9 +66,3 @@ class Graph
         graph.DFS(0);
 	}
 }
-
-/***
-
-TODO: Implement using STACK data structure, iteratively. 
-
-***/

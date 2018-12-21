@@ -43,18 +43,18 @@ public class Solution { //DFS
         
         // create the array lists to represent the courses
         List<List<Integer>> courses = new ArrayList<List<Integer>>(numCourses);
-        for(int i=0; i<numCourses; i++) {
+        for(int i = 0; i < numCourses; i++) {
             courses.add(new ArrayList<Integer>());
         }
         // create the dependency graph
-        for(int i=0; i<prerequisites.length; i++) {
+        for(int i = 0; i < prerequisites.length; i++) {
             courses.get(prerequisites[i][1]).add(prerequisites[i][0]);
         }
         int[] visited = new int[numCourses]; 
         
         // dfs visit each course
-        for(int i=0; i<numCourses; i++) {
-               if (!dfs(i,courses, visited)) return false; 
+        for(int i = 0; i < numCourses; i++) {
+               if (!dfs(i, courses, visited)) return false; 
         }
         
         return true;
@@ -67,12 +67,12 @@ public class Solution { //DFS
         List<Integer> eligibleCourses = courses.get(course); // get its children
         
         // dfs its children
-        for(int i=0; i<eligibleCourses.size(); i++) {
+        for(int i = 0; i < eligibleCourses.size(); i++) {
             int eligibleCourse = eligibleCourses.get(i).intValue();
             
             if(visited[eligibleCourse] == 1) return false; // has been visited while visiting its children - cycle !!!!
             if(visited[eligibleCourse]  == 0) { // not visited
-               if (!dfs(eligibleCourse,courses, visited)) return false; 
+               if (!dfs(eligibleCourse, courses, visited)) return false; 
             }
         }
         visited[course] = 2; // mark it done visiting

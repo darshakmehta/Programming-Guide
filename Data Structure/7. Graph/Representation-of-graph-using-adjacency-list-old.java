@@ -15,7 +15,6 @@ class Graph
         }
 	}
 
-
 	/* Undirected Graph */
 	public void addEdge(int u, int v) {
 		this.adjListArray[u].addFirst(v);
@@ -26,8 +25,8 @@ class Graph
 		for(int v = 0; v < V; v++) {
 			System.out.println("Adjacency list of vertex "+ v);
             System.out.print("head");
-            for(Integer pCrawl: adjListArray[v]){
-                System.out.print(" -> "+pCrawl);
+            for(Integer in: adjListArray[v]){
+                System.out.print(" -> "+in);
             }
             System.out.println("\n");
 		}
