@@ -42,7 +42,7 @@ Instead of directly using Floyd Warshall, we can optimize it in terms of space a
 
 2) Instead of using arithmetic operations, we can use logical operations. For arithmetic operation ‘+’, logical and ‘&&’ is used, and for min, logical or ‘||’ is used. (We save time by a constant factor. Time complexity is same though)
 
-# Transitive Closure of a Graph using DFS
+# [Transitive Closure of a Graph using DFS](https://ideone.com/r2AqoQ)
 
 Given a directed graph, find out if a vertex v is reachable from another vertex u for all vertex pairs (u, v) in the given graph. Here reachable mean that there is a path from vertex u to v. 
 
@@ -59,3 +59,4 @@ Below is implementation of the above idea. The code uses adjacency list represen
 # Important links
 
 1. http://www.flipkart.com/introduction-algorithms-8120340078/p/itmczynzhyhxv2gs?pid=9788120340077&affid=sandeepgfg
+2. http://www.cs.princeton.edu/courses/archive/spr03/cs226/lectures/digraph.4up.pdf
