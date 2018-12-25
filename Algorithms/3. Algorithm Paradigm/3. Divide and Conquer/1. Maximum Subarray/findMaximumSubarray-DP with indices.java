@@ -2,7 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Ideone
+class Solution
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
@@ -12,8 +12,8 @@ class Ideone
 		for(int i = 0; i < size; i++){
 			a[i] = sc.nextInt();
 		}
-		Ideone ideone = new Ideone();		
-		int maxSum = ideone.maxSubarray(a,0,size -1);
+		Solution solution = new Solution();		
+		int maxSum = solution.maxSubarray(a, 0, size -1);
 		System.out.println("Answer: " + maxSum);
 	}
 	
@@ -25,15 +25,14 @@ class Ideone
 		start = end = s =0;
 		for(int i =low; i<= high; i++){
 			maxEndingHere += a[i];
-			if (maxEndingHere < 0) 
-		            {
-		                maxEndingHere = 0;
-		                s = i + 1;
-		            }else if(maxSoFar < maxEndingHere){
-		            	maxSoFar = 	maxEndingHere;
-		            	start = s;
-		            	end = i;
-		            }
+			if (maxEndingHere < 0) {
+                maxEndingHere = 0;
+                s = i + 1;
+            } else if(maxSoFar < maxEndingHere){
+            	maxSoFar = 	maxEndingHere;
+            	start = s;
+            	end = i;
+            }
 		}
 		System.out.println("Maximum contiguous sum is "
                            + maxSoFar);

@@ -2,7 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Ideone
+class Solution
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
@@ -12,8 +12,8 @@ class Ideone
 		for(int i = 0; i < size; i++){
 			a[i] = sc.nextInt();
 		}
-		Ideone ideone = new Ideone();		
-		int maxSum = ideone.maxSubarray(a,0,size -1);
+		Solution solution = new Solution();		
+		int maxSum = solution.maxSubarray(a,0,size -1);
 		System.out.println(maxSum);
 	}
 	
