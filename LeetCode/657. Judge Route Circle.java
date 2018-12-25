@@ -1,8 +1,4 @@
-/***
-Running time: O(N) where N = length of moves
-***/
-
-class Solution {
+class Solution { 
     public boolean judgeCircle(String moves) {
         int i = 0;
         int j = 0;
@@ -19,3 +15,28 @@ class Solution {
         return false;
     }
 }
+
+class Solution {
+    public boolean judgeCircle(String moves) {
+        
+        int countU = 0, countR = 0, countD = 0, countL = 0;
+        
+        for(char c : moves.toCharArray()) {
+            if(c == 'U') countU++;
+            else if(c == 'R') countR++;
+            else if(c == 'D') countD++;
+            else if(c == 'L') countL++;
+        }
+        
+        if( countU == countD && countR == countL ) // Easy to understand
+            return true;
+        return false;
+        
+    }
+}
+
+/**
+
+Running time: O(N) where N = length of moves
+
+*/
