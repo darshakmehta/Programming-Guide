@@ -12,16 +12,17 @@ class PalindromePermutation //O(n)
 		char a[] = s.toCharArray();
 		int countOdd = 0;
 		int len = 0;
+		
 		for( int i = 0; i < a.length; i++) {
-			int count = 1;
-			//System.out.println(a[i]);
 			if(a[i] <='z' && a[i] >= 'A') {
 				len++;
+				int count = 1;
 				if(hmap.containsKey(a[i])) {
 					count = hmap.get(a[i]);
 					count++;
 				}
-				hmap.put(a[i],count);
+				hmap.put(a[i], count);
+				
 				if(count % 2 == 0) {
 					countOdd--;
 				} else {
@@ -29,14 +30,16 @@ class PalindromePermutation //O(n)
 				}	
 			}
 		}
-		String help;
+
+		String inputType = "";
 		if(len % 2 == 0) 
-			help = "even";
+			inputType = "even";
 		else
-			help = "odd";
-		if(countOdd == 1 && help == "odd") {
+			inputType = "odd";
+
+		if(countOdd == 1 && inputType == "odd") {
 			System.out.println("true");
-		} else if(countOdd == 0 && help == "even")
+		} else if(countOdd == 0 && inputType == "even")
 			System.out.println("true");
 		else
 			System.out.println("false");

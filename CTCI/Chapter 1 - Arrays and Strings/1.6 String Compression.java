@@ -12,6 +12,7 @@ class StringCompression
 		StringBuilder sb = new StringBuilder();
 		int count = 1;
 		boolean flag;
+		
 		for( int i = 0; i < c.length - 1; i++) {
 			if(c[i] == c[i+1]) {
 				count++;

@@ -12,7 +12,7 @@ class OneAway  //Linear time O(n) where n = length of largest string
 		return numberOfOdds;
 	}
 	
-	public int oneEditInsert(char c1[], char c2[]) {
+	public int oneEditInsertAndRemove(char c1[], char c2[]) {
 		int j = 0;
 		int numberOfOdds = 0;
 		for(int i = 0; i < c1.length; i++) {
@@ -41,13 +41,13 @@ class OneAway  //Linear time O(n) where n = length of largest string
 			OneAway oneAway = new OneAway();
 			int numberOfOdds = 0;
 			if(c1.length == c2.length) {
-				numberOfOdds = oneAway.oneEditReplace(c1,c2);	
+				numberOfOdds = oneAway.oneEditReplace(c1, c2);	
 			} 
 			else {
 				if(c1.length > c2.length) 
-					numberOfOdds = oneAway.oneEditInsert(c1,c2);
+					numberOfOdds = oneAway.oneEditInsertAndRemove(c1, c2);
 				else
-					numberOfOdds = oneAway.oneEditInsert(c2,c1);
+					numberOfOdds = oneAway.oneEditInsertAndRemove(c2, c1);
 			}
 			if(numberOfOdds > 1)
 			    flag = false;
@@ -60,8 +60,8 @@ class OneAway  //Linear time O(n) where n = length of largest string
 
 /***
 
-TODO: 
+Completed: 
 1. Merge insert and remove in one pass [Completed - by checking the length of string]
-2. Merge all into one pass
+2. Merge all into one pass [Completed - It is one pass, either of one will happen]
 
 ***/

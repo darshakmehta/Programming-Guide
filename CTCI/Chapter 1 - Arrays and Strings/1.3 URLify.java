@@ -2,7 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class URLify // Not a good approach
+class URLify // Not a good approach. Extra space
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
@@ -20,7 +20,6 @@ class URLify // Not a good approach
 			}
 		}
 		System.out.println(sb.toString());
-		
 	}
 }
 
@@ -34,12 +33,17 @@ class URLify
 		int len = sc.nextInt();
 		char a[] = s.toCharArray();
 		int spaceCount = 0;
+
 		for(int i = 0; i < len; i++) {
 			if(a[i] == ' ')
 				spaceCount++;
 		}
+		
 		int index = len + spaceCount * 2;
-		if(len < a.length) a[len] = '\0'; 
+		
+		if(len < a.length) 
+			a[len] = '\0'; 
+		
 		for(int i = len - 1; i >= 0; i--) {
 			if(a[i] == ' ') {
 				a[index-1]='0';
@@ -58,6 +62,7 @@ class URLify
 
 
 /***
+
 Input: 
 Mr John Smith    
 13
@@ -65,3 +70,5 @@ Mr John Smith
 Output:
 
 Mr%20John%20Smith 17
+
+***/

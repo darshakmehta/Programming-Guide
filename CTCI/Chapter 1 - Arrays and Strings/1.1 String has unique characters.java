@@ -7,15 +7,24 @@ class IsUnique {  //Brute Force: O(n^2) and O(1) space
 		Scanner sc = new Scanner(System.in);
 		String s = sc.next();
 		boolean flag = true;
+		int count = 0;
 		for( int i = 0; i < s.length(); i++) {
 			for (int j = i + 1; j < s.length() - 1; j++) {
-					if(s.charAt(i) == s.charAt(j)) {
-						flag = false;
-					}
+				count++;
+				if(s.charAt(i) == s.charAt(j)) {
+					flag = false;
+					break;
+				}
 			}
+			if(!flag)
+				break;
 		}
-		System.out.println(flag);
-	}
+		System.out.println("Looped " + count + " times ");
+		if(flag)
+			System.out.println("It is unique");
+		else
+			System.out.println("It is not unique");
+	}	
 }
 
 class IsUnique { //HashMap: O(n)
@@ -23,18 +32,52 @@ class IsUnique { //HashMap: O(n)
 		Scanner sc = new Scanner(System.in);
 		String s = sc.next();
 		boolean flag = true;
-
+		int count = 0;
+		
 		HashMap<Character, Integer> hmap = new HashMap<Character, Integer>();
-		for ( int i = 0; i < s.length(); i++) {
-			Character c = s.charAt(i); 
-			if(hmap.get(c) == null)
-				hmap.put(c, (int) c);
-			else {
+		
+		for( char c : s.toCharArray() ) {
+			count++;
+			if(!hmap.containsKey(c)) {
+				hmap.put(c, 1);
+			} else {
 				flag = false;
 				break;
 			}
 		}
-		System.out.println(flag);
+
+		System.out.println("Looped " + count + " times ");
+		if(flag)
+			System.out.println("It is unique");
+		else
+			System.out.println("It is not unique");
+	}
+}
+
+class IsUnique { //HashSet: O(n)
+	public static void main(String arg[]) {
+		Scanner sc = new Scanner(System.in);
+		String s = sc.next();
+		boolean flag = true;
+		int count = 0;
+		
+		Set<Character> set = new HashSet<Character>();
+		
+		for(char c : s.toCharArray()) {
+			count++;
+			if(!set.contains(c)) {
+				set.add(c);
+			} else {
+				flag = false;
+				break;
+			}
+		}
+		
+		System.out.println("Looped " + count + " times ");
+		if(flag)
+			System.out.println("It is unique");
+		else
+			System.out.println("It is not unique");
 
 	}
 }
@@ -63,10 +106,10 @@ class IsUnique { //Insertion String Sort: O(n^2) and linear time to find if ther
 		for(int i = 0; i < c.length - 1; i++) {
 			if(c[i] == c[i+1]) {
 				flag = false;
+				break;
 			}
 		}		
 		System.out.println(flag);
-
 	}
 }
 
@@ -97,3 +140,11 @@ class IsUnique { //Using temporary array of size 128 alphabets, check for duplic
 }
 
 /*** TODO: Solution using Bit vector ***/
+
+/**
+
+Takeaways
+
+1. If string is greater than 128 characters or 256 whichever in consideration check if/else
+
+**/
