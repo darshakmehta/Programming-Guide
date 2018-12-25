@@ -1,18 +1,22 @@
 class Solution {
     public int uniqueMorseRepresentations(String[] words) {
-        String []morseDict = new String[]{".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+        
+        String[] dict = new String[]{".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+        
         Set<String> set = new HashSet<String>();
         
-        for(String s : words) {
-            char ch[] = s.toCharArray();
-            StringBuffer sb = new StringBuffer();
-            for(char c : ch) {
-                int x = c - 'a';
-                sb.append(morseDict[x]);
+        for( String s :  words ) {
+            
+            StringBuilder sb = new StringBuilder();
+            
+            for ( int i = 0; i < s.length(); i++ ) {
+                sb.append( dict[s.charAt(i) - 'a'] );
             }
+            
             set.add(sb.toString());
-        }
+        } 
         
         return set.size();
+        
     }
 }
