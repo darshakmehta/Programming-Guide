@@ -27,3 +27,6 @@ level[5] = level[1] + 1, i.e level[5] = 1 + 1 = 2.
 level[6] = level[2] + 1, i.e level[6] = 1 + 1 = 2.
 
 Then, count of number of nodes which are at level l(i.e, l=2) is 4 (node:- 3, 4, 5, 6)
+
+# Count all possible paths between two vertices
+
