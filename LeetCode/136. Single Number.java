@@ -38,11 +38,22 @@ class Solution { //Sorting
     }
 }
 
+class Solution { //Constant space
+    public int singleNumber(int[] nums) {
+        
+        int result = 0;
+        for (int num :  nums) {
+            result = result ^ num;
+        }
+        return result;
+    }
+}
+
 
 
 /*** Method 1: Use hashing with element has key and number of occurence as value ***/
 /*** Method 2: Use XOR  --> Space Complexity = O(1) ***/
-/*** Method 3: Mathematical Equation = 2*(a+b+c+d) – (a + a + b + b + c + c + d) ***/
+/*** Method 3: Mathematical Equation = 2*(a+b+c) – (a + a + b + b + c + c) ***/
 /*** Method 4: Sorting ***/
 /*** 
 
