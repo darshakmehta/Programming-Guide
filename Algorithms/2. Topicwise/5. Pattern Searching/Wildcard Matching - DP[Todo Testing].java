@@ -61,7 +61,7 @@ class Solution {
             System.out.println();
             
             System.arraycopy(nextdp, 0, prevdp, 0, n + 1);
-            
+            //Try deep copy using cloning like this /* prevdp = nextdp.clone() */
             System.out.println("Next");
             for(boolean b: prevdp)
                 System.out.print(b + " ");
@@ -72,3 +72,13 @@ class Solution {
         
     }
 }
+
+/**
+
+TODO:
+
+Learn about shallow copy and deep copy for arrays => https://www.geeksforgeeks.org/arrays-in-java/ 
+
+
+
+**/
