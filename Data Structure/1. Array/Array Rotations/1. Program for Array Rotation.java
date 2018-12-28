@@ -5,8 +5,7 @@ import java.io.*;
 class Solution
 {
 
-	public int gcd(int a, int b) 
-    { 
+	public int gcd(int a, int b) { 
         if (b == 0) 
             return a; 
         else
@@ -29,6 +28,26 @@ class Solution
 				j = x;
     		}
     		arr[j] = temp;
+    	}
+    }
+
+    public void juggling(int[] nums, int k) {
+        int n = nums.length;
+        int x = gcd(k, n);
+
+        
+        for ( int i = 0; i < x; i++ ) {
+            
+            int temp = nums[n - i - 1];
+    		int j = n - i - 1;
+    		while( true ) {
+                int d = j - k;
+                if( d < 0 ) d += n;
+                if ( d == n - i - 1) break;
+                nums[j] = nums[d];
+                j = d;
+            }
+    		nums[j] = temp; 
     	}
     }
 
