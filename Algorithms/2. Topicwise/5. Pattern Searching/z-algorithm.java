@@ -1,0 +1,77 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class ZAlgorithm {
+
+    private void calculateZ(char input[], char[] pattern, List<Integer> result) {
+        int Z[] = new int[input.length];
+        int left = 0;
+        int right = 0;
+        for(int k = 1; k < input.length; k++) {
+            if(k > right) {
+                left = right = k;
+                while(right < input.length && input[right] == input[right - left]) {
+                    right++;
+                }
+                Z[k] = right - left;
+                
+                if( Z[k] == pattern.length) { //add index of the matched pattern
+                	result.add(k - pattern.length - 1);
+                }
+                
+                right--;
+            } else {
+                //we are operating inside box
+                int k1 = k - left;
+                //if value does not stretches till right bound then just copy it.
+                if(Z[k1] < right - k + 1) {
+                    Z[k] = Z[k1];
+                } else { //otherwise try to see if there are more matches.
+                    left = k;
+                    while(right < input.length && input[right] == input[right - left]) {
+                        right++;
+                    }
+                    Z[k] = right - left;
+                    
+                    if( Z[k] == pattern.length) { //add index of the matched pattern
+	                	result.add(k - pattern.length - 1);
+                    }
+	                
+                    right--;
+                }
+            }
+        }
+    }
+
+    /**
+     * Returns list of all indices where pattern is found in text.
+     */
+    public List<Integer> matchPattern(char text[], char pattern[]) {
+        char newString[] = new char[text.length + pattern.length + 1];
+        int i = 0;
+        for(char ch : pattern) {
+            newString[i] = ch;
+            i++;
+        }
+        newString[i] = '$';
+        i++;
+        for(char ch : text) {
+            newString[i] = ch;
+            i++;
+        }
+        List<Integer> result = new ArrayList<>();
+        calculateZ(newString, pattern, result);
+        
+        return result;
+    }
+
+    public static void main(String args[]) {
+        String text = "aaabcxyzaaaabczaaczabbaaaaaabc";
+        String pattern = "aaabc";
+        ZAlgorithm zAlgorithm = new ZAlgorithm();
+        List<Integer> result = zAlgorithm.matchPattern(text.toCharArray(), pattern.toCharArray());
+        result.forEach(System.out::println);
+    }
+
+
+}
