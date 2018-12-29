@@ -1,42 +1,42 @@
 class Solution {
     public String reverseOnlyLetters(String S) {
-        StringBuffer sb = new StringBuffer(S);
+        StringBuffer result = new StringBuffer(S);
+        
         int low = 0; 
-        int high = sb.length() - 1;
-        char t1;
-        char t2;
+        int high = result.length() - 1;
+        char t1, t2;
         while(low < high) {
-            char c1 = sb.charAt(low);
-            while(!((c1 >= 'a' && c1 <= 'z') || (c1 >= 'A' && c1 <= 'Z'))) {
+            char c1 = result.charAt(low);
+            
+            while(!((c1 >= 'a' && c1 <= 'z') || (c1 >= 'A' && c1 <= 'Z'))) { // Not a alphabet
                 low++;
-                if(low < sb.length())
-                    c1 = sb.charAt(low);
+                if(low < result.length())
+                    c1 = result.charAt(low);
                 else {
-                    return sb.toString();
+                    return result.toString();
                 }
             } 
+            
             if(low >= high)
                 break;
             
-            t1 = sb.charAt(low);
+            t1 = result.charAt(low);
+            char c2 = result.charAt(high);
             
-            char c2 = sb.charAt(high);
-            while(!((c2 >= 'a' && c2 <= 'z') || (c2 >= 'A' && c2 <= 'Z'))) {
+            while(!((c2 >= 'a' && c2 <= 'z') || (c2 >= 'A' && c2 <= 'Z'))) { // Not a alphabet
                 high--;
-                c2 = sb.charAt(high);
+                c2 = result.charAt(high);
             }
-            t2 = sb.charAt(high);
             
-            sb.setCharAt(low, t2);
-            sb.setCharAt(high, t1);
-            System.out.println(sb.toString());
-            System.out.println(low + "  " + high);
+            t2 = result.charAt(high);
+            
+            result.setCharAt(low, t2);
+            result.setCharAt(high, t1);
             low++;
             high--;
-            
-            
+              
         }
-        return sb.toString();
+        return result.toString();
         
     }
 }
