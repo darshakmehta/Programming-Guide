@@ -7,12 +7,12 @@ class LinkedList
 	Node head;
 	
 	static class Node {
-		int data;
 		Node next;
+		int data;
 		
 		Node(int data) {
-			this.data = data;
 			this.next = null;
+			this.data = data;
 		} 
 	}
 	public void printList() {
@@ -23,14 +23,14 @@ class LinkedList
 		}
 	}
 	 
-	public void push(int data) { //O(1)
+	public void push(int data) { // O(1)
 		Node new_node = new Node(data);
 		new_node.next = head;
 		head = new_node;
 		return;
 	}
 	
-	public void insertAfter(Node prev_node, int data) { //O(1)
+	public void insertAfter(Node prev_node, int data) { // O(1)
 		if(prev_node == null)
 			return;
 		Node new_node = new Node(data);
@@ -39,13 +39,12 @@ class LinkedList
 		
 	}
 	
-	public void append(int data) { //O(n)
+	public void append(int data) { // O(n)
 		Node new_node = new Node(data);
 		if(head == null) {
 			head = new_node;
 			return;
 		}
-		new_node.next = null;
 		Node n = head;
 		while( n.next != null) {
 			n = n.next;
@@ -72,7 +71,7 @@ class LinkedList
 	}
 	public void deleteNode(int position) {
 
-		//LinkedList is empty 
+		// LinkedList is empty 
 		if( head == null)
 			return;
 		Node temp = head;
@@ -113,9 +112,8 @@ class LinkedList
 	}
 
 	/* Function deletes the entire linked list */
-	//In Java, automatic garbage collection happens, so deleting a linked list is easy. We just need to change head to null.
-    public void deleteList()
-    {
+	// In Java, automatic garbage collection happens, so deleting a linked list is easy. We just need to change head to null.
+    public void deleteList() {
         head = null;
     }
 
@@ -138,7 +136,7 @@ class LinkedList
 			return searchRecursive(head.next, key);
 	}
 	
-	public void removeDuplicates() { //O(n)
+	public void removeDuplicates() { // O(n)
 		Node current = head;
 		HashMap<Integer, Integer> hmap = new HashMap<Integer, Integer>();
 		Node prev = null;
@@ -151,11 +149,10 @@ class LinkedList
 				
 			}
 			current = current.next;
-			
 		}
 	}
 
-	public void removeDuplicatesSortedList() { //O(n)
+	public void removeDuplicatesSortedList() { // O(n)
 		Node current = head;
 		Node next = null;
 		while(current.next != null) {
@@ -167,26 +164,26 @@ class LinkedList
 		}
 	}	
 
-	public void removeDuplicatesNoBuffer() { //O(1) space but O(n^2) time
-			Node current = head;
-			while(current != null) {
-				Node runner = current;
-				while(runner.next != null) {
-					if(current.data == runner.next.data) {
-						runner.next = runner.next.next;
-					} else {
-						runner = runner.next;
-					}
+	public void removeDuplicatesNoBuffer() { // O(1) space but O(n^2) time
+		Node current = head;
+		while(current != null) {
+			Node runner = current;
+			while(runner.next != null) {
+				if(current.data == runner.next.data) {
+					runner.next = runner.next.next;
+				} else {
+					runner = runner.next;
 				}
-				current = current.next;
 			}
+			current = current.next;
+		}
 	}
 
-	//O(n) time and O(1) space
-	public Node kthToLastElements(int k) { //kth element from last [k = 1 --> last element]
+	// O(n) time and O(1) space
+	public Node kthToLastElements(int k) { // kth element from last [k = 1 --> last element]
 		Node p1 = head;
 		Node p2 = head;
-		//Place p1 k nodes in the list and p2 in the beginning
+		// Place p1 k nodes in the list and p2 in the beginning
 		for(int i = 0; i < k; i++) {
 			if(p1 == null)
 				return null;
@@ -227,8 +224,7 @@ class LinkedList
 		return head;
 	}
 
-	public static void main (String[] args) throws java.lang.Exception
-	{
+	public static void main (String[] args) throws java.lang.Exception {
 		LinkedList linkedList = new LinkedList();
 		linkedList.append(3);
 		linkedList.append(5);

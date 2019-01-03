@@ -122,10 +122,10 @@ class LinkedList
 	}
 
 	public Result getTailAndSize(Node node) {
-		if(node == null) return null;
+		if( node == null ) return null;
 		int size = 1;
 		Node current = node;
-		while(current.next!= null) {
+		while ( current.next != null ) {
 			size++;
 			current = current.next;
 		}
@@ -141,19 +141,20 @@ class LinkedList
 	}
 
 	public Node getIntersection(Node first, Node second) {
-		if(first == null || second == null) return null;
+		if ( first == null || second == null ) return null;
 
 		Result result1 = getTailAndSize(first);
 		Result result2 = getTailAndSize(second);
-
-		if(result1.tail != result2.tail)
+		System.out.println(result1.tail == result2.tail);
+		
+		if(result1.tail != result2.tail) // It will return null since 4,5,6 are different references
 			return null;
 		Node shorter = result1.size > result2.size ? second : first;
 		Node longer = result1.size > result2.size ? first : second;
 
 		longer = getKthNode(longer, Math.abs(result1.size - result2.size));
 
-		while(shorter != longer) {
+		while ( shorter != longer ) {
 			shorter = shorter.next;
 			longer = longer.next;
 		}
@@ -165,20 +166,21 @@ class LinkedList
 	public static void main (String[] args) throws java.lang.Exception
 	{
 		LinkedList firstLinkedList = new LinkedList();
-		linkedList.append(0);
-		linkedList.append(1);
-		linkedList.append(2);
-		linkedList.append(3);
-		linkedList.append(4);
-		linkedList.append(5);
-		linkedList.append(6);
+		firstLinkedList.append(0);
+		firstLinkedList.append(1);
+		firstLinkedList.append(2);
+		firstLinkedList.append(3);
+		firstLinkedList.append(4);
+		firstLinkedList.append(5);
+		firstLinkedList.append(6);
 		LinkedList secondLinkedList = new LinkedList();
-		linkedList.append(10);
-		linkedList.append(9);
-		linkedList.append(4);
-		linkedList.append(5);
-		linkedList.append(6);
-
+		secondLinkedList.append(10);
+		secondLinkedList.append(9);
+		/* Note we dont have to append 4,5,6 for second list. Else it will be different reference */
+		/* We must instead find the node value of 4,5,6 of firstLinkedList and append them to the secondLinkedList */
+		secondLinkedList.append(4);
+		secondLinkedList.append(5);
+		secondLinkedList.append(6);
 		System.out.println(firstLinkedList.getIntersection(firstLinkedList.head, secondLinkedList.head));
 		
 	}

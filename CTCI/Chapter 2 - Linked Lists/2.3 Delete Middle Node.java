@@ -7,12 +7,12 @@ class LinkedList
 	Node head;
 	
 	static class Node {
-		int data;
 		Node next;
+		int data;
 		
 		Node(int data) {
-			this.data = data;
 			this.next = null;
+			this.data = data;
 		} 
 	}
 	public void printList() {
@@ -45,7 +45,6 @@ class LinkedList
 			head = new_node;
 			return;
 		}
-		new_node.next = null;
 		Node n = head;
 		while( n.next != null) {
 			n = n.next;
@@ -114,8 +113,7 @@ class LinkedList
 
 	/* Function deletes the entire linked list */
 	//In Java, automatic garbage collection happens, so deleting a linked list is easy. We just need to change head to null.
-    public void deleteList()
-    {
+    public void deleteList() {
         head = null;
     }
 
@@ -151,7 +149,6 @@ class LinkedList
 				
 			}
 			current = current.next;
-			
 		}
 	}
 
@@ -168,18 +165,18 @@ class LinkedList
 	}	
 
 	public void removeDuplicatesNoBuffer() { //O(1) space but O(n^2) time
-			Node current = head;
-			while(current != null) {
-				Node runner = current;
-				while(runner.next != null) {
-					if(current.data == runner.next.data) {
-						runner.next = runner.next.next;
-					} else {
-						runner = runner.next;
-					}
+		Node current = head;
+		while(current != null) {
+			Node runner = current;
+			while(runner.next != null) {
+				if(current.data == runner.next.data) {
+					runner.next = runner.next.next;
+				} else {
+					runner = runner.next;
 				}
-				current = current.next;
 			}
+			current = current.next;
+		}
 	}
 
 	//O(n) time and O(1) space
@@ -200,7 +197,7 @@ class LinkedList
 	}
 
 	public boolean deleteMiddleNode(Node middle) {
-		if(middle != null || middle.next !=null)
+		if ( middle != null || middle.next != null )
 			return false;
 		Node temp = middle.next;
 		middle.data = temp.data;
@@ -208,8 +205,7 @@ class LinkedList
 		return true;
 	}
 
-	public static void main (String[] args) throws java.lang.Exception
-	{
+	public static void main (String[] args) throws java.lang.Exception {
 		LinkedList linkedList = new LinkedList();
 		linkedList.append(3);
 		linkedList.append(3);
