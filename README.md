@@ -9,6 +9,7 @@ Important Resources and References:
 
 # Regex
 
+0. https://www.geeksforgeeks.org/write-regular-expressions/
 1. https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#sum
 2. http://tutorials.jenkov.com/java-regex/matcher.html
 3. https://regexr.com/
