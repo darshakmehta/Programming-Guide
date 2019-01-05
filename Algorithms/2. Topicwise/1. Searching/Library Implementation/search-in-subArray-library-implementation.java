@@ -2,11 +2,9 @@ import java.util.Arrays;
 import java.lang.*;
 import java.io.*;
 
-class Solution
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
-		    byte byteArr[] = {10,20,15,22,35}; 
+class Solution {
+	public static void main (String[] args) throws java.lang.Exception {
+        byte byteArr[] = {10,20,15,22,35}; 
         char charArr[] = {'g','p','q','c','i'}; 
         int intArr[] = {1,2,3,4,5,6}; 
         double doubleArr[] = {10.2,15.1,2.2,3.5}; 

@@ -7,28 +7,23 @@ import java.util.*;
 
 
 // A user-defined class to store domains with id and url 
-class Domain 
-{ 
+class Domain { 
     private int id; 
     private String url; 
   
     // Constructor 
-    public Domain(int id, String url) 
-    { 
+    public Domain(int id, String url) { 
         this.id = id; 
         this.url = url; 
     } 
   
-    public Integer getId() 
-    { 
+    public Integer getId() { 
         return Integer.valueOf(id); 
     } 
 } 
 
-class Solution
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
+class Solution {
+	public static void main (String[] args) throws java.lang.Exception {
                 /*** Searching an int key in a list sorted in ascending order: ***/
 
                 List al = new ArrayList(); 
@@ -119,7 +114,7 @@ If key is not present, the it returns "(-(insertion point) - 1)".
 The insertion point is defined as the point at which the key 
 would be inserted into the list.
 
-The method throws ClassCastException if elements of list are not comparable using the specified comparator, or the search key is not omparable with the elements.
+The method throws ClassCastException if elements of list are not comparable using the specified comparator, or the search key is not comparable with the elements.
 
 Important Points:
 

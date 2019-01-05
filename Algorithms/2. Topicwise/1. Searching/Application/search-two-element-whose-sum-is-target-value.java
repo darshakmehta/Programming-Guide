@@ -4,46 +4,44 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Solution
-{
-	public static void main (String[] args) throws java.lang.Exception
-	{
+class Solution {
+	public static void main (String[] args) throws java.lang.Exception {
 		Scanner sc = new Scanner(System.in);
 		
 		int size = sc.nextInt();
 		int a[] = new int[size];
-		for(int i = 0; i < size; i++){
+		for ( int i = 0; i < size; i++ ) {
 			a[i] = sc.nextInt();
 		}
 		int result = -1;
 		int v = sc.nextInt();
 		Solution solution = new Solution();
-		for(int i = 0; i< a.length ;i++){
+		for ( int i = 0; i < a.length; i++ ) {
 			int key = a[i];
-			result = solution.binarySearch(a, v - key);
-			if(result != -1)
+			result = solution.binarySearch( a, v - key );
+			if( result != -1 )
 				break;
 		}
 		
-		if(result == -1) {
+		if ( result == -1 ) {
 			System.out.println("Sum: " + v + " not found");
-		}else {
+		} else {
 			System.out.println("Sum: "+ v + " found");
 		}
 	}
 	
-	public int binarySearch(int a[], int value){
-		int low = 0;
-		int high = a.length - 1;
-		int mid;
-		while(low <=high){
-			mid =  (low + high) / 2;
-			if(a[mid] == value)
+	public int binarySearch(int a[], int value) {
+		int low = 0, high = a.length - 1;
+		
+		while(low <= high){
+			int mid =  low + (high - low) / 2;
+
+			if ( a[mid] == value )
 				return mid;
-			else if(a[mid] < value){
+			if ( a[mid] < value ) {
 				low = mid + 1;
 			}
-			else if(a[mid] > value){
+			else if( a[mid] > value ) {
 				high = mid - 1;
 			}
 		}
@@ -57,7 +55,7 @@ class Solution
 
 First we sort S. Afterwards, we iterate it and for each element i we perform a binary search to see if there is an element equal to x−i. If one is found, the algorithm returns true. Otherwise, it returns false.
 
-We iterate n elements and perform binary search for each on in an n-sized array, which leads to Θ(nlgn)-time. If we sort first (with merge sort) it will introduce another Θ(nlgn) time, that would change the constant in the final algorithm, but not the asymptotic time.
+We iterate n elements and perform binary search for each one in an n-sized array, which leads to Θ(nlgn)-time. If we sort first (with merge sort) it will introduce another Θ(nlgn) time, that would change the constant in the final algorithm, but not the asymptotic time.
 
 Here's the pseudocode:
 
