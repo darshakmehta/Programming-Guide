@@ -51,6 +51,20 @@ class Solution {
 			lastUnsorted--;
 		}
 	}
+
+	public void bubbleSortRecursive( int[] a, int n ) {
+		if( n == 1) return;
+			
+		for ( int i = 0; i < n - 1; i++ ) {
+			if ( a[i] > a[i + 1] ) {
+				int temp = a[i];
+				a[i] = a[i + 1];
+				a[i + 1] = temp;
+			}
+		}
+
+		bubbleSortRecursive( a, n - 1);
+	}
 }
 
 /***
