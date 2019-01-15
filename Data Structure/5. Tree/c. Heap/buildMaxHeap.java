@@ -52,12 +52,12 @@ class Heap {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt(); //number of elements
 		int a[] = new int[20];
-		for(int i = 1; i<=n; i++) {
+		for(int i = 1; i <= n; i++) {
 			a[i] = sc.nextInt();
 		}
 		
 		System.out.println("Before Max Build Heap");
-		for(int i = 1; i<=n; i++)
+		for(int i = 1; i <= n; i++)
 			System.out.print(a[i] + " ");
 		System.out.println();	
 		
@@ -67,7 +67,7 @@ class Heap {
 		
 		System.out.println();	
 		System.out.println("After Max Build Heap");
-		for(int i = 1; i<=n; i++)
+		for(int i = 1; i <= n; i++)
 			System.out.print(a[i] + " ");
 		
 	}

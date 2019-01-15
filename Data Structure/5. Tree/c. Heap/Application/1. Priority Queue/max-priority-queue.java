@@ -38,9 +38,7 @@ class Heap {
 			swap(a, i, largest);
 			maxHeapify(a, largest);
 		}
-		
 	}
-	
 	
 	public void buildMaxHeap(int a[], int n) {
 		for(int i = (int)Math.floor(n/2); i >= 1; i--) {
@@ -50,11 +48,11 @@ class Heap {
 	
 	public void heapSort(int a[], int n) {
 		buildMaxHeap(a, n);
-		for(int i = n; i>=2; i--) {
+		for(int i = n; i >= 2; i--) {
 			swap(a, 1, i);
 			heap_size--;
-			maxHeapify(a,1);
-		}	
+			maxHeapify(a, 1);
+		}
 	}
 	
 	public int heapMaximum(int a[]) {
@@ -102,7 +100,7 @@ class Heap {
 	public void maxHeapInsert(int a[], int key) {
 		heap_size++;
 		a[heap_size] = Integer.MIN_VALUE;
-		heapIncreaseKey(a, heap_size, key);
+		heapEfficientIncreaseKey(a, heap_size, key);
 	}
 	
 	public void heapDelete(int a[], int i) {

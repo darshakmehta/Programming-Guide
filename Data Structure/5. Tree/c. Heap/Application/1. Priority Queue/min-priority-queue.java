@@ -93,7 +93,7 @@ class Heap {
 	public void minHeapInsert(int a[], int key) {
 		heap_size++;
 		a[heap_size] = Integer.MAX_VALUE;
-		heapDecreaseKey(a, heap_size, key);
+		heapEfficientDecreaseKey(a, heap_size, key);
 	}
 	
 	public void heapDelete(int a[], int i) {
