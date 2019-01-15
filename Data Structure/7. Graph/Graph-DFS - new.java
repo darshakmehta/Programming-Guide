@@ -29,8 +29,8 @@ class Graph {
 			List<Integer> vertices = list.get(i);
 			System.out.println("Adjacency list of vertex "+ i);
             System.out.print("head");
-			for(Integer vertice : vertices) {
-				System.out.print(" -> " + vertice);
+			for(Integer vertex : vertices) {
+				System.out.print(" -> " + vertex);
 			}
 			System.out.println();
 		}
@@ -41,25 +41,24 @@ class Graph {
 		dfsUtil(vertex, visited);
 	}
 	
-	public void dfsUtil(int vertex, boolean[] visited) {
+	public void dfsUtil(int startVertex, boolean[] visited) {
 		
-		visited[vertex] = true;
-		System.out.print(vertex + " ");
+		visited[startVertex] = true;
+		System.out.print(startVertex + " ");
 
-		List<Integer> innerList = list.get(vertex);
-		for(int i = 0; i < innerList.size(); i++) {
-			Integer in = innerList.get(i);
-			if(!visited[in]) {
-				dfsUtil(in, visited);
+		List<Integer> innerList = list.get(startVertex);
+		for (Integer vertex : innerList) {
+			if (!visited[vertex]) {
+				dfsUtil(vertex, visited);
 			}
 		}
 	}
 
-	public void dfsStack(int vertex) {
+	public void dfsStack(int startVertex) {
 		Stack<Integer> stack = new Stack<Integer>();
 		boolean[] visited = new boolean[V];
 		
-		stack.push(vertex);
+		stack.push(startVertex);
 
 		while(!stack.isEmpty()) {
 			Integer in = stack.pop();
@@ -70,10 +69,11 @@ class Graph {
 			}
 			
 			List<Integer> innerList = list.get(in);
-			for(int i = 0; i < innerList.size(); i++) {
-				Integer x = innerList.get(i);
-				if(!visited[x])
-					stack.push(x);
+			
+			for (Integer vertex : innerList) {
+				if (!visited[vertex]) {
+					stack.push(vertex);
+				}
 			}
 		}
 	}
@@ -89,10 +89,10 @@ class Graph {
 	}
 
 
-	public void dfsDisconnectedUtil(int vertex, boolean[] visited) {
+	public void dfsDisconnectedUtil(int startVertex, boolean[] visited) {
 		Stack<Integer> stack = new Stack<Integer>();
 		
-		stack.push(vertex);
+		stack.push(startVertex);
 
 		while(!stack.isEmpty()) {
 			Integer in = stack.pop();
@@ -103,10 +103,10 @@ class Graph {
 			}
 			
 			List<Integer> innerList = list.get(in);
-			for(int i = 0; i < innerList.size(); i++) {
-				Integer x = innerList.get(i);
-				if(!visited[x])
-					stack.push(x);
+			for (Integer vertex : innerList) {
+				if (!visited[vertex]) {
+					stack.push(vertex);
+				}
 			}
 		}
 	}

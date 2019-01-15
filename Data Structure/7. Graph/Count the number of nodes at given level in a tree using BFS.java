@@ -32,7 +32,7 @@ class Graph {
 	
 	public int bfs() {
 		
-		int vertex = 0; /* Given Root */
+		int rootVertex = 0; /* Given Root */
 		int level = 4; /* Find #nodes at k level */
 		
 		if(level == 0) return 1;
@@ -41,8 +41,8 @@ class Graph {
 			Queue<Integer> queue = new LinkedList<Integer>();
 			boolean[] visited = new boolean[V];
 			
-			queue.offer(vertex);
-			visited[vertex] = true;
+			queue.offer(rootVertex);
+			visited[rootVertex] = true;
 			
 			int iLevel = 0;
 			int count = queue.size();
@@ -50,11 +50,10 @@ class Graph {
 				for(int i = 0; i < count; i++) {
 					Integer in = queue.poll();
 					List<Integer> innerList = list.get(in);
-					for(int v = 0; v < innerList.size(); v++) {
-						int n = innerList.get(v);
-						if(!visited[n]) {
-							queue.offer(n);
-							visited[n] = true;
+					for (Integer vertex : innerList) {
+						if(!visited[vertex]) {
+							queue.offer(vertex);
+							visited[vertex] = true;
 						}
 					}
 				}
@@ -62,8 +61,6 @@ class Graph {
 				count = queue.size();
 				System.out.print("Level " + iLevel + " " + count);
 				System.out.println(queue);
-				
-				
 			}
 			return count;
 		}

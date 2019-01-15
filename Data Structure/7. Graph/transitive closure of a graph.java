@@ -45,8 +45,7 @@ class AllPairShortestPath
 		printReachMatrix(reach);
 	}
 	
-	public static void main (String[] args) throws java.lang.Exception
-	{
+	public static void main (String[] args) throws java.lang.Exception {
 		AllPairShortestPath shortPath = new AllPairShortestPath();	
 		int graph[][] = new int[][]{ {1, 1, 0, 1}, 
                                       {0, 1, 1, 0}, 
@@ -111,10 +110,10 @@ class Graph {
 		visited[s][v] = true;
 
 		List<Integer> innerList = list.get(v);
-		for(int i = 0; i < innerList.size(); i++) {
-			Integer in = innerList.get(i);
-			if(!visited[s][in]) {
-				dfsUtil(s, in, visited);
+
+		for (Integer vertex : innerList) {
+			if (!visited[s][vertex]) {
+				dfsUtil(s, vertex, visited);
 			}
 		}
 	}
@@ -126,6 +125,7 @@ class Graph {
 			}
 			System.out.println();
 		}
+		//System.out.println(Arrays.deepToString(twoDm).replace("], ", "]\n"));
 	}
 }
 

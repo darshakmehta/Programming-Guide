@@ -29,8 +29,8 @@ class Graph {
 			List<Integer> vertices = list.get(i);
 			System.out.println("Adjacency list of vertex "+ i);
             System.out.print("head");
-			for(Integer vertice : vertices) {
-				System.out.print(" -> " + vertice);
+			for(Integer vertex : vertices) {
+				System.out.print(" -> " + vertex);
 			}
 			System.out.println();
 		}
@@ -41,22 +41,22 @@ class Graph {
 		boolean[] visited = new boolean[V];
 		Queue<Integer> queue = new LinkedList<Integer>();
 		
-		int vertex = 1; /* Can start from any vertex for connected graph*/
+		int startVertex = 1; /* Can start from any vertex for connected graph*/
 		/* Note:  For disconnected graph => check for all vertex */
 		
-		queue.offer(vertex);
-		visited[vertex] = true;
+		queue.offer(startVertex);
+		visited[startVertex] = true;
 
 		while(!queue.isEmpty()) {
 			Integer i = queue.poll();
 			System.out.print(i + " ");
 			List<Integer> innerList = list.get(i);
-			for(int v = 0; v < innerList.size(); v++) {
-				int n = innerList.get(v);
-				if(!visited[n]) {
-					queue.offer(n);
-					visited[n] = true;
-				}	
+			
+			for (Integer vertex : innerList) {
+				if (!visited[vertex]) {
+					queue.offer(vertex);
+					visited[vertex] = true;
+				}
 			}
 		}
 	}
