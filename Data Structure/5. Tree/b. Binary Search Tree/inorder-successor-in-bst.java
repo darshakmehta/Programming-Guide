@@ -1,9 +1,19 @@
 class Solution {
+
+    public TreeNode minValue(Node root) {
+        int minv = root.key;
+        while (root.left != null) {
+            minv = root.left.key;
+            root = root.left;
+        }
+        return root;
+    }
+
 	public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
 		if(root == null || p == null) return;
 
 		if(p.right != null) {
-			return minValue(n.right); //TODO
+			return minValue(n.right);
 		}
 
 		TreeNode successor = null;

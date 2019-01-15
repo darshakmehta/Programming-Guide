@@ -21,7 +21,7 @@ class Tree
 		while(root != null) {
 			if(root.data > v1 && root.data > v2)
 				root = root.left;
-			if(root.data < v1 && root.data < v2)
+			else if(root.data < v1 && root.data < v2)
 				root = root.right;
 			else 
 				break;
