@@ -52,7 +52,7 @@ class Heap {
 		buildMaxHeap(a, n);
 		for(int i = n; i>=2; i--) {
 			swap(a, 1, i);
-			heap_size --;
+			heap_size--;
 			maxHeapify(a,1);
 		}
 		
