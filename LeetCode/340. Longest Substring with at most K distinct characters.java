@@ -1,6 +1,6 @@
 class Solution {
     public int lengthOfLongestSubstringTwoDistinct(String s, int k) {
-        hMap<Character,Integer> hmap = new HashhMap<>();
+        Map<Character,Integer> hmap = new HashhMap<>();
         int start = 0, end = 0, counter = 0, len = 0;
         while(end < s.length()){
             char c = s.charAt(end);
