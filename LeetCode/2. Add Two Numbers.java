@@ -78,6 +78,7 @@ class Solution {
     }
 }
 
+
 /***
 
 Follow up
@@ -87,3 +88,60 @@ What if the the digits in the linked list are stored in non-reversed order? For 
 (3 → 4 → 2) + (4 → 6 → 5) = 8 → 0 → 7
 
 ***/
+
+/* Another Solution */
+
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        int carry = 0;
+        ListNode head_newList = null;
+        ListNode prev = null, node = null;
+        while(l1 != null && l2 != null) {
+            int x = l1.val + l2.val;
+            node = new ListNode((x + carry) % 10 );
+            if ( (x + carry) >= 10 ) {
+                carry = 1;
+            } else {
+                carry = 0;
+            }
+            if( head_newList == null ) {
+                head_newList = node;
+            } else {
+                prev.next = node;
+            }
+            prev = node;  
+            l1 = l1.next;
+            l2 = l2.next;   
+        }
+        
+        while(l1 != null) {
+            node = new ListNode((l1.val + carry) % 10);
+            prev.next = node;
+            prev = node;
+            if((l1.val + carry) >= 10) {
+                carry = 1;
+            } else {
+                carry = 0;
+            }
+            l1 = l1.next;
+        } 
+        
+        while(l2 != null) {
+            node = new ListNode((l2.val + carry) % 10);
+            prev.next = node;
+            prev = node;
+            if((l2.val + carry) >= 10) {
+                carry = 1;
+            } else {
+                carry = 0;
+            }
+            l2 = l2.next;
+        } 
+        
+        if( carry == 1) {
+            node = new ListNode(1);
+            prev.next = node;
+        }
+        return head_newList;
+    }
+}
