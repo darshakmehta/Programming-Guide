@@ -20,7 +20,7 @@ Important Resources and References:
 
 # Bit Manipulation
 1. https://github.com/tech-boy/Programming-Guide/blob/master/Bit-Manipulation.md
-
+2. https://www.geeksforgeeks.org/bits-manipulation-important-tactics/
 
 # References:
 
