@@ -15,9 +15,10 @@ class LinkedList
 			this.next = null;
 		} 
 	}
+
 	public void printList() {
 		Node n = head;
-		while(n != null) {
+		while (n != null) {
 			System.out.println(n.data);
 			n = n.next;
 		}
@@ -41,13 +42,13 @@ class LinkedList
 	
 	public void append(int data) { //O(n)
 		Node new_node = new Node(data);
-		if(head == null) {
+		if (head == null) {
 			head = new_node;
 			return;
 		}
 		new_node.next = null;
 		Node n = head;
-		while( n.next != null) {
+		while (n.next != null) {
 			n = n.next;
 		}
 		n.next = new_node;
@@ -57,15 +58,15 @@ class LinkedList
 	public void delete(int key) {
 		Node temp = head;
 		Node prev = null;
-		if(temp != null && temp.data == key) {
+		if (temp != null && temp.data == key) {
 			head = temp.next;
 			return;
 		}
-		while(temp !=null && temp.data != key) {
+		while (temp !=null && temp.data != key) {
 			prev = temp;
 			temp = temp.next;
 		}
-		if(temp == null)
+		if (temp == null)
 			return;
 		prev.next = temp.next;	
 	}
@@ -73,35 +74,33 @@ class LinkedList
 	public void deleteNode(int position) {
 
 		//LinkedList is empty 
-		if( head == null)
+		if (head == null)
 			return;
 		Node temp = head;
-		if(position == 0) {
+		if (position == 0) {
 			head = temp.next;
 			return;
 		}
 
-		for(int i = 0; temp!=null && i < position - 1; i++ )
+		for (int i = 0; temp != null && i < position - 1; i++ )
 			temp = temp.next;
 
 		if(temp == null || temp.next == null)
 			return;
 
 		temp.next = temp.next.next;
-		
 	}
 	
 	public int countRecursive(Node head) {
-		if(head == null)
+		if (head == null)
 			return 0;
 		return 1 + countRecursive(head.next);
-		
 	}
 	
 	public int countIter() {
 		Node n = head;
 		int count = 0;
-		while(n != null) {
+		while (n != null) {
 			count++;
 			n = n.next;
 		}
@@ -130,16 +129,13 @@ class LinkedList
 	}
 	
 	public boolean searchRecursive(Node head, int key) {
-		if(head == null)
-			return false;
-		if(head.data == key)
-			return true;
+		if (head == null) return false;
+		if (head.data == key) return true;
 		else
-			return searchRecursive(head.next, key);
+			return searchRecursive( head.next, key );
 	}
 
-	public static void main (String[] args) throws java.lang.Exception
-	{
+	public static void main (String[] args) throws java.lang.Exception {
 		LinkedList linkedList = new LinkedList();
 		linkedList.head = new Node(1);
 		Node second = new Node(2);
