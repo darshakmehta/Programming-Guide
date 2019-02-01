@@ -18,18 +18,18 @@ class Solution
     	for(int i = 0; i < gcd(k, n); i++) {
     		temp = arr[i];
     		j = i;
-			while(true) {
-				x = j + k;
-				if(x >= n)
-					x = x - n;
-				if(x == i)
-					break;
-				arr[j] = arr[x];
-				j = x;
-    		}
-    		arr[j] = temp;
-    	}
-    }
+  			while(true) {
+  				x = j + k;
+  				if(x >= n)
+  					x = x - n;
+  				if(x == i)
+  					break;
+  				arr[j] = arr[x];
+  				j = x;
+      		}
+      		arr[j] = temp;
+      	}
+      }
 
     public void juggling(int[] nums, int k) {
         int n = nums.length;
