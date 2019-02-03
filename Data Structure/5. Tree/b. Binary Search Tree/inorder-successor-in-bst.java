@@ -13,7 +13,7 @@ class Solution {
 		if(root == null || p == null) return;
 
 		if(p.right != null) {
-			return minValue(n.right);
+			return minValue(p.right);
 		}
 
 		TreeNode successor = null;
