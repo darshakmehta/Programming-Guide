@@ -28,46 +28,44 @@ class Heap {
 		int l = left(i);
 		int r = right(i);
 		int largest;
-		if(l <= heap_size && a[l] > a[i])
+		if (l <= heap_size && a[l] > a[i])
 			largest = l;
 		else
 			largest = i;
-		if(r <= heap_size && a[r] > a[largest])
+		if (r <= heap_size && a[r] > a[largest])
 			largest = r;
-		if(largest != i) {
-			swap(a, i, largest);
-			maxHeapify(a, largest);
+		if (largest != i) {
+			swap(a, i, largest); //swap largest element
+			maxHeapify(a, largest); // Call heapify for new index of largest element
 		}
-		
 	}
 	
 	
 	public void buildMaxHeap(int a[], int n) {
-		for(int i = (int)Math.floor(n/2); i >= 1; i--) {
+		for (int i = (int)Math.floor(n/2); i >= 1; i--) {
 			maxHeapify(a,i);
 		}
 	}
 	
 	public void heapSort(int a[], int n) {
 		buildMaxHeap(a, n);
-		for(int i = n; i>=2; i--) {
+		for (int i = n; i>=2; i--) {
 			swap(a, 1, i);
 			heap_size--;
 			maxHeapify(a,1);
 		}
-		
 	}
 	
 	public static void main(String arg[]) {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt(); //number of elements
 		int a[] = new int[n+1];
-		for(int i = 1; i<=n; i++) {
+		for (int i = 1; i<=n; i++) {
 			a[i] = sc.nextInt();
 		}
 		
 		System.out.println("Before Heap Sort");
-		for(int i = 1; i<=n; i++)
+		for (int i = 1; i<=n; i++)
 			System.out.print(a[i] + " ");
 		System.out.println();	
 		
@@ -77,7 +75,7 @@ class Heap {
 		
 		System.out.println();	
 		System.out.println("After Heap Sort");
-		for(int i = 1; i<=n; i++)
+		for (int i = 1; i<=n; i++)
 			System.out.print(a[i] + " ");
 		
 	}
