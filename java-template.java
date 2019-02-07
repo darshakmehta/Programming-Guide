@@ -4,7 +4,6 @@ import java.io.*;
 
 class Solution
 {
-
 	static class HashMapList<T, E> {
 		private HashMap<T, ArrayList<E>> map = new HashMap<T, ArrayList<E>>();
 
@@ -78,6 +77,25 @@ class Solution
             return a; 
         else
             return gcd(b, a % b); 
+    }
+
+    public int sieveOfEratosthenes(int n) {
+        boolean a[] = new boolean[n];
+        for(int i = 2; i < n; i++)
+            a[i] = true;
+        
+        for(int i = 2; i <= Math.sqrt(n); i++) {
+            if(a[i]) {
+                for(int j = i * i; j < n ; j+=i) {
+                    a[j] = false;
+                }
+            }
+        }
+        int count = 0;
+        for(int i = 2; i < n; i++)
+            if(a[i])
+                count++;
+        return count;
     } 
 	
 	public static void main (String[] args) throws java.lang.Exception
