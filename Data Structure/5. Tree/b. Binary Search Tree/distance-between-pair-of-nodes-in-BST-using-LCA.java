@@ -13,22 +13,22 @@ class Node {
 		left = right = null;
 	}
 }
+
 class Tree
 {
 	Node root;
 
 	public Node lca(Node root, int v1, int v2) { //Iterative solution
-		while(root != null) {
-			if(root.data > v1 && root.data > v2)
+		while (root != null) {
+			if (root.data > v1 && root.data > v2)
 				root = root.left;
-			else if(root.data < v1 && root.data < v2)
+			else if (root.data < v1 && root.data < v2)
 				root = root.right;
 			else 
 				break;
-			}
+		}
 		return root;
 	}
-
 
 	/*
 	Procedure for determining the distance between pairs of nodes in a tree: 
@@ -36,10 +36,10 @@ class Tree
 	*/
 
 	public int findDistance(Node root, int v) {
-		if(root.data == v) {
+		if (root.data == v) {
 			return 0;
 		}
-		if(root.data > v) {
+		if (root.data > v) {
 			return 1 + findDistance(root.left, v);
 		} else {
 			return 1 + findDistance(root.right, v);
