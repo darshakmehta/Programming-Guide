@@ -20,7 +20,7 @@ class BinaryTree {
 	}
 
 	public void inOrderTraversal(Node root) {
-		if(root == null)
+		if (root == null)
 			return;
 		inOrderTraversal(root.left);
 		System.out.print(root.data + " ");
@@ -32,7 +32,7 @@ class BinaryTree {
 	}
 
 	public Node insertNode(Node root, int key) {
-		if(root == null) {
+		if (root == null) {
 			root = new Node(key);
 			return root;
 		}
@@ -40,17 +40,17 @@ class BinaryTree {
 		Queue<Node> queue = new LinkedList<Node>();
 		queue.add(root);
 
-		while(!queue.isEmpty()) {
+		while (!queue.isEmpty()) {
 			Node temp = queue.peek();
 			queue.remove();
 
-			if(temp.left == null) {
+			if (temp.left == null) {
 				temp.left = new Node(key);
 				break;
 			} else {
 				queue.add(temp.left);
 			}
-			if(temp.right == null) {
+			if (temp.right == null) {
 				temp.right = new Node(key);
 				break;
 			} else {
@@ -64,24 +64,23 @@ class BinaryTree {
 		root = insertNode(root, key);
 	}
 
-
 	/*public void deleteNode(Node root, int key) {
 
 		Queue<Node> queue = new LinkedList<Node>();
 		queue.add(root);
 		Node toDeleteNode = null;
 		Node temp = null;
-		while(!queue.isEmpty()) {
+		while (!queue.isEmpty()) {
 			temp = queue.peek();
 			queue.remove();
 
-			if(temp.data == key) {
+			if (temp.data == key) {
 				toDeleteNode = temp;
 			} 
-			if(temp.left != null) {
+			if (temp.left != null) {
 				queue.push(temp.left);
 			}
-			if(temp.right != null) {
+			if (temp.right != null) {
 				queue.push(temp.right);
 			}
 		}

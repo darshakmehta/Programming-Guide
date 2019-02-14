@@ -53,8 +53,8 @@ class Tree {
         // Create a map and store vertical oder in map using 
         // function getVerticalOrder() 
         TreeMap<Integer,Vector<Integer>> m = new TreeMap<>(); 
-        int hd =0; 
-        getVerticalOrder(root,hd,m); 
+        int hd = 0; 
+        getVerticalOrder(root, hd, m); 
           
         // Traverse the map and print nodes at every horigontal 
         // distance (hd) 

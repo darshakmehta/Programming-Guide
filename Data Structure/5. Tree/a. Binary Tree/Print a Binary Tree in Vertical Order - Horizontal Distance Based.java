@@ -102,7 +102,6 @@ Time Complexity:
 
 Time complexity of above algorithm is O(w*n) where w is width of Binary Tree and n is number of nodes in Binary Tree. In worst case, the value of w can be O(n) (consider a complete tree for example) and time complexity can become O(n2).
 
-
 This problem can be solved more efficiently using the technique discussed in this https://www.geeksforgeeks.org/vertical-sum-in-a-given-binary-tree/ post. We will soon be discussing complete algorithm and implementation of more efficient method.
 
 ***/
