@@ -35,11 +35,10 @@ class Heap {
 		if (r <= heap_size && a[r] > a[largest])
 			largest = r;
 		if (largest != i) {
-			swap(a, i, largest); //swap largest element
+			swap(a, i, largest); // swap largest element
 			maxHeapify(a, largest); // Call heapify for new index of largest element
 		}
 	}
-	
 	
 	public void buildMaxHeap(int a[], int n) {
 		for (int i = (int)Math.floor(n/2); i >= 1; i--) {
@@ -52,7 +51,7 @@ class Heap {
 		for (int i = n; i>=2; i--) {
 			swap(a, 1, i);
 			heap_size--;
-			maxHeapify(a,1);
+			maxHeapify(a, 1);
 		}
 	}
 	

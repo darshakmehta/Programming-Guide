@@ -24,6 +24,7 @@ class Solution
 		 	quickSort(a, p + 1, high);
 		 }
 	}
+	
 	public void swap(int a[], int i, int j) {
 		int temp = a[i];
 		a[i] = a[j];

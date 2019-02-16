@@ -31,7 +31,6 @@ class Solution {
 			if (swapped == false)
 				break;
 		}
-		
 	}
 
 	public void bubbleSortOptimized(int a[]) {
