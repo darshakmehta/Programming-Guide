@@ -38,9 +38,7 @@ class Heap {
 			swap(a, i, largest);
 			maxHeapify(a, largest);
 		}
-		
 	}
-	
 	
 	public void buildMaxHeap(int a[], int n) {
 		for(int i = (int)Math.floor(n/2); i >= 1; i--) {
@@ -69,6 +67,5 @@ class Heap {
 		System.out.println("After Max Build Heap");
 		for(int i = 1; i <= n; i++)
 			System.out.print(a[i] + " ");
-		
 	}
 }
