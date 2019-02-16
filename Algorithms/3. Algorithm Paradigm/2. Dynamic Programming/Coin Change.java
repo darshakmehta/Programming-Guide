@@ -83,7 +83,6 @@ class CoinChanging //Running time is O(mn)
 		System.out.println(coinChanging(coins, sum));
 		System.out.println(coinChangingSpace(coins, sum));
 		printCoinChangingSolution(coins, sum);
-		
 	}
 }
 

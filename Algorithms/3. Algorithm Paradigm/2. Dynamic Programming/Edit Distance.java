@@ -4,7 +4,6 @@ import java.io.*;
 
 class Solution
 {
-
 	public static int numberOfEdits(String s1, String s2) {
 		int m = s1.length();
 		int n = s2.length();
@@ -17,10 +16,10 @@ class Solution
 				else if(j == 0)
 					dp[i][j] = i; //Min. operations = i
 				else if(s1.charAt(i - 1) == s2.charAt(j - 1)) 
-					dp[i][j] = dp[i - 1][j -1];
+					dp[i][j] = dp[i - 1][j - 1];
 				else
 					dp[i][j] = 1 + Math.min(dp[i - 1][j -1], //replace 
-						   Math.min(dp[i -1][j], // remove
+						   Math.min(dp[i - 1][j], // remove
 						   dp[i][j - 1])); //insert
 			}
 		}

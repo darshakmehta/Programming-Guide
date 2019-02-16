@@ -85,6 +85,5 @@ class RodCutting
 		System.out.println("Bottom Up Memoization");
 		System.out.println("Revenue: " + rc.bottomUpMemoizedRodCut(p,x));
 		System.out.println("Total loops: " + rc.countBottomUp);
-	
 	}
 }
