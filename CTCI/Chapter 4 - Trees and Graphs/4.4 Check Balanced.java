@@ -20,7 +20,7 @@ class BinaryTree {
 	}
 
 	public void inOrderTraversal(Node root) {
-		if(root == null)
+		if (root == null)
 			return;
 		inOrderTraversal(root.left);
 		System.out.print(root.data + " ");
@@ -32,7 +32,7 @@ class BinaryTree {
 	}
 
 	public Node insertNode(Node root, int key) {
-		if(root == null) {
+		if (root == null) {
 			Node new_node = new Node(key);
 			root = new_node;
 			return root;
@@ -45,13 +45,13 @@ class BinaryTree {
 			Node temp = queue.peek();
 			queue.remove();
 
-			if(temp.left == null) {
+			if (temp.left == null) {
 				temp.left = new Node(key);
 				break;
 			} else {
 				queue.add(temp.left);
 			}
-			if(temp.right == null) {
+			if (temp.right == null) {
 				temp.right = new Node(key);
 				break;
 			} else {
@@ -66,16 +66,16 @@ class BinaryTree {
 	}
 
 	public int checkHeight(Node root) {
-		if(root == null) return -1;
+		if (root == null) return -1;
 
 		int leftHeight = checkHeight(root.left);
-		if( leftHeight == Integer.MIN_VALUE) return Integer.MIN_VALUE; //Pass error up
+		if (leftHeight == Integer.MIN_VALUE) return Integer.MIN_VALUE; //Pass error up
 
 		int rightHeight = checkHeight(root.left);
-		if( rightHeight == Integer.MIN_VALUE) return Integer.MIN_VALUE; //Pass error up
+		if (rightHeight == Integer.MIN_VALUE) return Integer.MIN_VALUE; //Pass error up
 
 		int heighDiff = leftHeight - rightHeight;
-		if(Math.abs(heighDiff) > 1) {
+		if (Math.abs(heighDiff) > 1) {
 			return Integer.MIN_VALUE; // Found error -> pass it back
 		} else {
 			return Math.max(leftHeight, rightHeight) + 1;
