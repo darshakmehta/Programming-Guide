@@ -18,11 +18,11 @@ class Solution
     	for(int i = 0; i < gcd(k, n); i++) {
     		temp = arr[i];
     		j = i;
-  			while(true) {
+  			while ( true ) {
   				x = j + k;
-  				if(x >= n)
+  				if (x >= n)
   					x = x - n;
-  				if(x == i)
+  				if (x == i)
   					break;
   				arr[j] = arr[x];
   				j = x;
@@ -40,9 +40,10 @@ class Solution
             
             int temp = nums[n - i - 1];
     		int j = n - i - 1;
-    		while( true ) {
+
+    		while ( true ) {
                 int d = j - k;
-                if( d < 0 ) d += n;
+                if ( d < 0 ) d += n;
                 if ( d == n - i - 1) break;
                 nums[j] = nums[d];
                 j = d;
@@ -61,7 +62,7 @@ class Solution
 		
 		int x = k % n;
 		int copy[] = new int[a.length];
-		if(x != 0) {
+		if (x != 0) {
 			System.arraycopy(a, x, copy, 0, n - x);
 			System.arraycopy(a, 0, copy, n - x, x);
 			System.arraycopy(copy, 0, a, 0, n);
