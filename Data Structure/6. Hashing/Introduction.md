@@ -13,7 +13,6 @@ We can think of using the following data structures to maintain information abou
 3. Balanced binary search tree with phone numbers as keys.
 4. Direct Access Table.
 
-
 For arrays and linked lists, we need to search in a linear fashion, which can be costly in practice. If we use arrays and keep the data sorted, then a phone number can be searched in O(Logn) time using Binary Search, but insert and delete operations become costly as we have to maintain sorted order.
 
 With balanced binary search tree, we get moderate search, insert and delete times. All of these operations can be guaranteed to be in O(Logn) time.
@@ -26,7 +25,6 @@ Due to above limitations Direct Access Table cannot always be used.
 ### Hashing is the solution that can be used in almost all such situations and performs extremely well compared to above data structures like Array, Linked List, Balanced BST in practice. With hashing we get O(1) search time on average (under reasonable assumptions) and O(n) in worst case.
 
 ### Hashing is an improvement over Direct Access Table. The idea is to use hash function that converts a given phone number or any other key to a smaller number and uses the small number as index in a table called hash table.
-
 
 # Hash Function:
 
@@ -67,7 +65,6 @@ Following are the ways to handle collisions:
 2. Quadratic Probing
 3. Double Hashing
 
-
 # Separate Chaining
 
 ... Check image here: https://www.geeksforgeeks.org/wp-content/uploads/gq/2015/07/hashChaining1.png
@@ -83,7 +80,7 @@ hashChaining
 3. Less sensitive to the hash function or load factors.
 4. It is mostly used when it is unknown how many and how frequently keys may be inserted or deleted.
 
-Disadvantages:
+# Disadvantages:
 1. Cache performance of chaining is not good as keys are stored using linked list. Open addressing provides better cache performance as everything is stored in same table.
 2. Wastage of Space (Some Parts of hash table are never used)
 3. If the chain becomes long, then search time can become O(n) in worst case.
@@ -118,8 +115,6 @@ Like separate chaining, open addressing is a method for handling collisions. In 
 
 ## Insert can insert an item in a deleted slot, but the search doesn’t stop at a deleted slot.
 
-
-
 Open Addressing is done following ways:
 
 a) Linear Probing: In linear probing, we linearly probe for next slot. For example, typical gap between two probes is 1 as taken in below example also.
@@ -144,6 +139,7 @@ If (hash(x) + 1*1) % S is also full, then we try (hash(x) + 2*2) % S
 If (hash(x) + 2*2) % S is also full, then we try (hash(x) + 3*3) % S
 ..................................................
 ..................................................
+
 c) Double Hashing We use another hash function hash2(x) and look for i*hash2(x) slot in i’th rotation.
 
 let hash(x) be the slot index computed using hash function.  
@@ -187,7 +183,6 @@ A good second Hash function is:
 
 It must never evaluate to zero
 Must make sure that all cells can be probed
-
 
 Reference:
 
