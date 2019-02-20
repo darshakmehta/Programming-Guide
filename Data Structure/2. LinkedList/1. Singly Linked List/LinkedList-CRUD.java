@@ -32,8 +32,7 @@ class LinkedList
 	}
 	
 	public void insertAfter(Node prev_node, int data) { //O(1)
-		if(prev_node == null)
-			return;
+		if (prev_node == null) return;
 		Node new_node = new Node(data);
 		new_node.next = prev_node.next;
 		prev_node.next = new_node;
@@ -62,12 +61,11 @@ class LinkedList
 			head = temp.next;
 			return;
 		}
-		while (temp !=null && temp.data != key) {
+		while (temp != null && temp.data != key) {
 			prev = temp;
 			temp = temp.next;
 		}
-		if (temp == null)
-			return;
+		if (temp == null) return;
 		prev.next = temp.next;	
 	}
 	
@@ -85,7 +83,7 @@ class LinkedList
 		for (int i = 0; temp != null && i < position - 1; i++ )
 			temp = temp.next;
 
-		if(temp == null || temp.next == null)
+		if (temp == null || temp.next == null)
 			return;
 
 		temp.next = temp.next.next;
@@ -113,15 +111,14 @@ class LinkedList
 
 	/* Function deletes the entire linked list */
 	//In Java, automatic garbage collection happens, so deleting a linked list is easy. We just need to change head to null.
-    public void deleteList()
-    {
+    public void deleteList() {
         head = null;
     }
 
 	public boolean searchIterative(int key) {
 		Node current = head;
 		while(current != null) {
-			if(current.data == key )
+			if (current.data == key )
 				return true;
 			current = current.next;
 		}
@@ -153,6 +150,5 @@ class LinkedList
 		System.out.println(linkedList.searchRecursive(linkedList.head, 3));
 		//System.out.println(linkedList.countIter());
 		//System.out.println(linkedList.count());
-		
 	}
 }
