@@ -38,10 +38,10 @@ class Graph {
 	
 	public void bfs() {
 		
-		boolean[] visited = new boolean[V];
+		boolean[] visited = new boolean[V]; /* Track Non-visited childrens */
 		Queue<Integer> queue = new LinkedList<Integer>();
 		
-		int startVertex = 1; /* Can start from any vertex for connected graph*/
+		int startVertex = 1; /* Can start from any vertex for connected graph */
 		/* Note:  For disconnected graph => check for all vertex */
 		
 		queue.offer(startVertex);
