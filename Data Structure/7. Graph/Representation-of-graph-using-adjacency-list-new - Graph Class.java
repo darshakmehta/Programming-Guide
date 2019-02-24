@@ -21,16 +21,20 @@ class Graph {
 	
 	public void addUndirectedEdge(int u, int v) {
 		this.list.get(u).add(v);
-		this.list.get(v).add(u); //symmetric
+		this.list.get(v).add(u); // symmetric
 	}
 
 	public void printAdjacencyList() {
+		
 		for(int i = 0; i < V; i++) {
 			List<Integer> vertices = list.get(i);
+			
 			System.out.print("Vertice " + i + " ");
-			for(Integer vertice : vertices) {
-				System.out.print(" -> " + vertice);
+			
+			for( Integer vertex : vertices) {
+				System.out.print(" -> " + vertex);
 			}
+			
 			System.out.println();
 		}
 	}
