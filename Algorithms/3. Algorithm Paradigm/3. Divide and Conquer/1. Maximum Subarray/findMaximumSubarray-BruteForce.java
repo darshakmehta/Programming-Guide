@@ -21,7 +21,7 @@ class Solution
 	public int maxSubarray(int[] a, int low, int high){
 		int maxSum = Integer.MIN_VALUE;
 		int sum;
-		for(int i = low; i <= high; i++){
+		for (int i = low; i <= high; i++) {
 			sum = 0;
 			for(int j = i; j <= high; j++)
 				sum = sum + a[j];
