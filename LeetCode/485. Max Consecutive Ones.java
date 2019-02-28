@@ -15,7 +15,7 @@ class Solution {
 }
 
 /* Since the test case will have maximum 1's so, I am finding max when I find a zero to optimize code */
-class Solution { //Improves 26% to 88%
+class Solution { //Improves 100%
     public int findMaxConsecutiveOnes(int[] nums) {
         int max = 0;
         int consecutiveOne = 0;
@@ -23,11 +23,12 @@ class Solution { //Improves 26% to 88%
             if(nums[i] == 1) {
                 consecutiveOne++;
             } else {
-                //if(consecutiveOne > max) max = consecutiveOne;
-                max = Math.max(max, consecutiveOne);
+                if(consecutiveOne > max) max = consecutiveOne;
                 consecutiveOne = 0;
             }
         }
-        return Math.max(max, consecutiveOne); //For corner case only one element [1]
+        if(max > consecutiveOne) // Removed Math.max call to improve to 100%
+            return max;
+        return consecutiveOne; //For corner case only one element [1]
     }
 }
