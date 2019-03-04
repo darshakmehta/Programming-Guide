@@ -1,12 +1,14 @@
 class Solution {
     public int maxIncreaseKeepingSkyline(int[][] grid) {
-        int[] row = new int[grid.length];
-        int[] col = new int[grid[0].length];
+        int n = grid.length;
+        int m = grid[0].length;
+        int[] row = new int[n];
+        int[] col = new int[m];
         
-        
-        for ( int i = 0; i < grid.length; i++ ) {
+        /* Rowwise */
+        for ( int i = 0; i < n; i++ ) {
             int max = Integer.MIN_VALUE;
-            for ( int j = 0; j < grid[0].length; j++ ) {
+            for ( int j = 0; j < m; j++ ) {
                 if ( grid[i][j] > max ) {
                     max = grid[i][j];
                 }
@@ -14,9 +16,10 @@ class Solution {
             row[i] = max;
         }
         
-        for ( int i = 0; i < grid[0].length; i++ ) {
+        /* Columnwise */
+        for ( int i = 0; i < m; i++ ) {
             int max = Integer.MIN_VALUE;
-            for ( int j = 0; j < grid.length; j++ ) {
+            for ( int j = 0; j < n; j++ ) {
                 if ( grid[j][i] > max ) {
                     max = grid[j][i];
                 }
@@ -26,8 +29,8 @@ class Solution {
         
         int result = 0;
         
-        for ( int i = 0; i < grid.length; i++ ) {
-            for ( int j = 0; j < grid[0].length; j++ ) {
+        for ( int i = 0; i < n; i++ ) {
+            for ( int j = 0; j < m; j++ ) {
                 int x = Math.min ( row[i], col[j] );
                 result += Math.abs( grid[i][j] - x );
             }
@@ -37,3 +40,9 @@ class Solution {
         
     }
 }
+
+/**
+
+TODO: Traverse 2D matrix both rowwise and columnwise in one nested for loop 
+
+*/
