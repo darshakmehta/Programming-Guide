@@ -17,7 +17,6 @@ class Solution
 		System.out.println("Answer: " + maxSum);
 	}
 	
-	
 	public int maxSubarray(int a[], int low, int high){
 		int currMax = a[low];
 		int maxSoFar = a[low];

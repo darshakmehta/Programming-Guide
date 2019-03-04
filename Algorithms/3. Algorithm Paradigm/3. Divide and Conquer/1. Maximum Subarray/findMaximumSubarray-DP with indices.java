@@ -22,7 +22,7 @@ class Solution
 		int maxEndingHere = 0;
 		int maxSoFar = Integer.MIN_VALUE;
 		int start, end, s;
-		start = end = s =0;
+		start = end = s = 0;
 		for(int i =low; i<= high; i++){
 			maxEndingHere += a[i];
 			if (maxEndingHere < 0) {
