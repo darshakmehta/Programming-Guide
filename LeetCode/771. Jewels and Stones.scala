@@ -1,3 +1,5 @@
+/* Solution 1 */
+
 object Solution {
     def numJewelsInStones(J: String, S: String): Int = {
         var res = 0;
@@ -8,4 +10,10 @@ object Solution {
         
         res
     }
+}
+
+/* Solution 2 */
+
+object Solution {
+	def numJewelsInStones(J: String, S: String): Int = S.count(J.contains())
 }
