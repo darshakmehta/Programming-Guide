@@ -2,7 +2,6 @@ class Solution {
     public List<String> commonChars(String[] A) {
         int[][] arr = new int[A.length][26];
         List<String> result = new ArrayList<String>();
-            
         
         for ( int k = 0; k < A.length; k++ ) {
             for ( char c : A[k].toCharArray() ) {
@@ -25,6 +24,5 @@ class Solution {
         }
         
         return result;
-        
     }
 }
