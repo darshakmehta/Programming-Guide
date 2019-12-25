@@ -8,12 +8,12 @@ Output: 7
 ***/
 
 /* 
-	Method 4 - Optimization over Method 1, if QuickSort is chosen
+	Method 5 - Optimization over Method 4, where Randomized Pivot is chosen [Expected Linear Time]
 	Idea: Not do complete quick sort, but stop at the point where pivot itself is Kth smallest element.
 	Also, Not recur on both left and right sides of pivot, but recur on one side based on the position of the pivot.
 	Worst Case: O(n^2)
 	Average Case: O(n)
-	Code: https://ideone.com/nd8wJ2
+	Code: https://ideone.com/gEhd1a
 */
 
 
@@ -33,7 +33,7 @@ class Solution {
 		 	// Partition the array around last  
             // element and get position of pivot  
             // element in sorted array 
-		 	int position = partition(arr, low, high);
+		 	int position = randomPartition(arr, low, high);
 
 		 	// if position is same as K
 		 	if (position - low == K - 1) {
@@ -76,6 +76,15 @@ class Solution {
 			
 		return i;
 	}
+
+	public static int randomPartition(int[] arr, int low, int high) { 
+	    int n = high - low + 1; 
+	    int pivot = (int)(Math.random() * (n - 1)); 
+
+	    swap(arr, low + pivot, high); 
+	    
+	    return partition(arr, low, high); 
+	}
 	
 	public static void main (String[] args) throws java.lang.Exception {
 		Scanner sc = new Scanner(System.in);
@@ -91,7 +100,6 @@ class Solution {
 	}
 }
 
-// Note: To kind Kth largest integer 
-/*
-	
-*/
+// Note: The assumption in the analysis is, random number generator is equally likely to generate any number in the input range. Therefore, The expected time complexity of above randomized QuickSelect is O(n)
+
+// TODO: https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array-set-3-worst-case-linear-time/
