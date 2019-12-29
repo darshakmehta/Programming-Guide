@@ -41,6 +41,8 @@ class Solution
 	}
 }
 
+// TC: O(n)
+
 /**
 
 Input:

@@ -61,7 +61,7 @@ class Node implements Comparable<Node> {
   }
 }
 
-class Main
+class Solution
 {
 	public static void KMaxCombinations(int[] arr1, int[] arr2, int n, int K) {
 
