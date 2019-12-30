@@ -4,28 +4,24 @@ import java.io.*;
 
 class BinarySearchTree {
 
-	//Root node of BST
-	Node root;
+	// Root node of BST
+	private Node root;
 	
 	BinarySearchTree() {
 		root = null;
 	}
 	
 	class Node {
-		int key;
-		Node left, right;
+		private int key;
+		private Node left, right;
 		
 		public Node(int item) {
-			key = item;
-			left = right = null;
+			this.key = item;
+			this.left = this.right = null;
 		}
 	}
 	
-	void insert(int key) {
-		root = insertNode(root, key);
-	}
-	
-	public Node insertNode(Node root, int key) {
+	private Node insertNode(Node root, int key) {
 		if (root == null) {
 		    root = new Node(key);
 		    return root;
@@ -37,12 +33,12 @@ class BinarySearchTree {
 		    root.right = insertNode(root.right, key);
 		return root;
 	}
-	
-	void inorder() {
-		inorderTraversal(root);
+
+	public void insert(int key) {
+		root = insertNode(root, key);
 	}
 	
-	public void inorderTraversal(Node root) {
+	private void inorderTraversal(Node root) {
 		if (root != null) {
 			inorderTraversal(root.left);
 			System.out.print(root.key + " ");
@@ -50,49 +46,61 @@ class BinarySearchTree {
 		}
 	}
 
-	void preorder() {
-		preorderTraversal(root);
+	public void inorder() {
+		inorderTraversal(root);
 	}
 	
-	public void preorderTraversal(Node root) {
+	private void preorderTraversal(Node root) {
 		if (root != null) {
 			System.out.print(root.key + " ");
 			preorderTraversal(root.left);
 			preorderTraversal(root.right);
 		}
 	}
-	
-	void postorder() {
-		postorderTraversal(root);
+
+	public void preorder() {
+		preorderTraversal(root);
 	}
 	
-	public void postorderTraversal(Node root) {
+	private void postorderTraversal(Node root) {
 		if (root != null) {
 			postorderTraversal(root.left);
 			postorderTraversal(root.right);
 			System.out.print(root.key + " ");
 		}
 	}
-	
-	public void delete(int key) {
-		root = deleteNode(root, key);
+
+	public void postorder() {
+		postorderTraversal(root);
 	}
-	
-	public Node search(int key) {
-		return searchNode(root, key);
-	}
-	
-	public Node searchNode(Node root, int key) {
-		if (root.key == key) {
+
+	private Node searchNode(Node root, int key) {
+		if (root == null)
+			return null;
+		if (root.key == key)
 			return root;
-		} else if (key < root.key)
+		else if (key < root.key)
 			return searchNode(root.left, key);
 		else
 			return searchNode(root.right, key);
 	}
 	
+	public Node search(int key) {
+		return searchNode(root, key);
+	}
+
+	public int minValue(Node root) {
+        int minv = root.key;
+        while (root.left != null) {
+            minv = root.left.key;
+            root = root.left;
+        }
+        return minv;
+    }
+	
 	public Node deleteNode(Node root, int key) {
-		if (root == null) return root;
+		if (root == null) 
+			return root;
 		if (key < root.key)
 	        root.left = deleteNode(root.left, key);
 		else if (key > root.key)
@@ -108,16 +116,10 @@ class BinarySearchTree {
         }
         return root;
 	}
-	
-    public int minValue(Node root)
-    {
-        int minv = root.key;
-        while (root.left != null) {
-            minv = root.left.key;
-            root = root.left;
-        }
-        return minv;
-    }
+
+	public void delete(int key) {
+		root = deleteNode(root, key);
+	}
 	
 	public static void main(String arg[]) {
 		BinarySearchTree bst = new BinarySearchTree();
@@ -128,20 +130,31 @@ class BinarySearchTree {
 		bst.insert(70);
 		bst.insert(60);
 		bst.insert(80);
+
 		System.out.println("Inorder: \t");
 		bst.inorder();
 		System.out.println();
+		
 		System.out.println("Preorder: \t");
 		bst.preorder();
 		System.out.println();
+		
 		System.out.println("Postorder: \t");
 		bst.postorder();
-		Node x = bst.search(80);
 		System.out.println();
-		System.out.println("Searched key: " + x.key);
+		
+		Node x = bst.search(80);
+		System.out.println("Searched key 80 " + (x != null ? "exists" : "does not exist"));
+
+		x = bst.search(90); // x == null
+		System.out.println("Searched key 90 " + (x != null ? "exists" : "does not exist"));
+
 		bst.delete(30);
+
 		System.out.println("Inorder: \t");
 		bst.inorder();
 		System.out.println();
 	}	
 }
+
+// Code: https://ideone.com/yDPkiE
