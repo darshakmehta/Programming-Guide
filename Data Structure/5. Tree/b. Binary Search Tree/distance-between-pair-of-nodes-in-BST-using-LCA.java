@@ -18,7 +18,7 @@ class Tree
 {
 	Node root;
 
-	public Node lca(Node root, int v1, int v2) { //Iterative solution
+	public Node lca(Node root, int v1, int v2) { // Iterative solution
 		while (root != null) {
 			if (root.data > v1 && root.data > v2)
 				root = root.left;
@@ -30,20 +30,18 @@ class Tree
 		return root;
 	}
 
-	/*
-	Procedure for determining the distance between pairs of nodes in a tree: 
+	/* Procedure for determining the distance between pairs of nodes in a tree: 
 		the distance from n1 to n2 can be computed as the distance from the root to n1, plus the distance from the root to n2, minus twice the distance from the root to their lowest common ancestor.
 	*/
 
 	public int findDistance(Node root, int v) {
-		if (root.data == v) {
+		if (root.data == v)
 			return 0;
-		}
-		if (root.data > v) {
+	
+		if (root.data > v)
 			return 1 + findDistance(root.left, v);
-		} else {
+		else
 			return 1 + findDistance(root.right, v);
-		}
 	}
 
 	public int distance(Node root, int v1, int v2) {

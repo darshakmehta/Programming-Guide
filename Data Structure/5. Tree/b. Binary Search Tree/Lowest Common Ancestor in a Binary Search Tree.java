@@ -18,7 +18,7 @@ class Tree
 {
 	Node root;
 
-	public Node lca(Node root, int v1, int v2) { //Iterative solution
+	public Node lca(Node root, int v1, int v2) { // Iterative solution
 		while (root != null) {
 			if (root.data > v1 && root.data > v2)
 				root = root.left;
@@ -30,8 +30,7 @@ class Tree
 		return root;
 	}
 
-	public Node recursivelca(Node node, int n1, int n2)  // Recursive solution
-    { 
+	public Node recursivelca(Node node, int n1, int n2) { // Recursive solution 
         if (node == null) 
             return null; 
    

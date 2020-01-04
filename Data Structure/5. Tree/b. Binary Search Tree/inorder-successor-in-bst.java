@@ -1,17 +1,19 @@
 class Solution {
 
-    public TreeNode minValue(Node root) {
-        int minv = root.key;
+    public TreeNode minValue(TreeNode pRight) {
+        int minv = pRight.key;
 
-        while (root.left != null) {
-            minv = root.left.key;
-            root = root.left;
+        while (pRight.left != null) {
+            minv = pRight.left.key;
+            pRight = pRight.left;
         }
-        return root;
+        return pRight;
     }
 
+    /* Method 1 */
 	public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-		if (root == null || p == null) return;
+		if (root == null || p == null) 
+            return null;
 
 		if (p.right != null) {
 			return minValue(p.right);
@@ -21,7 +23,7 @@ class Solution {
 
 		while (root != null) {
 			if (p.val < root.val) {
-				successor = root;
+				successor = root; // key step: Since p.val < successor always
 				root = root.left;
 			} else if (p.val > root.val) {
 				root = root.right;
@@ -33,65 +35,71 @@ class Solution {
 	}
 }
 
+/* Method 2 */
 public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
-    if (root==null)
-        return null;
+    if (root == null || p == null) 
+            return null;
  
     TreeNode next = null;
-    TreeNode c = root;
-    while (c!=null && c.val!=p.val){ //check for p.null
-        if (c.val > p.val){
-            next = c;
-            c = c.left;
+    TreeNode successor = root;
+
+    while (successor != null && successor.val != p.val) {
+        if (successor.val > p.val){
+            next = successor;
+            successor = successor.left;
         } else {
-            c= c.right;
+            successor= successor.right;
         }
     }
  
-    if (c==null)        
+    if (successor == null)        
         return null;
  
-    if (c.right==null)
+    if (successor.right == null)
         return next;
  
-    c = c.right;
-    while (c.left!=null)
-        c = c.left;
+    successor = successor.right;
+    while (successor.left != null)
+        successor = successor.left;
  
-    return c;
+    return successor;
 }
 
+/* Method 3 - Stack Based */
 public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
+    
     Stack<TreeNode> stack = new Stack<TreeNode>();
-    if (root==null || p==null)
+    
+    if (root == null || p == null)
         return null;
  
     stack.push(root);
     boolean isNext = false;
-    while (!stack.isEmpty()){
+    
+    while (!stack.isEmpty()) {
         TreeNode top = stack.pop();
  
-        if (top.right==null&&top.left==null){
-            if (isNext){
+        if (top.right == null && top.left == null) {
+            if (isNext) {
                 return top;
             }
  
-            if (p.val==top.val){
+            if (p.val == top.val) {
                 isNext = true;
             }
             continue;
         }
  
-        if (top.right!=null){
+        if (top.right != null) {
             stack.push(top.right);
-            top.right=null;
+            top.right = null;
         }
  
         stack.push(top);
  
-        if (top.left!=null){
+        if (top.left != null) {
             stack.push(top.left);
-            top.left=null;
+            top.left = null;
         }
     }
  
