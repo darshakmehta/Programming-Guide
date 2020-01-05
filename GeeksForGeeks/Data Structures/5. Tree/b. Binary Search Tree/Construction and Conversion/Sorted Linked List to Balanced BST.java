@@ -116,30 +116,30 @@ class BalancedBST {
 			}
 		}
 
-		private void inorderTraversal(TNode root) {
-			if (root != null) {
-				inorderTraversal(root.left);
-				System.out.print(root.key + " ");
-				inorderTraversal(root.right);
-			}
+	private void inorderTraversal(TNode root) {
+		if (root != null) {
+			inorderTraversal(root.left);
+			System.out.print(root.key + " ");
+			inorderTraversal(root.right);
 		}
-
-		public void inorder() {
-			inorderTraversal(root);
-		}
-
-		private void preorderTraversal(TNode root) {
-			if (root != null) {
-				System.out.print(root.key + " ");
-				preorderTraversal(root.left);
-				preorderTraversal(root.right);
-			}
-		}
-
-		public void preorder() {
-			preorderTraversal(root);
-		}	
 	}
+
+	public void inorder() {
+		inorderTraversal(root);
+	}
+
+	private void preorderTraversal(TNode root) {
+		if (root != null) {
+			System.out.print(root.key + " ");
+			preorderTraversal(root.left);
+			preorderTraversal(root.right);
+		}
+	}
+
+	public void preorder() {
+		preorderTraversal(root);
+	}	
+}
 
 
 class LinkList {
@@ -239,10 +239,8 @@ class LinkList {
 		list.printLinkList();
 		System.out.println();
 
-
 		BalancedBST bst = new BalancedBST();
 		list.sortedListToBST(bst);
-		// public BalancedBST.TNode tnode = bst.new TNode();
 
 		System.out.println("Inorder: \t");
 		bst.inorder();
@@ -253,3 +251,5 @@ class LinkList {
 		System.out.println();
 	}
 }
+
+// TC: O(n)
