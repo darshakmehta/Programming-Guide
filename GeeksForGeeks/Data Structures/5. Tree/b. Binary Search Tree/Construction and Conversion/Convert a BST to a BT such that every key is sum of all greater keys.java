@@ -1,20 +1,24 @@
 /***
-Given a BST, transform it into greater sum tree where each node contains sum of all nodes greater than that node.
 
-Method 1 (Naive):
-This method doesn’t require the tree to be a BST. Following are steps.
-1. Traverse node by node(Inorder, preorder, etc.)
-2. For each node find all the nodes greater than that of the current node, sum the values. Store all these sums.
-3. Replace each node value with their corresponding sum by traversing in the same order as in Step 1.
-This takes O(n^2) Time Complexity.
+Convert a BST to a Binary Tree such that sum of all greater keys is added to every key
+Given a Binary Search Tree (BST), convert it to a Binary Tree such that every key of the original BST is changed to key plus sum of all greater keys in BST.
+Examples:
 
-Method 2 (Using only one traversal)
-By leveraging the fact that the tree is a BST, we can find an O(n) solution. The idea is to traverse BST in reverse inorder. Reverse inorder traversal of a BST gives us keys in decreasing order. Before visiting a node, we visit all greater nodes of that node. While traversing we keep track of sum of keys which is the sum of all the keys greater than the key of current node.
+Input: Root of following BST
+              5
+            /   \
+           2     13
+
+Output: The given BST is converted to following Binary Tree
+              18
+            /   \
+          20     13
+Solution: Do reverse Inoorder traversal. Keep track of the sum of nodes visited so far. Let this sum be sum. For every node currently being visited, first add the key of this node to sum, i.e. sum = sum + node->key. Then change the key of current node to sum, i.e., node->key = sum.
+When a BST is being traversed in reverse Inorder, for every key currently being visited, all keys that are already visited are all greater keys.
+
 **/
 
-/* Method 2: TC: O(n) time */
-
-// Code: https://ideone.com/XDxhkN
+// Code: https://ideone.com/A8BSc6
 
 import java.util.*;
 import java.lang.*;
@@ -52,7 +56,7 @@ class BinarySearchTree
 
 		bstToGreaterSumTreeUtil(root.right, sum);
 		sum.sum += root.key;
-		root.key = sum.sum - root.key;
+		root.key = sum.sum;
 		bstToGreaterSumTreeUtil(root.left, sum);
 	}
 
@@ -113,12 +117,3 @@ class BinarySearchTree
 }
 
 // TC: O(n)
-
-/**
-
-Similar Problems:
-
-1. https://www.geeksforgeeks.org/convert-bst-to-a-binary-tree/
-2. https://www.geeksforgeeks.org/add-greater-values-every-node-given-bst/
-
-**/
