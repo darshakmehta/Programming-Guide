@@ -104,9 +104,9 @@ class BinaryTree {
 		if (root == null)
 			return;
 
-		arrayToBst(inOrder, root, index);
+		arrayToBst(inOrder, root.left, index);
 		root.key = inOrder[index.index++];
-		arrayToBst(inOrder, root, index);
+		arrayToBst(inOrder, root.right, index);
 	}
 
 	public void binaryTreeToBST() {
@@ -121,7 +121,7 @@ class BinaryTree {
 		Arrays.sort(temp); // O(n logn)
 
 		index.index = 0;
-		arrayToBst(temp, root, index);
+		arrayToBst(temp, root, index); // O(n)
 	}
 
 	/* Modify as per requirement */
