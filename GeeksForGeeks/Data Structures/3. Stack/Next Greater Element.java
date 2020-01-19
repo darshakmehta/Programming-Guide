@@ -59,12 +59,8 @@ class Solution
 			} else {
 				printNextGreaterElement(stack.pop(), arr[i]);
 				
-				while (!stack.isEmpty()) {
-					if (stack.peek() <= arr[i]) {
-						printNextGreaterElement(stack.pop(), arr[i]);
-					} else {
-						break;
-					}
+				while (!stack.isEmpty() && stack.peek() <= arr[i]) {
+					printNextGreaterElement(stack.pop(), arr[i]);
 				}
 				stack.push(arr[i]);
 			}

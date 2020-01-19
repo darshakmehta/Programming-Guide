@@ -1,3 +1,10 @@
+/***
+
+Given values of two values n1 and n2 in a Binary Search Tree, find the Lowest Common Ancestor (LCA). You may assume that both the values exist in the tree.
+
+
+**/
+
 /* Assume v1, v2 are present in the Tree */
 
 import java.util.*;
@@ -79,7 +86,7 @@ class Tree
 Note: 
 
 1. Running time of Iterative solution of LCA is O(h) where h is the height of the tree
-2. Extra space of the function call stack for recursive function calls is avoided, by using iterative solution.
+2. O(h) Extra space of the function call stack for recursive function calls is avoided, by using iterative solution.
 
 TODO:
 
