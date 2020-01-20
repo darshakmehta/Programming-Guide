@@ -175,6 +175,7 @@ class BinarySearchTree {
 		int a[] = {1, 2, 5, 18, 19, 25, 47, 58, 96, 100, 121, 190};
 		bst.root = bst.createMinimalTree(a, 0, a.length - 1);
 		bst.inorder();
+		System.out.println();
 		System.out.println(bst.isBST());
 		System.out.println(bst.height());
 	}	
@@ -189,12 +190,34 @@ TODO: Check if it is a BST
 Implementation:
 
 Method 1: Simple and Wrong [O(n)]
-
 Check if left < root and right > root [We miss the depth ndoes with small or large values]; further recursive calls
 
 Method 2: Correct and inefficient [O(n^2)]
-
 Check if maxValue(left) > root || minValue(right) < root; further recursive calls
+
+// Returns true if a binary tree is a binary search tree
+int isBST(Node node)  
+{  
+  if (node == null)  
+    return true;  
+      
+  // false if the max of the left is > than us
+  if (node.left != null && maxValue(node.left) > node.data)  
+    return false;  
+      
+  // false if the min of the right is <= than us
+  if (node.right != null && minValue(node.right) < node.data)  
+    return false;  
+    
+  // false if, recursively, the left or right is not a BST
+  if (!isBST(node.left) || !isBST(node.right))  
+    return false;  
+      
+  // passing all that, it's a BST
+  return true;  
+} 
+
+Note: Method 2 above runs slowly since it traverses over some parts of the tree many times. A better solution looks at each node only once. The trick is to write a utility helper function isBSTUtil(Node node, int min, int max) that traverses down the tree keeping track of the narrowing min and max allowed values as it goes, looking at each node only once. The initial values for min and max should be INT_MIN and INT_MAX — they narrow from there.
 
 Method 3: Correct and efficient [O(n)] Space: O(1) if function call stack size is not considered, otherwise O(n)
 
