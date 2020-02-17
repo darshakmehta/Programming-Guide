@@ -1,4 +1,4 @@
-class Solution { //Accepted but linear search in entire one row
+class Solution { // Accepted but linear search in entire one row
     public boolean searchMatrix(int[][] matrix, int target) {
         int m = matrix.length;
         if(m == 0) return false;
@@ -16,17 +16,24 @@ class Solution { //Accepted but linear search in entire one row
     }
 }
 
-class Solution { //Binary search on entire matrix
+class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        if(matrix == null || matrix.length < 1 || matrix[0].length < 1) return false;
+        if (matrix == null || matrix.length < 1 || matrix[0].length < 1) return false;
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int row = 0, col = n - 1;
         
-        int row = 0;
-        int col = matrix[0].length - 1;
-        
-        while(col >= 0 && row <= matrix.length - 1) {
-            if(matrix[row][col] == target) return true;
-            if(target < matrix[row][col]) col--;
-            else if(target > matrix[row][col]) row++;
+        while (row < m && col >= 0) {
+            if (matrix[row][col] == target) {
+                return true;
+            }
+            if (matrix[row][col] < target) {
+                ++row;
+            } else {
+                --col;
+            }
         }
         return false;
     }
