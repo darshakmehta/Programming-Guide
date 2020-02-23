@@ -19,7 +19,7 @@ class Stack
 
 	public void push(int key) {
 		Node new_node = new Node(key);
-		if(top == null) {
+		if (top == null) {
 			top = new_node;
 			return;
 		}
@@ -28,7 +28,7 @@ class Stack
 	}
 
 	public int pop() {
-		if(top == null)
+		if (top == null)
 			return -1; //underflow
 		int data = top.data;
 		top = top.next;
@@ -40,7 +40,7 @@ class Stack
 	}
 
 	public int peek() {
-		if(top == null)
+		if (top == null)
 			return -1;
 		return top.data;
 	}
@@ -58,3 +58,6 @@ class Stack
 		System.out.println(s.peek());
 	}
 }
+
+// Pros: The linked list implementation of stack can grow and shrink according to the needs at runtime.
+// Cons: Requires extra memory due to involvement of pointers.
