@@ -1,9 +1,8 @@
-# Programming-Guide
+<h1 align="center">Programming-Guide </h1>
 
 Important Resources and References:
 
 # Tutorials:
-
 1. https://geeksforgeeks.org
 2. https://leetcode.com
 
