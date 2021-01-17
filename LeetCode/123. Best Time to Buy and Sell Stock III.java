@@ -178,7 +178,7 @@ class Solution {
  */
 
 class Solution {
-    public int maxProfit(int[] price) {
+    public int maxProfit(int[] prices) {
         int n = prices.length;
         int K = 2;
         int[][] T = new int[K + 1][n];
@@ -190,13 +190,61 @@ class Solution {
                 maxDiff = Math.max(maxDiff, T[i-1][j] - prices[j]);
             }
         }
-
+        printActualSolution(T, prices);
         return T[K][n - 1];
     }
 }
 
-// TODO: Print actual solution
+/* Print actual solution */
 
+/**
+ * Steps:
+ * 1. initialize i = no. of transactions and j = no. of days; create Stack
+ * 2. while loop with breaking condition => if i == 0 || j == 0 break the loop
+ *      3. if T[i][j] == T[i][j-1] continue left j = j - 1;
+ *      4. else sell at T[j] price and initialize maxDiff at current profit (T[i][j]) - price at jth day
+ *      5. loop k = j - 1 ... 0
+ *                if (T[i-1][k] - prices[k] == maxDiff) // check previous transaction to match remainder profit "maxDiff"
+ *                  i = i - 1; // go to previous transaction
+ *                  j = k; // initialize with current kth day as buying at jth day
+ *                  stack.addFirst(j); // buying at jth day
+ * 6. Print the actual solution:
+ *        buying at stack.pollFirst()
+ *        selling at stack.pollFist()
+ */
+
+public void printActualSolution(int[][] T, int prices[]) {
+    int i = T.length - 1;
+    int j = T[0].length - 1;
+
+    Deque<Integer> stack = new LinkedList<>();
+    while(true) {
+        if (i == 0 || j == 0) {
+            break;
+        }
+        if (T[i][j] == T[i][j-1]) {
+            j = j - 1;
+        } else { // Transaction (Selling) is completing at ith transaction and jth day.
+            stack.addFirst(j); // Selling at jth day
+            int maxDiff = T[i][j] - prices[j]; // maxDiff = remaining profit to look in previous transaction
+            for (int k = j - 1; k >= 0; k--) { // Find buying day
+                if (T[i-1][k] - prices[k] == maxDiff) { // check previous transaction to match remainder profit
+                    i = i - 1; // go to previous transaction
+                    j = k; // current kth day we found our buying (jth) day
+                    stack.addFirst(j); // buying at jth day
+                    break;
+                }
+            }
+        }
+
+        while(!stack.isEmpty()) {
+            System.out.println("Buy at price " + prices[stack.pollFirst()]);
+            System.out.println("Sell at price " + prices[stack.pollFirst()]);
+        }
+    }
+}
+
+// Solution: https://ideone.com/pZPrME
 
 
 // Reference: https://www.youtube.com/watch?v=oDhu5uGq_ic
