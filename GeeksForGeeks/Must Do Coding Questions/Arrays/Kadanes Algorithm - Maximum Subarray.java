@@ -78,30 +78,25 @@ class printSubarrElementKadanes {
             arr[i] = sc.nextInt();
         }
 
-        int max_so_far = arr[0];
-        int max_ending_here = arr[0];
-        int start = 0;
-        int end = 0;
-        int currIndex = 0;
+        int max_so_far = arr[0], max_ending_here = arr[0];
+        int start = 0, end = 0;
 
         for (int i = 0; i < n; i++) {
             max_ending_here = max_ending_here + arr[i];
 
             if (max_ending_here < 0) {
-                max_ending_here = 0;
                 // When current sum is negative reset sum to 0 and start with next index
-                currIndex = i + 1;
+                max_ending_here = 0;
+                start = i + 1;
             } else if (max_so_far < max_ending_here) {
+                // when current element increases the max_so_far, update end index to current index i
                 max_so_far = max_ending_here;
-                start = currIndex;
                 end = i;
             }
         }
 
-        System.out.println(max_so_far);
-
-        System.out.print("Subarr: ");
-
+        System.out.println("Largest Sum Contiguous Subarray: " + max_so_far);
+        System.out.print("Subarray is: ");
 
         for (int i = start; i <= end; i++) {
             System.out.print(arr[i] + " ");
@@ -123,11 +118,4 @@ Output:
 7
 Subarr: 4 -1 -2 1 5
 
- */
-
-
-/**
- * TODO: Given an array of integers (possibly some of the elements negative), write a C program to find out the *maximum
- * product* possible by multiplying ‘n’ consecutive integers in the array where n <= ARRAY_SIZE. Also print the starting
- * point of maximum product subarray.
  */
