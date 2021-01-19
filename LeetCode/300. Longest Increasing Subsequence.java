@@ -1,31 +1,37 @@
 class Solution {
-    public int lengthOfLIS(int[] nums) {
-        if(nums == null || nums.length < 1) return 0;
+    public int lengthOfLIS(int[] nums) { // O(n^2)
         int n = nums.length;
-        int dp[] = new int[n];
-        
-        for(int i = 0; i < n; i++) dp[i] = 1;
-        
-        for(int i = 1; i < n; i++) {
-            for(int j = 0; j <= i - 1; j++) {
-                if(nums[i] > nums[j]) {
-                    dp[i] = Math.max(1 + dp[j], dp[i]);
+        int[] dp = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            // initialize min. length of sequence at all indexes to 1
+            dp[i] = 1;
+        }
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                // can you add current element at index i to the sequence at index j
+                // if yes, compare (sequence length at index i, 1 + length of sequence at index j)
+                // choosee the max
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], 1 + dp[j]);
                 }
             }
         }
-        
-        int max = Integer.MIN_VALUE;
-        for(int i = 0; i < n; i++) {
-            if(max < dp[i])
-                max = dp[i];
+
+        int length = 1; // Minimum length of a subsequence
+
+        for (int i = 0; i < n; i++) {
+            if (dp[i] > length) {
+                length = dp[i];
+            }
         }
-        return max;
-        
+
+        return length;
     }
 }
 
-/***
-
-TODO: DP with Binary Search 
-
-***/
+/**
+ * TODO: DP with Binary Search - O(n log n)
+ * TODO: Print Actual Solution
+ */
