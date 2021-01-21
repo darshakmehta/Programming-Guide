@@ -24,7 +24,10 @@ class Solution // Sliding window technique - Time: O(n); Space: O(1)
                 curr_sum = curr_sum + nums[i];
             }
         }
+
+        return new int[]{-1, -1};
     }
+
     public static void main (String[] args) throws java.lang.Exception
     {
         Scanner sc = new Scanner(System.in);
@@ -90,6 +93,7 @@ class Solution // Prefix Sum using Hashing
 
         return new int[]{start, end};
     }
+
     public static void main (String[] args) throws java.lang.Exception
     {
         Scanner sc = new Scanner(System.in);
