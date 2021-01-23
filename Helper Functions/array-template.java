@@ -14,8 +14,7 @@ class Result {
     }
 }
 
-class Solution
-{
+class Solution {
     public static void main (String[] args) throws java.lang.Exception
     {
         Scanner sc = new Scanner(System.in);
@@ -26,6 +25,12 @@ class Solution
             arr[i] = sc.nextInt();
         }
 
+        System.out.println();
+
+        System.out.print();
+        for (int i = result.start; i <= result.end; i++) {
+            System.out.print();
+        }
         System.out.println();
     }
 }
