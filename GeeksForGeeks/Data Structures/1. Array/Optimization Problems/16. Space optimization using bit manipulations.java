@@ -164,10 +164,18 @@ class Solution {
     }
 }
 
+// Solution: https://ideone.com/5xK7Pc
+
+/**
+ * Testcases:
+ * 2 5
+ * 60 95
+ */
+
 /**
  * Techniques to learn:
  * Set bit: A |= 1 << bit
- * Test bit (A & 1 << bit) != 0
+ * Test bit: (A & 1 << bit) != 0
  *
  * Note: Left and Right Shift Operator
  *      int x = 200;
