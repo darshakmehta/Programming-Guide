@@ -1,19 +1,18 @@
 # Bit-Manipulation
+`"&" AND operation, for example, 2 (0010) & 7 (0111) => 2 (0010) [both 1's --> 1]`
 
-"&" AND operation, for example, 2 (0010) & 7 (0111) => 2 (0010) [both 1's --> 1]
+`"^" XOR operation, for example, 2 (0010) ^ 7 (0111) => 5 (0101) [Both same --> 0, else 1]`
 
-"^" XOR operation, for example, 2 (0010) ^ 7 (0111) => 5 (0101) [Both same --> 0, else 1]
+`"~" NOT operation, for example, ~2(0010) => -3 (1101) [Two's complement]`
 
-"~" NOT operation, for example, ~2(0010) => -3 (1101) [Two's complement]
-
-Q. To get a Negative Number?
+### Q. To get a Negative Number?
 A. 
 
 	public int negate(int x) {
 		return ~x + 1; // 2's complement
 	}
 
-Q. Sum of Two Integers (a,b) using Bit Manipulation
+### Q. Sum of Two Integers (a,b) using Bit Manipulation
 A. 
 
 	To find Carry => a & b
@@ -43,7 +42,7 @@ Code:
 		return (b == 0) ? a : getSum(a ^ b, (a & b) << 1);
 	}
 
-Q. Difference of Two Integers (a,b) using Bit Manipulation
+### Q. Difference of Two Integers (a,b) using Bit Manipulation
 A. 
 
 	To find Borrow => (~a) & b
@@ -73,7 +72,7 @@ Code:
 		return (b == 0) ? a : getSubtract(a ^ b, (~a & b) << 1);
 	}
 
-Q. Find the only repetitive element between 1 to n-1 [3]
+### Q. Find the only repetitive element between 1 to n-1 [3]
 A.
 
 Examples :
@@ -84,11 +83,11 @@ Examples :
 	Input  : a[] = {1, 5, 1, 2, 3, 4}
 	Output : 1
 
-The idea is based on the fact that x ^ x = 0 and x ^ y = y ^ x.
+The idea is based on the fact that `x ^ x = 0 and x ^ y = y ^ x.`
 
-1. Compute XOR of elements from 1 to n-1.
-2. Compute XOR of array elements.
-3. XOR of above two would be our result.
+    1. Compute XOR of elements from 1 to n-1.
+    2. Compute XOR of array elements.
+    3. XOR of above two would be our result.
 
 Code:
 
@@ -107,6 +106,8 @@ Code:
 
 References:
 
-1. https://leetcode.com/problems/sum-of-two-integers/discuss/84290/Java-simple-easy-understand-solution-with-explanation
-2. https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently
-3. https://www.geeksforgeeks.org/find-repetitive-element-1-n-1/
+1. Leetcode: 
+[1](https://leetcode.com/problems/sum-of-two-integers/discuss/84290/Java-simple-easy-understand-solution-with-explanation) 
+[2](https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently)
+2. GeeksForGeeks
+[1](https://www.geeksforgeeks.org/find-repetitive-element-1-n-1/)
