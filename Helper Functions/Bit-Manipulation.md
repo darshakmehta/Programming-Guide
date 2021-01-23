@@ -1,5 +1,9 @@
 # Bit-Manipulation
+
+### Bitwise operations
 `"&" AND operation, for example, 2 (0010) & 7 (0111) => 2 (0010) [both 1's --> 1]`
+
+`"|" OR operation, for example,  2 (0010) | 7 (0111) => 7 (0111) [both 0's --> 0]`
 
 `"^" XOR operation, for example, 2 (0010) ^ 7 (0111) => 5 (0101) [Both same --> 0, else 1]`
 
@@ -15,9 +19,9 @@ A.
 ### Q. Sum of Two Integers (a,b) using Bit Manipulation
 A. 
 
-	To find Carry => a & b
+	To find carry => a & b
 	To find different bit => a ^ b
-	To shift one position left => 1
+	To shift one position left => carry << 1
 
 	Algorithm:
 	1. Find Carry using AND operation
@@ -45,9 +49,9 @@ Code:
 ### Q. Difference of Two Integers (a,b) using Bit Manipulation
 A. 
 
-	To find Borrow => (~a) & b
+	To find borrow => (~a) & b
 	To find different bit => a ^ b
-	To shift one position left => 1
+	To shift one position left => borrow << 1
 
 	Algorithm:
 	1. Find Borrow using AND operation with 2's complement of a
@@ -72,7 +76,7 @@ Code:
 		return (b == 0) ? a : getSubtract(a ^ b, (~a & b) << 1);
 	}
 
-### Q. Find the only repetitive element between 1 to n-1 [3]
+### Q. Find the only repetitive element between 1 to n-1
 A.
 
 Examples :
@@ -103,11 +107,46 @@ Code:
         return res; 
     }
 
+### Left and Right Shift Operator
+
+
+    import java.util.*;
+    import java.lang.*;
+    import java.io.*;
+    
+    class Solution
+    {
+    	public static void main (String[] args) throws java.lang.Exception
+    	{
+    		int x = 200;
+    		// Right Shift - Divides Number by 2
+    		System.out.println("Right shift an element once " + (x >> 1)); // 100
+    		System.out.println("Right shift an element twice " + (x >> 2)); // 50
+    		
+    		int y = 50;
+    		// Left Shift - Multiplies Number by 2
+    		System.out.println("Left shift an element once " + (y << 1)); // 100
+    		System.out.println("Left shift an element twice " + (y << 2)); // 200
+    	}
+    }
+    
+### Tricks
+    Set union: A | B
+    Set intersection: A & B
+    Set subtraction: A & ~B
+    Set negation: ALL_BITS ^ A or ~A
+    Set bit: A |= 1 << bit
+    Clear bit: A &= ~(1 << bit)
+    Test bit: (A & 1 << bit) != 0
+    Extract last bit: A&-A or A&~(A-1) or x^(x&(x-1))
+    Remove last bit 1 bit: A&(A-1)
+    Get all 1-bits: ~0    
 
 References:
 
 1. Leetcode: 
 [1](https://leetcode.com/problems/sum-of-two-integers/discuss/84290/Java-simple-easy-understand-solution-with-explanation) 
 [2](https://leetcode.com/problems/sum-of-two-integers/discuss/84278/A-summary:-how-to-use-bit-manipulation-to-solve-problems-easily-and-efficiently)
-2. GeeksForGeeks
+2. GeeksForGeeks:
 [1](https://www.geeksforgeeks.org/find-repetitive-element-1-n-1/)
+3. Stanford: [1](http://graphics.stanford.edu/~seander/bithacks.html)
