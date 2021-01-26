@@ -2,8 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Solution
-{
+class Solution {
     public static int jump(int[] nums) {
         int n = nums.length;
 
@@ -33,8 +32,7 @@ class Solution
         return minJump;
     }
 
-    public static void main (String[] args) throws java.lang.Exception
-    {
+    public static void main(String[] args) throws java.lang.Exception {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[n];
@@ -48,6 +46,8 @@ class Solution
 }
 
 // Solution: https://ideone.com/f959bo
+
+// TOOD: Print Actual Solution
 
 /**
  * [currBeg, currEnd] => Window. Note: Here, currBeg == i

@@ -15,6 +15,10 @@ class Result {
 }
 
 class Solution {
+    public static void function(int[] nums) {
+        int n = nums.length;
+    }
+
     public static void main (String[] args) throws java.lang.Exception {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

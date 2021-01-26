@@ -2,8 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class MaximumSumIncreasingSubsequence
-{
+class MaximumSumIncreasingSubsequence {
     public static int maxSumIS(int[] nums) { // O(N^2)
         int n = nums.length;
         int[] dp = new int[n];
@@ -35,10 +34,9 @@ class MaximumSumIncreasingSubsequence
         return max_sum;
     }
 
-    public static void main (String[] args) throws java.lang.Exception
-    {
+    public static void main(String[] args) throws java.lang.Exception {
         Scanner sc = new Scanner(System.in);
-        int a[] =  {10, 22, 9, 33, 21, 50, 41, 60, 80};
+        int a[] = {10, 22, 9, 33, 21, 50, 41, 60, 80};
         System.out.println("Maximum sum of the Increasing Subsequence is: " + maxSumIS(a));
     }
 }
