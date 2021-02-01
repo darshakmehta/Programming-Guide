@@ -2,8 +2,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Solution // Sliding window technique - Time: O(n); Space: O(1)
-{
+class Solution { // Sliding window technique - Time: O(n); Space: O(1)
     public static int[] subArraySum(int[] nums, int sum) { // Does not handle negative numbers
         int n = nums.length;
         if (n == 0) {
@@ -28,8 +27,7 @@ class Solution // Sliding window technique - Time: O(n); Space: O(1)
         return new int[]{-1, -1};
     }
 
-    public static void main (String[] args) throws java.lang.Exception
-    {
+    public static void main(String[] args) throws java.lang.Exception {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int sum = sc.nextInt();
@@ -54,14 +52,12 @@ class Solution // Sliding window technique - Time: O(n); Space: O(1)
 
 // Solution: https://ideone.com/iiWzXW
 
-
 import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Solution // Prefix Sum using Hashing
-{
-    public static int[] subArraySum(int[] nums, int sum) { // Handles negative numbers
+class Solution { // Prefix Sum using Hashing to handle negative numbers
+    public static int[] subArraySum(int[] nums, int sum) {
         int n = nums.length;
         if (n == 0) {
             return new int[]{-1, -1};
@@ -70,7 +66,7 @@ class Solution // Prefix Sum using Hashing
         int curr_sum = 0, start = 0, end = -1;
         Map<Integer, Integer> hmap = new HashMap<Integer, Integer>();
 
-        for (int i = 1; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             curr_sum = curr_sum + nums[i];
 
             int maybeSum = curr_sum - sum;
@@ -112,13 +108,31 @@ class Solution // Prefix Sum using Hashing
             return;
         }
         System.out.println("Continuous subarray is start index: " + result[0] + " and end index: " + result[1]);
-        for (int i = result[0]; i < result[1]; i++) {
+        for (int i = result[0]; i <= result[1]; i++) {
             System.out.print(arr[i] + " ");
         }
     }
 }
 
+// Time Complexity: O(n); Space Complexity: O(n)
+
 // Solution: https://ideone.com/WedUnm
+
+/*
+Testcases:
+
+6 20
+-10 0 2 -2 -20 10
+
+5 -10
+10 2 -2 -20 10
+
+6 33
+1 4 20 3 10 5
+
+6 51
+1 4 45 6 0 19
+*/
 
 // TODO: Find a solution to handle positive and negative numbers with constant space
 // Refer: https://www.geeksforgeeks.org/find-subarray-with-given-sum-with-negatives-allowed-in-constant-space/
