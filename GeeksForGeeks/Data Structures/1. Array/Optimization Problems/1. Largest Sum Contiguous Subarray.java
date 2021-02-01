@@ -1,21 +1,10 @@
 /**
- * Kadane's Algorithm
- *
- * Initialize: max_so_far = 0 max_ending_here = 0
- *
- * Loop for each element of the array (a) max_ending_here = max_ending_here + a[i] (b) if(max_ending_here < 0)
- * max_ending_here = 0 (c) if(max_so_far < max_ending_here) max_so_far = max_ending_here return max_so_far
+ * Also known as, Largest Subarray Sum Problem
  */
 
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-
-/*
-Time Complexity: O(n)
-Space Complexity: O(1) excluding input array space
-Algorithmic Paradigm: Dynamic Programming
- */
 
 class kadanes {
     public static void main(String[] args) {
@@ -24,18 +13,18 @@ class kadanes {
 
         while (t != 0) {
             int n = sc.nextInt();
-            int[] a = new int[n];
+            int[] arr = new int[n];
 
             for (int i = 0; i < n; i++) {
-                a[i] = sc.nextInt();
+                arr[i] = sc.nextInt();
             }
 
-            int maxSoFar = a[0];
-            int currMax = a[0];
+            int maxSoFar = arr[0];
+            int currMax = arr[0];
 
             // Handles all negative elements in array
-            for (int i = 1; i < a.length; i++) {
-                currMax = Math.max(a[i], a[i] + currMax);
+            for (int i = 1; i < n; i++) {
+                currMax = Math.max(arr[i], arr[i] + currMax);
                 maxSoFar = Math.max(maxSoFar, currMax);
             }
             System.out.println(maxSoFar);
@@ -45,16 +34,14 @@ class kadanes {
     }
 }
 
-/***
- * Sample Test cases
- */
+/*
+Time Complexity: O(n)
+Space Complexity: O(1) excluding input array space
+Algorithmic Paradigm: Dynamic Programming
+*/
 
 /*
-
-Solution: https://ideone.com/f595D2
-
-Input:
-
+Testcases:
 3
 8
 -2 -3 4 -1 -2 1 5 -3
@@ -62,19 +49,15 @@ Input:
 4 5 6 7 8
 5
 -1 -2 -3 -4 -5
-
-Output:
-7
-30
--1
-
  */
+
+// Solution: https://ideone.com/zwlqZL
 
 /* Print subarray Elements */
 
 import java.util.*;
-        import java.lang.*;
-        import java.io.*;
+import java.lang.*;
+import java.io.*;
 
 class printSubarrElementKadanes {
 
@@ -183,3 +166,5 @@ class Solution {
 }
 
 // Solution: https://ideone.com/lPlzPf
+
+// TODO: Print actual Solution for maximum Product Subarray
