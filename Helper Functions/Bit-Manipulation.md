@@ -76,7 +76,7 @@ Code:
 		return (b == 0) ? a : getSubtract(a ^ b, (~a & b) << 1);
 	}
 
-### Q. Find the only repetitive element between 1 to n-1
+### Q. Find the only repetitive element between 1 to n - 1
 A.
 
 Examples :
@@ -87,7 +87,7 @@ Examples :
 	Input  : a[] = {1, 5, 1, 2, 3, 4}
 	Output : 1
 
-The idea is based on the fact that `x ^ x = 0 and x ^ y = y ^ x.`
+The idea is based on the fact that `x ^ x = 0 and x ^ y = y ^ x and x ^ 0 = x`
 
     1. Compute XOR of elements from 1 to n-1.
     2. Compute XOR of array elements.
