@@ -2,18 +2,8 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Result {
-    int max_sum;
-    int index;
-
-    public Result(int max_sum, int index) {
-        this.max_sum = max_sum;
-        this.index = index;
-    }
-}
-
 class Solution {
-    public static Result maxEqSum(int[] nums) { // Time: O(n) and Space: O(1)
+    public static int maxEqIndex(int[] nums) { // Time: O(n) and Space: O(1)
         int n = nums.length;
 
         int index = 0, pre_sum = nums[0], suf_sum = 0;
@@ -23,13 +13,10 @@ class Solution {
             suf_sum += nums[i];
         }
 
-        Result result = new Result(0, index);
-
-        // Find prefix_sum and suffix_sum at every index and compare with max_sum
+        // Find prefix_sum and suffix_sum at every index and compare if same then return index
         while (index < n) {
-            if (pre_sum == suf_sum && result.max_sum < pre_sum) {
-                result.max_sum = pre_sum;
-                result.index = index;
+            if (pre_sum == suf_sum) {
+                return index;
             }
             suf_sum -= nums[index++];
             if (index >= n) {
@@ -38,7 +25,7 @@ class Solution {
             pre_sum += nums[index];
         }
 
-        return result;
+        return -1;
     }
 
     public static void main(String[] args) throws java.lang.Exception {
@@ -50,12 +37,11 @@ class Solution {
             arr[i] = sc.nextInt();
         }
 
-        Result result = maxEqSum(arr);
-        System.out.println("Max Equilibrium sum is at index " + result.index + " and max sum is " + result.max_sum);
+        System.out.println("Equilibrium index of an array is: " + maxEqIndex(arr));
     }
 }
 
-// Solution: https://ideone.com/XPxduT
+// Solution: https://ideone.com/EMuJWX
 
 /*
 Testcases:
@@ -64,4 +50,12 @@ Testcases:
 
 8
 -2 5 3 1 2 6 -4 2
+
+3
+1 2 3
+
+7
+-7 1 5 2 -4 3 0
 */
+
+// TODO: Extend solution to find all equilibrium indexes
