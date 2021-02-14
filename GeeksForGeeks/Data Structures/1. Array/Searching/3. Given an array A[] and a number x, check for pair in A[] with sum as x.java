@@ -14,8 +14,32 @@ class Pair {
 
 class Solution {
 
+    // Method 1
+    public static Pair findPairWithSumX1(int[] nums, int sum) { // Time: O(nlogn)
+        int n = nums.length;
+        Arrays.sort(nums); // Time: O(nlogn) and Space: O(n) for merge sort and O(1) Heap Sort
+
+        Pair pair = new Pair(-1, -1);
+
+        int i = 0, j = n - 1;
+        while (i < j) { // Time: O(n)
+            int temp_sum = nums[i] + nums[j];
+            if (temp_sum == sum) {
+                pair.x = nums[i];
+                pair.y = nums[j];
+                break;
+            } else if (temp_sum > sum) {
+                j--;
+            } else {
+                i++;
+            }
+        }
+
+        return pair;
+    }
+
     // Method 2 (Recommended)
-    public static Pair findPairWithSumX(int[] nums, int sum) { // Time: O(n)
+    public static Pair findPairWithSumX2(int[] nums, int sum) { // Time: O(n)
         int n = nums.length;
         Map<Integer, Integer> hmap = new HashMap<Integer, Integer>(); // Space: O(n)
         Pair pair = new Pair(-1, -1);
@@ -43,8 +67,14 @@ class Solution {
             arr[i] = sc.nextInt();
         }
 
+        Pair pair = findPairWithSumX1(arr, x);
+        if (pair.x != -1 && pair.y != -1) {
+            System.out.println("Find pair in A[] with sum as x: " + x + " is " + pair.x + " and " + pair.y);
+        } else {
+            System.out.println("No valid pair exists.");
+        }
 
-        Pair pair = findPairWithSumX(arr, x);
+        pair = findPairWithSumX2(arr, x);
         if (pair.x != -1 && pair.y != -1) {
             System.out.println("Find pair in A[] with sum as x: " + x + " is " + pair.x + " and " + pair.y);
         } else {
@@ -67,6 +97,5 @@ Testcases:
 
 /**
  * Techniques:
- * TODO: Method 1. Sorting and using 2 pointer technique
  * TODO: Method 3. Using remainders of the elements less than x. (Only space efficient if value of x is less than n)
  */
