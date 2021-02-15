@@ -2,18 +2,6 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Result {
-    float max_avg;
-    int start;
-    int end;
-
-    public Result(float max_avg, int start, int end) {
-        this.max_avg = max_avg;
-        this.start = start;
-        this.end = end;
-    }
-}
-
 class Solution {
     public static int maxTripletSum1(int[] nums) { // Time: O(nlogn)
         int n = nums.length;
