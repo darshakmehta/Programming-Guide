@@ -65,10 +65,10 @@ class Solution {
 
                 } else if (temp < sum) {
                     // If sum of three elements is less
-                    // than zero then increment in left
+                    // than sum then increment in left side
                     low++;
                 } else {
-                    // if sum is greater than zero than
+                    // if sum is greater than sum than
                     // decrement in right side
                     high--;
                 }
