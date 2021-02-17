@@ -13,8 +13,7 @@ class Pair {
 }
 
 class Solution {
-
-    // Method 1
+    // Method 1: Using Sorting and Two Pointer Technique
     public static Pair findPairWithSumX1(int[] nums, int sum) { // Time: O(nlogn)
         int n = nums.length;
         Arrays.sort(nums); // Time: O(nlogn) and Space: O(n) for merge sort and O(1) Heap Sort
@@ -38,7 +37,7 @@ class Solution {
         return pair;
     }
 
-    // Method 2 (Recommended)
+    // Method 2: Using Hashing (Recommended for Unsorted Arrays)
     public static Pair findPairWithSumX2(int[] nums, int sum) { // Time: O(n)
         int n = nums.length;
         Map<Integer, Integer> hmap = new HashMap<Integer, Integer>(); // Space: O(n)
@@ -56,7 +55,7 @@ class Solution {
         return pair;
     }
 
-    public static void main (String[] args) throws java.lang.Exception {
+    public static void main(String[] args) throws java.lang.Exception {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int x = sc.nextInt();

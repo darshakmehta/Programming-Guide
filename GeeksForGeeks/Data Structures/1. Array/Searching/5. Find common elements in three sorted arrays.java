@@ -10,7 +10,7 @@ class Solution {
         List<Integer> result = new ArrayList<Integer>();
 
         int i = 0, j = 0, k = 0;
-        while (i < n1 && j < n2 && k < n3) { // O(n1 + n2 + n3)
+        while (i < n1 && j < n2 && k < n3) { // O(min(n1, n2, n3))
             int temp = arr1[i++];
 
             while (j < n2 && temp > arr2[j]) {
@@ -41,7 +41,7 @@ class Solution {
         List<Integer> result = new ArrayList<Integer>();
 
         int i = 0, j = 0, k = 0;
-        while (i < n1 && j < n2 && k < n3) { // O(n1 + n2 + n3)
+        while (i < n1 && j < n2 && k < n3) { // O(min(n1, n2, n3))
             if (arr1[i] == arr2[j] && arr1[i] == arr3[k]) {
                 result.add(arr1[i]);
                 i++; j++; k++;

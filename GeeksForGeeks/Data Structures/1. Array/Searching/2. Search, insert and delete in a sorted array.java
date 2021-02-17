@@ -55,7 +55,6 @@ class Solution {
     }
 
     public static int deleteSortedUsingBinarySearch(int[] nums, int value, int nums_in_arr) { // O(n)
-
         int index = iterativeBinarySearch(nums, value); // O(logn)
 
         if (index != -1) {
@@ -90,7 +89,7 @@ class Solution {
         return nums_in_arr; // current number of elements in array
     }
 
-    public static void main (String[] args) throws java.lang.Exception {
+    public static void main(String[] args) throws java.lang.Exception {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[n + 5]; // To add Max. 5 more elements for the sake of insertion Logic

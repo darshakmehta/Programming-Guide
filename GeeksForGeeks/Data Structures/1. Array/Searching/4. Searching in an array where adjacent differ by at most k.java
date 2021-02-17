@@ -7,13 +7,14 @@ class Solution {
         int n = nums.length;
         int index = -1;
 
-        for (int i = 0; i < n; ) {
+        int i = 0;
+        while (i < n) {
             if (nums[i] == x) {
                 index = i;
                 break;
             }
             int temp = (int) Math.ceil((Math.abs(nums[i] - x)/k));
-            i += temp == 0 ? 1 : temp;
+            i += (temp == 0 ? 1 : temp);
         }
 
         return index;

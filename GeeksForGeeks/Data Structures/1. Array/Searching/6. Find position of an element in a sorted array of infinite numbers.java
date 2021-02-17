@@ -3,7 +3,6 @@ import java.lang.*;
 import java.io.*;
 
 class Solution {
-
     public static int binarySearch(int[] nums, int value, int low, int high) {
         while (low <= high) {
             int mid = low + (high - low) / 2;
