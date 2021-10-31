@@ -130,6 +130,20 @@ class BinarySearchTree {
     }
 }
 
+/**
+ * Time Complexity: The worst-case time complexity of search and insert operations is O(h) where h is the height of the
+ * Binary Search Tree. In the worst case, we may have to travel from root to the deepest leaf node.
+ * The height of a skewed tree may become n and the time complexity of search and insert operation may become O(n).
+ */
+
+/**
+ * Notes:
+ * 1. Inorder traversal of BST always produces sorted output.
+ * 2. We can construct a BST with only Preorder or Postorder or Level Order traversal.
+ * 3. We can always get inorder traversal by sorting the only given traversal.
+ * 4. TODO: Number of unique BSTs with n distinct keys is Catalan Number
+ */
+
 // Code: https://ideone.com/yDPkiE
 
 /***

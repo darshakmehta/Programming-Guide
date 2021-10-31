@@ -4,6 +4,10 @@ import java.io.*;
 
 class BinarySearchTree {
 
+    public enum DeleteChoice {
+        PREDECESSOR, SUCCESSOR
+    }
+
     // Root node of BST
     private Node root;
 
@@ -94,6 +98,7 @@ class BinarySearchTree {
         return searchNode(root, key);
     }
 
+    // Find Inorder Successor
     public int minValue(Node root) {
         int minv = root.key;
         while (root.left != null) {
@@ -103,15 +108,25 @@ class BinarySearchTree {
         return minv;
     }
 
-    public Node deleteNode(Node root, int key) {
+    // Find Inorder Predecessor
+    public int maxValue(Node root) {
+        int maxv = root.key;
+        while (root.right != null) {
+            maxv = root.right.key;
+            root = root.right;
+        }
+        return maxv;
+    }
+
+    public Node deleteNode(Node root, int key, DeleteChoice choice) {
         if (root == null) {
             return root;
         }
         if (key < root.key) {
-            root.left = deleteNode(root.left, key);
+            root.left = deleteNode(root.left, key, choice);
         }
         else if (key > root.key) {
-            root.right = deleteNode(root.right, key);
+            root.right = deleteNode(root.right, key, choice);
         }
         else {
             if (root.left == null) {
@@ -120,15 +135,19 @@ class BinarySearchTree {
             else if (root.right == null) {
                 return root.left;
             }
-            root.key = minValue(root.right);
-
-            root.right = deleteNode(root.right, root.key);
+            if (choice == DeleteChoice.PREDECESSOR) {
+                root.key = maxValue(root.left); // find Inorder Predecessor
+                root.left = deleteNode(root.left, root.key, choice);
+            } else if (choice == DeleteChoice.SUCCESSOR) {
+                root.key = minValue(root.right); // find Inorder Successor
+                root.right = deleteNode(root.right, root.key, choice);
+            }
         }
         return root;
     }
 
-    public void delete(int key) {
-        root = deleteNode(root, key);
+    public void delete(int key, DeleteChoice choice) {
+        root = deleteNode(root, key, choice);
     }
 
     public static void main(String arg[]) {
@@ -159,21 +178,36 @@ class BinarySearchTree {
         x = bst.search(90); // x == null
         System.out.println("Searched key 90 " + (x != null ? "exists" : "does not exist"));
 
-        bst.delete(30);
+        bst.delete(30, DeleteChoice.SUCCESSOR); // Using Inorder Successor
 
-        System.out.println("Inorder: \t");
-        bst.inorder();
+        System.out.println("Preoder: \t");
+        bst.preorder();
+        System.out.println();
+
+        bst.delete(70, DeleteChoice.PREDECESSOR); // Using Inorder Predecessor
+
+        System.out.println("Preorder: \t");
+        bst.preorder();
         System.out.println();
     }
 }
 
+// Code: https://ideone.com/0vGTbS
+
 /**
- * Time Complexity: The worst-case time complexity of search and insert operations is O(h) where h is the height of the
- * Binary Search Tree. In the worst case, we may have to travel from root to the deepest leaf node.
- * The height of a skewed tree may become n and the time complexity of search and insert operation may become O(n).
+ * Time Complexity: The worst case time complexity of delete operation is O(h) where h is the height of the
+ * Binary Search Tree. In worst case, we may have to travel from the root to the deepest leaf node.
+ * The height of a skewed tree may become n and the time complexity of delete operation may become O(n)
  */
 
-// Code: https://ideone.com/0vGTbS
+/**
+ * Optimization to above code for two children case :
+ * In the above recursive code, we recursively call delete() for the successor.
+ * We can avoid recursive calls by keeping track of the parent node of the successor so that we can simply remove
+ * the successor by making the child of a parent NULL. We know that the successor would always be a leaf node.
+ */
+
+
 
 /***
  50
