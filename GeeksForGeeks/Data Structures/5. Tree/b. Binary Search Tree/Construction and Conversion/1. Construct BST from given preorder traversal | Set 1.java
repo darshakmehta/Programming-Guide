@@ -2,7 +2,7 @@
 
 Given preorder traversal of a binary search tree, construct the BST.
 
-For example, if the given traversal is {10, 5, 1, 7, 40, 50}, then the output should be root of following tree.
+For example, if the given traversal is {10, 5, 1, 7, 40, 50}, then the output should be inorder traversal of following BST.
      10
    /   \
   5     40
@@ -27,15 +27,15 @@ class BinarySearchTree {
 	// Root node of BST
 	private Node root;
 	Index index = new Index();
-	
+
 	BinarySearchTree() {
 		root = null;
 	}
-	
+
 	class Node {
 		private int key;
 		private Node left, right;
-		
+
 		public Node(int item) {
 			this.key = item;
 			this.left = this.right = null;
@@ -58,9 +58,7 @@ class BinarySearchTree {
 		inorderTraversal(root);
 	}
 
-	public Node constructBSTFromPreOrderUtil(int[] preOrder, Index preIndex, 
-		int low, int high, int size) {
-
+	public Node constructBSTFromPreOrderUtil(int[] preOrder, Index preIndex, int low, int high, int size) {
 		// Base Case
 		if (preIndex.index >= size || low > high) {
 			return null;
@@ -92,7 +90,6 @@ class BinarySearchTree {
 	}
 
 	public static void main(String arg[]) {
-
 		Scanner sc = new Scanner(System.in);
 		BinarySearchTree bst = new BinarySearchTree();
 		int n = sc.nextInt();
@@ -107,11 +104,13 @@ class BinarySearchTree {
 		System.out.println("Inorder: \t");
 		bst.inorder();
 		System.out.println();
-		
 	}
 }
 
 /* Method 2 ( O(n) time complexity ) */
+/**
+ * We save the iteration of finding next greater element from Method 1 each time we split our tree using MIN, MAX value.
+ */
 // Code: https://ideone.com/7hV9Nz
 
 import java.util.*;
@@ -123,15 +122,15 @@ class BinarySearchTree {
 	// Root node of BST
 	private Node root;
 	Index index = new Index();
-	
+
 	BinarySearchTree() {
 		root = null;
 	}
-	
+
 	class Node {
 		private int key;
 		private Node left, right;
-		
+
 		public Node(int item) {
 			this.key = item;
 			this.left = this.right = null;
@@ -154,9 +153,7 @@ class BinarySearchTree {
 		inorderTraversal(root);
 	}
 
-	public Node constructBSTFromPreOrderUtil(int[] preOrder, Index preIndex, 
-		int key, int min, int max, int size) {
-
+	public Node constructBSTFromPreOrderUtil(int[] preOrder, Index preIndex, int key, int min, int max, int size) {
 		// Base Case
 		if (preIndex.index >= size) {
 			return null;
@@ -170,25 +167,18 @@ class BinarySearchTree {
 			preIndex.index += 1;
 
 			if (preIndex.index < size) {
-
-				root.left = constructBSTFromPreOrderUtil(preOrder, preIndex, 
-					preOrder[preIndex.index], min, key, size);
-				root.right = constructBSTFromPreOrderUtil(preOrder, preIndex, 
-					preOrder[preIndex.index], key, max, size);
+				root.left = constructBSTFromPreOrderUtil(preOrder, preIndex, preOrder[preIndex.index], min, key, size);
+				root.right = constructBSTFromPreOrderUtil(preOrder, preIndex, preOrder[preIndex.index], key, max, size);
 			}
 		}
-
-
 		return root;
 	}
 
 	public void constructBSTFromPreOrder(int[] preOrder, int size) {
-		root = constructBSTFromPreOrderUtil(preOrder, index, 
-			preOrder[0], Integer.MIN_VALUE, Integer.MAX_VALUE, size);
+		root = constructBSTFromPreOrderUtil(preOrder, index, preOrder[0], Integer.MIN_VALUE, Integer.MAX_VALUE, size);
 	}
 
 	public static void main(String arg[]) {
-
 		Scanner sc = new Scanner(System.in);
 		BinarySearchTree bst = new BinarySearchTree();
 		int n = sc.nextInt();
@@ -203,6 +193,10 @@ class BinarySearchTree {
 		System.out.println("Inorder: \t");
 		bst.inorder();
 		System.out.println();
-		
 	}
 }
+
+/* Method 3 ( O(n^2) time complexity ) */
+/**
+ * Use recursion to insert elements in BST. Refer insertNode().
+ */

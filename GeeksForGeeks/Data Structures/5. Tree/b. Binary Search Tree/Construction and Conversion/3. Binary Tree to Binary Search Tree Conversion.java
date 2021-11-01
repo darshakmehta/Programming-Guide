@@ -32,18 +32,16 @@ Output:
        /      \
       5        30
 
-**/ 
-
-/** 
-
-Algorithm:
-
-Following is a 3 step solution for converting Binary tree to Binary Search Tree.
-1) Create a temp array arr[] that stores inorder traversal of the tree. This step takes O(n) time.
-2) Sort the temp array arr[]. Using Heap Sort, Merge Sort or Quick Sort (Worst Case: O(n ^2))
-3) Again do inorder traversal of tree and copy array elements to tree nodes one by one. This step takes O(n) time.
-
 **/
+
+/**
+ * Algorithm:
+ *
+ * Following is a 3 step solution for converting Binary tree to Binary Search Tree.
+ * 1) Create a temp array arr[] that stores inorder traversal of the tree. This step takes O(n) time.
+ * 2) Sort the temp array arr[]. Using Heap Sort, Merge Sort or Quick Sort (Quick Sort Worst Case: O(n^2))
+ * 3) Again do inorder traversal of tree and copy array elements to tree nodes one by one. This step takes O(n) time.
+ */
 
 import java.util.*;
 import java.lang.*;
@@ -85,15 +83,16 @@ class BinaryTree {
 	}
 
 	public int countNodes(Node root) {
-		if (root == null)
+		if (root == null) {
 			return 0;
-
+		}
 		return 1 + countNodes(root.left) + countNodes(root.right);
 	}
 
 	public void storeInorder(Node root, int[] inOrder, Index i) {
-		if (root == null) 
+		if (root == null) {
 			return;
+		}
 
 		storeInorder(root.left, inOrder, index);
 		inOrder[i.index++] = root.key;
@@ -101,8 +100,9 @@ class BinaryTree {
 	}
 
 	public void arrayToBst(int[] inOrder, Node root, Index index) {
-		if (root == null)
+		if (root == null) {
 			return;
+		}
 
 		arrayToBst(inOrder, root.left, index);
 		root.key = inOrder[index.index++];
@@ -110,12 +110,13 @@ class BinaryTree {
 	}
 
 	public void binaryTreeToBST() {
-		if (root == null)
+		if (root == null) {
 			return;
+		}
 
 		int n = countNodes(root);
 		int[] temp = new int[n];
-		
+
 		storeInorder(root, temp, index); // O(n)
 
 		Arrays.sort(temp); // O(n logn)
@@ -135,7 +136,7 @@ class BinaryTree {
 
 	public static void main(String args[]) {
 		BinaryTree tree = new BinaryTree();
-		
+
 		tree.makeTree();
 		tree.binaryTreeToBST();
 
@@ -144,6 +145,14 @@ class BinaryTree {
 		System.out.println();
 	}
 }
+
+/**
+ * Complexity Analysis:
+ *
+ * Time Complexity: O(nlogn). This is the complexity of the sorting algorithm which we are using after
+ *  first in-order traversal, rest of the operations take place in linear time.
+ * Auxiliary Space: O(n). Use of data structure ‘array’ to store in-order traversal.
+ */
 
 // Code: https://ideone.com/wnzka0
 
