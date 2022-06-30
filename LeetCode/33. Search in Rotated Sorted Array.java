@@ -26,3 +26,39 @@ class Solution {
         return start;
     }
 }
+
+class Solution { // Modified Binary Search
+    public int search(int[] nums, int target) { // Time complexity: O(log n)
+        int n = nums.length;
+        int left = 0, right = n - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[left] == target) {
+                return left;
+            } else if (nums[right] == target) {
+                return right;
+            }
+
+            if (nums[left] <= nums[mid]) { // check if sorted
+                if (target >= nums[left] && target < nums[mid]) { // check if target is in sorted range
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            }
+
+            if (nums[mid] <= nums[right]) { // check if sorted
+                if (target <= nums[right] && target > nums[mid]) { // check if target is in sorted range
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+}
