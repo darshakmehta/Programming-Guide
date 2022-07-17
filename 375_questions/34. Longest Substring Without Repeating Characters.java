@@ -1,4 +1,4 @@
-class Solution { // Time: O(n^2)
+class Solution { // Time: O(2n)
     public int lengthOfLongestSubstring(String s) {
         Map<Character, Integer> hmap = new HashMap<Character, Integer>();
         char[] arr = s.toCharArray();
