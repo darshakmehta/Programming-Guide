@@ -2,7 +2,7 @@ class Solution {
     int count = 0;
 
     public void extendPalindrome(String s, int left, int right) {
-        while(left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             count++;
             left--;
             right++;
@@ -10,11 +10,11 @@ class Solution {
     }
 
     public int countSubstrings(String s) {
-        if(s == null || s.length() == 0) return 0;
+        if (s == null || s.length() == 0) return 0;
 
-        for(int i = 0; i < s.length(); i++) {
-            extendPalindrome(s, i, i);
-            extendPalindrome(s, i, i + 1);
+        for (int i = 0; i < s.length(); i++) { // i is the mid point
+            extendPalindrome(s, i, i); // odd length
+            extendPalindrome(s, i, i + 1); // even length
         }
         return count;
     }
@@ -23,10 +23,10 @@ class Solution {
 /* Print All Palindromic substrings */
 class Solution {
     int count = 0;
-    List<String> list = new ArrayList<String>(); //List containing palindromic substrings
+    List<String> list = new ArrayList<String>(); // List containing palindromic substrings
 
     public void extendPalindrome(String s, int left, int right) {
-        while(left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) { //Expand Around center
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) { // Expand Around center
             list.add(s.substring(left, right + 1));
             count++;
             left--;
@@ -35,14 +35,15 @@ class Solution {
     }
 
     public int countSubstrings(String s) {
-        if(s == null || s.length() == 0) return 0;
+        if (s == null || s.length() == 0) return 0;
 
         for(int i = 0; i < s.length(); i++) {
             extendPalindrome(s, i, i);
             extendPalindrome(s, i, i + 1);
         }
-        for(String str : list)
-            System.out.println(str); //Print list of palindromic substrings
+
+        for (String str : list)
+            System.out.println(str); // Print list of palindromic substrings
         return count;
     }
     /* To print unique substring, add them to HashSet */
@@ -68,19 +69,20 @@ class Solution {
     }
 
     public int countSubstrings(String s) {
-        if(s == null || s.length() == 0) return 0;
+        if (s == null || s.length() == 0) return 0;
 
-        for(int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             extendPalindrome(s, i, i);
             extendPalindrome(s, i, i + 1);
         }
 
         Set set = hmap.entrySet();
         Iterator iter = set.iterator();
-        while(iter.hasNext()) {
+        while (iter.hasNext()) {
             Map.Entry pair = (Map.Entry) iter.next();
             System.out.println(pair.getKey() + " " + pair.getValue());
         }
+
         return count;
     }
 }
