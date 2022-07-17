@@ -1,4 +1,4 @@
-class Solution {
+class Solution { // Expand Around the center
     public String longestPalindrome(String s) {
         if (s == null || s.length() == 0) return "";
         int start = 0, end = 0; // use to find the substring
