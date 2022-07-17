@@ -15,7 +15,7 @@ class Solution { // TODO: Verify this works
 		int i, j;
 
 		// The value of h would be "pow(d, M-1)%q"
-        for (i = 0; i < M - 1; i++) {
+        for (i = 1; i < M; i++) {
             h = (h * d) % q;
         }
 
@@ -30,11 +30,9 @@ class Solution { // TODO: Verify this works
         	// Check the hash values of current window of text
             // and pattern. If the hash values match then only
             // check for characters one by one
-            if ( p == t )
-            {
+            if ( p == t ) {
                 /* Check for characters one by one */
-                for (j = 0; j < M; j++)
-                {
+                for (j = 0; j < M; j++) {
                     if (txt.charAt(i+j) != pat.charAt(j)) {
                         break;
                     }
@@ -47,7 +45,7 @@ class Solution { // TODO: Verify this works
 
                 // Calculate hash value for next window of text: Remove
 	            // leading digit, add trailing digit
-	            if ( i < N-M ) {
+	            if ( i < N - M ) {
 	                t = (d * (t - txt.charAt(i) * h) + txt.charAt(i + M)) % q;
 
 	                // We might get negative value of t, converting it
