@@ -1,19 +1,20 @@
 class Solution {
     public void rotate(int[][] matrix) {
-        
-        if(matrix == null|| matrix.length ==0 || matrix[0].length ==0) return;
+        if (matrix == null|| matrix.length == 0 || matrix[0].length == 0) return;
+
         int row = matrix.length - 1;
         int col = matrix[0].length - 1;
-        if(row != col) return;
+        if (row != col) {
+            return;
+        }
 
-        for(int i = 0; i <= row - i; i++){
-            for(int j = i; j <= (row)-(i+1); j++){
-                
+        for (int i = 0; i <= row - i; i++) {
+            for (int j = i; j <= (col - (i + 1)); j++) {
                 int temp = matrix[i][j];
-                matrix[i][j] = matrix[row-j][i];
-                matrix[row-j][i] = matrix[row-i][row-j];
-                matrix[row-i][row-j] = matrix[j][row-i];
-                matrix[j][row-i] = temp ;
+                matrix[i][j] = matrix[row - j][i];
+                matrix[row - j][i] = matrix[row - i][col - j];
+                matrix[row - i][col - j] = matrix[j][col - i];
+                matrix[j][col - i] = temp ;
             }
         }
     }
@@ -23,7 +24,7 @@ class Solution {
 
 /*
  * clockwise rotate
- * first reverse up to down, then swap the symmetry 
+ * first reverse up to down, then swap the symmetry
  * 1 2 3     7 8 9     7 4 1
  * 4 5 6  => 4 5 6  => 8 5 2
  * 7 8 9     1 2 3     9 6 3
@@ -51,7 +52,7 @@ void anti_rotate(vector<vector<int> > &matrix) {
     }
 }
 
-/*** 
+/***
 
 TODO: Write the JAVA solution to rotate
 
