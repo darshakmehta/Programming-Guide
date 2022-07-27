@@ -42,3 +42,7 @@ class Solution {
 		printSpiral(m, n);
 	}
 }
+
+/**
+ * Ideone: https://ideone.com/nBGAY8
+ */
