@@ -2,7 +2,7 @@
  * Solution 1: Follows GFG solution from here https://www.geeksforgeeks.org/longest-subsequence-such-that-difference-between-adjacents-is-one/
  * Note: The given solution on GFG site is incorrect.
  */
-class Solution {
+class Solution { // Time Complexity: O(n) and Space Complexity: O(n) for dp[] and O(n) for HashMap so overall O(n).
     static int longestSubsequence(int N, int arr[]) {
         if (N == 1) {
             return 1;
@@ -41,7 +41,7 @@ class Solution {
 /**
  * Solution 2: Improved solution without dp[]
  */
-class Solution {
+class Solution { // Time Complexity: O(n) and Space Complexity: O(n)
     static int longestSubsequence(int N, int arr[]) {
         int result = 1; // Length of only one element of the subsequence
 
@@ -67,4 +67,3 @@ class Solution {
         return result;
     }
 }
-
