@@ -1,27 +1,84 @@
 class Solution {
     public boolean wordBreak(String s, List<String> wordDict) {
-        boolean f[] = new boolean[s.length() + 1];
+        int len = s.length();
+        boolean f[] = new boolean[len + 1];
         f[0] = true;
-        /* f[i] stands for whether subarray(0, i) can be segmented into words from the dictionary. So f[0] means whether subarray(0, 0) (which is an empty string) can be segmented, and of course the answer is yes. The default value for boolean array is false. Therefore we need to set f[0] to be true. */
-        for(int i = 1; i <= s.length(); i++) {
-            for(int j = 0; j < i; j++) { //TODO: int j = i - 1; j >= 0; j-- {improvement : Because after you processed a few words, it is likely that the match word will be found at the end of the finished part of the string, but not a really long word which begins from the beginning of the string}
-                if(f[j] && wordDict.contains(s.substring(j, i))) {
+        /** f[i] stands for whether subarray(0, i) can be segmented into words from the dictionary.
+         * So f[0] means whether subarray(0, 0) (which is an empty string) can be segmented, and of course the answer is yes.
+         * The default value for boolean array is false. Therefore we need to set f[0] to be true. */
+        for (int i = 1; i <= len; i++) {
+            for (int j = 0; j < i; j++) {
+                if (f[j] && wordDict.contains(s.substring(j, i))) {
                     f[i] = true;
                     break;
                 }
             }
         }
         
-        return f[s.length()];
+        return f[len];
     }
 }
 
-public class Solution { //BFS Solution
+/**
+ * Improvement : Because after you processed a few words, it is likely that the match word will be found
+ * at the end of the finished part of the string, but not a really long word which begins
+ * from the beginning of the string}
+ */
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {
+        int len = s.length();
+        boolean f[] = new boolean[len + 1];
+        f[0] = true;
+
+        for (int i = 1; i <= len; i++) {
+            for (int j = i - 1; j >= 0; j--) {
+                if (f[j] && wordDict.contains(s.substring(j, i))) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+
+        return f[len];
+    }
+}
+
+/**
+ * Improvement: Add all dict words in a set.
+ * Note: If you use set, you can find the element in O(1). But if you use List,you may find the element in O(n)
+ */
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {
+        int len = s.length();
+        boolean f[] = new boolean[len + 1];
+        Set<String> set = new HashSet<String>();
+        for (String word: wordDict) {
+            set.add(word);
+        }
+        // Base case
+        f[0] = true;
+
+        for (int i = 1; i <= len; i++) {
+            for (int j = 0; j < i; j++) {
+                if (f[j] && set.contains(s.substring(j, i))) {
+                    f[i] = true;
+                    break;
+                }
+            }
+        }
+
+        return f[len];
+    }
+}
+
+public class Solution { // BFS Solution
     public boolean wordBreak(String s, List<String> wordDict) {
         int max_len = -1;
-        for (String word : wordDict)
-            max_len = Math.max (max_len, word.length ());
-        Set<String> wordDictSet=new HashSet(wordDict);
+        for (String word : wordDict) {
+            max_len = Math.max(max_len, word.length());
+        }
+
+        Set<String> wordDictSet = new HashSet(wordDict);
         Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[s.length()];
         queue.add(0);
@@ -68,21 +125,9 @@ public class Solution {
     }
 }
 
-/***
-
-TODO:
-1. Using TRIE - leetcode.com/problems/word-break/discuss/43790/Java-implementation-using-DP-in-two-ways/43007
-2. Add all dict words in set  ==> If you use set, you can find the element in O(1).But if you use List,you may find the element in O(n)
-3. BFS solution
-4. DFS Solution
-
-Complexity Analysis:
-just want to add some comments for the time complexity:
-First DP: [length of s][size of dict][avg length of words in dict]
-Second DP: [length of s]^3
-
-BTW, for this kind of problem, which time complexity is [length of s][size of dict][avg length of words in dict]. We can usually remove [size of dict] by using Tire, remove [avg length of words in dict] by KMP, and what's more, remove both [size of dict] and [avg length of words in dict] by AC-automata. And of course these are all doable for this problem.
-This is just a insight for people who want to think deeper about this problem, hope it can help you :)
-
-
-***/
+/**
+ * TODO:
+ * 1. Using TRIE - leetcode.com/problems/word-break/discuss/43790/Java-implementation-using-DP-in-two-ways/43007
+ * 2. DFS Solution
+ * 3. Research if starting from index j = 0 is better or j = i-1
+**/
