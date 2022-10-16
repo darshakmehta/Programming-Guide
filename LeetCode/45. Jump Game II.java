@@ -30,7 +30,7 @@ class Solution {
 }
 
 /**
- * [currBeg, currEnd] => Window. Note: Here, currBeg == i
+ * [currBeg, currEnd] => Window. Note: Here, currBeg = i
  * Find currFarthest you can reach from current window elements
  * Jump and Break since we can reach to the last index when currFarthest >= n - 1
  * Jump when i == currEnd, and update currEnd to currFarthest

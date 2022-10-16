@@ -14,9 +14,7 @@ class Solution {
     }
 }
 
-
 // Below solution saves extra traversal time
-
 class ImprovedSolution {
     public boolean canJump(int[] nums) {
         int n = nums.length;
