@@ -2,22 +2,31 @@ class Solution {
     public boolean canPartition(int[] nums) {
         int n = nums.length;
         int sum = 0;
-        for(int i : nums)
+        for (int i : nums) {
             sum += i;
+        }
         
-        if(sum % 2 != 0) return false;
+        if (sum % 2 != 0) { // odd sum - partition not possible
+            return false;
+        }
         sum = sum / 2;
         
-        boolean subset[][] = new boolean[n + 1][sum + 1];
-        for(int i = 0; i <= n; i++) 
+        boolean[][] subset = new boolean[n + 1][sum + 1];
+        for (int i = 0; i <= n; i++) {
             subset[i][0] = true;
-        for(int i = 1; i <= n; i++) {
-            for(int j = 1; j <= sum; j++) {
-                if(j < nums[i - 1]) {
+        }
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= sum; j++) {
+                if (j < nums[i - 1]) {
                     subset[i][j] = subset[i - 1][j];
                 } else {
                     subset[i][j] = subset[i - 1][j] || subset[i - 1][j - nums[i - 1]];
                 }
+            }
+            // Once we find a subset we can break out. Note if you need to print subset elements you have to build complete dp.
+            if (subset[n][sum]) {
+                return true;
             }
         }
         return subset[n][sum];
@@ -29,30 +38,73 @@ class Solution {
     public boolean canPartition(int[] nums) {
         int n = nums.length;
         int sum = 0;
-        for (int i : nums)
+        for (int i : nums) {
             sum += i;
+        }
 
-        if(sum % 2 != 0) return false;
+        if (sum % 2 != 0) { // odd sum - partition not possible
+            return false;
+        }
         sum = sum / 2;
 
         boolean[] dp = new boolean[sum+1];
-        dp[0] = true; //Base case: dp[0] is true; (zero number consists of sum 0 is true)
+        dp[0] = true; // Base case: empty subset has a sum of 0 so true.
 
         for (int i = 0; i < n; i++) {
             for (int j = sum; j >= nums[i]; j--) {
                     dp[j] = dp[j] || dp[j-nums[i]];
             }
+            // Once we find a subset we can break out
+            if (dp[sum]) {
+                return true;
+            }
         }
 
         return dp[sum];
     }
-    /* Optimize further: leetcode.com/problems/partition-equal-subset-sum/discuss/90627/Java-Solution-similar-to-backpack-problem-Easy-to-understand/95087 */
+}
+
+/**
+ * Optimize further: leetcode.com/problems/partition-equal-subset-sum/discuss/90627/Java-Solution-similar-to-backpack-problem-Easy-to-understand/95087
+ */
+class Solution {
+    public boolean canPartition(int[] nums) {
+        int n = nums.length;
+        int sum = 0;
+        for (int i : nums) {
+            sum += i;
+        }
+
+        if (sum % 2 != 0) { // odd sum - partition not possible
+            return false;
+        }
+        sum = sum / 2;
+
+        boolean[] dp = new boolean[sum+1];
+        dp[0] = true; // Base case: empty subset has a sum of 0 so true.
+
+        int currSum = 0;
+        for (int i = 0; i < n; i++) {
+            // We can avoid looping for every j = sum to nums[i]
+            int min = Math.min(nums[i] + currSum, sum);
+            for (int j = min; j >= nums[i]; j--) {
+                dp[j] = dp[j] || dp[j-nums[i]];
+            }
+            // Once we find a subset we can break out
+            if (dp[sum]) {
+                return true;
+            }
+            currSum += nums[i];
+        }
+
+        return dp[sum];
+    }
 }
 
 /**
 
 Question
-1. In your 1d DP array solution, why did you let i go from the right instead of left?
+1. In your 1-D DP array solution, why did you let i go from the right instead of left?
 Answer:
 
 The reason is that we have to get dp[i] from its previous loop dp[i-1]
@@ -61,10 +113,10 @@ dp[i][j] = dp[i-1][j] || dp[i-1][j-nums[i-1]]
 
 As for
 
-for (int num: nums){
-   for (int i = sum; i>0; i--){
-      if (i>=num)
-         dp[i] = dp[i] || dp[i-num]
+for (int num: nums) {
+   for (int i = sum; i > 0; i--) {
+      if (i >= num)
+         dp[i] = dp[i] || dp[i - num]
     }
 }
 Every loop of nums refreshes dp array. We might get dp[i] from dp[i-num] whose index is smaller than i. If we increase the index of sum from 0 to sum, we will get dp[i] from dp[i-num] , while dp[i-num] has been updated in this loop. This dp[i-num] is not the number we got from the previous loop.
