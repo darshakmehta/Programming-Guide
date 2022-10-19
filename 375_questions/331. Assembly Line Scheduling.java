@@ -39,8 +39,8 @@ class Solution {
  * Improvement: We only rely on last values in the dp[].
  */
 import java.util.*;
-        import java.lang.*;
-        import java.io.*;
+import java.lang.*;
+import java.io.*;
 
 class Solution {
     public static int carAssembly(int[][] a, int [][] t, int[] e, int[] x) {
