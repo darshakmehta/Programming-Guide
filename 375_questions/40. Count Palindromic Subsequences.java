@@ -20,7 +20,9 @@ class Solution {
     }
 }
 
-/* Print All Palindromic substrings */
+/**
+ * Print All Palindromic substrings
+ */
 class Solution {
     int count = 0;
     List<String> list = new ArrayList<String>(); // List containing palindromic substrings
@@ -46,10 +48,11 @@ class Solution {
             System.out.println(str); // Print list of palindromic substrings
         return count;
     }
-    /* To print unique substring, add them to HashSet */
 }
 
-
+/**
+ *  To print unique substring, add them to HashSet
+ */
 class Solution {
     int count = 0;
     Map<String, Integer> hmap = new HashMap<String, Integer>(); // to find all the occurrences or distinct occurrences of substring
@@ -64,7 +67,6 @@ class Solution {
             count++;
             left--;
             right++;
-
         }
     }
 
