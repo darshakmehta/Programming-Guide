@@ -1,5 +1,6 @@
 /**
  * Time Limit exceeds - we can improve it by using 2 variables as we only care about last len of alternating subsequence
+ * Passes 100/110 test cases - https://practice.geeksforgeeks.org/problems/longest-alternating-subsequence5951/1
  */
 class Solution {
     public int AlternatingaMaxLength(int[] arr) {
