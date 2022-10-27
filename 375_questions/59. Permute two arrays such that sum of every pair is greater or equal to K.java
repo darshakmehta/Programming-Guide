@@ -8,6 +8,7 @@ class Solution {
 			return false;
 		}
 
+		// To perform a reverse sort convert it to an object arr.
 		Integer[] newArray = new Integer[b.length];
 		int x = 0;
 		for (int value : b) {
@@ -34,7 +35,6 @@ class Solution {
 		for (int i = 0; i < m; i++) {
 		    a[i] = sc.nextInt();
 		}
-
 		for (int i = 0; i < n; i++) {
             b[i] = sc.nextInt();
         }
