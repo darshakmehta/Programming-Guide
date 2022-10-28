@@ -25,7 +25,7 @@ class Solution {
 
         // generate output arr based on characters count
         char[] output = new char[n];
-        for (int i = min, j = 0; i < max; i++) {
+        for (int i = 0, j = 0; i < dp.length; i++) {
             while (dp[i] > 0) {
                 output[j++] = (char)(i + min);
                 dp[i]--;
