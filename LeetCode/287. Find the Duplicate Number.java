@@ -1,8 +1,8 @@
 class Solution {
     public int findDuplicate(int[] nums) {
         Arrays.sort(nums); // TODO: copy to temp array as nums is read only
-        for(int i = 0; i < nums.length - 1; i++) {
-            if(nums[i] == nums[i + 1]) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
                 return nums[i];
             }
         }
@@ -18,12 +18,12 @@ class Solution {
         do {
             tortoise = nums[tortoise];
             hare = nums[nums[hare]];
-        } while(tortoise != hare);
+        } while (tortoise != hare);
 
         int slow = nums[0];
         int fast = hare;
 
-        while(slow != fast) {
+        while (slow != fast) {
             slow = nums[slow];
             fast = nums[fast];
         }
@@ -47,15 +47,20 @@ TODO:
 o(n) running time and O(1) space
 4. If modification was allowed
 
-<!-- class Solution {
+/**
+class Solution {
     public int findDuplicate(int[] nums) {
-        for(int i=0;i<nums.length;i++)
-            if(nums[Math.abs(nums[i])] >0)
-                nums[Math.abs(nums[i])]=-nums[Math.abs(nums[i])];
-            else
+        for (int i=0; i<nums.length; i++) {
+            if (nums[Math.abs(nums[i])] > 0) {
+                nums[Math.abs(nums[i])] = -nums[Math.abs(nums[i])];
+            }
+            else {
                 return Math.abs(nums[i]);
+            }
         return -1;
+        }
     }
-} -->
+}
+**/
 
 ***/
