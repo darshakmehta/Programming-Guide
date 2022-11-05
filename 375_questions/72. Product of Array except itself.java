@@ -1,3 +1,6 @@
+/**
+ * Ideone: https://ideone.com/mdpJfT
+ */
 class Solution {
     public static int[] productArray(int[] arr, int n) {
         int[] prod = new int[n];
