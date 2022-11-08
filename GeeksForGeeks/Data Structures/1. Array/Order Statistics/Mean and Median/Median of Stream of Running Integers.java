@@ -1,23 +1,27 @@
-/***
+/**
+ * Given that integers are being read from a data stream.
+ * Find median of all the elements read so far starting from the first integer till the last integer.
+ * This is also called Median of Running Integers.
+ * The data stream can be any source of data, example: a file, an array of integers, input stream etc.
+ *
+ * What is Median?
+ * Median can be defined as the element in the data set which separates the higher half of the data sample
+ * from the lower half. In other words we can get the median element as, when the input size is odd,
+ * we take the middle element of sorted data. If the input size is even,
+ * we pick average of middle two elements in sorted stream.
+ */
 
-Given that integers are being read from a data stream. Find median of all the elements read so far starting from the first integer till the last integer. This is also called Median of Running Integers. The data stream can be any source of data, example: a file, an array of integers, input stream etc.
-
-What is Median?
-
-Median can be defined as the element in the data set which separates the higher half of the data sample from the lower half. In other words we can get the median element as, when the input size is odd, we take the middle element of sorted data. If the input size is even, we pick average of middle two elements in sorted stream.
-
-Example:
-
-Input: 5 15 10 20 3
-Output: 5.0
-		10.0
-		10.0
-		12.5
-		10.0
-	
-Code: https://ideone.com/VC4U2C
-
-**/
+/**
+ * Example:
+ * Input: 5 15 10 20 3
+ * Output:
+ * 5.0
+ * 10.0
+ * 10.0
+ * 12.5
+ * 10.0
+ * Code: https://ideone.com/VC4U2C
+ */
 
 /***
 
@@ -40,12 +44,8 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-class Solution
-{
-
+class Solution {
 	public static void printMedian(int[] arr) {
-
-
 		// Max Heap to store smaller half elements
 		PriorityQueue<Integer> smallerMaxHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
 
@@ -62,7 +62,7 @@ class Solution
 			int x = arr[i];
 
 			// Case 1: Left side heap has more elements
-			if(smallerMaxHeap.size() > greaterMinHeap.size()) {
+			if (smallerMaxHeap.size() > greaterMinHeap.size()) {
 				if (x < median) {
 					greaterMinHeap.add(smallerMaxHeap.remove());
 					smallerMaxHeap.add(x);
@@ -98,8 +98,7 @@ class Solution
 		}
 	}
 
-	public static void main (String[] args) throws java.lang.Exception
-	{
+	public static void main (String[] args) throws java.lang.Exception {
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int[] arr = new int[n];
@@ -114,3 +113,9 @@ class Solution
 
 // Time Complexity: O(n Log n)
 // Auxiliary Space : O(n)
+
+/**
+ * TODO:
+ * 1. Using Insertion Sort
+ * 2. Using Augmented self-balanced binary search tree (AVL, RB, etc…)
+ */
