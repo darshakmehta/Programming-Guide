@@ -1,23 +1,17 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        if(s.length() != t.length()) {
+        if (s.length() != t.length()) {
             return false;
         }
 
-        int countAlpha[] = new int[27];
+        int[] countAlpha = new int[27];
         for (int i = 0; i < s.length(); i++) {
             countAlpha[s.charAt(i) - 96]++ ;
         }
 
-        for(int i = 0; i < t.length(); i++) {
-            if (countAlpha[t.charAt(i) - 96] > 0) {
-                countAlpha[t.charAt(i) - 96]--;
-            } else {
-                return false;
-            }
-        }
-        for (int i = 1; i < 27; i++) {
-            if (countAlpha[i] > 0) {
+        for (int i = 0; i < t.length(); i++) {
+            countAlpha[t.charAt(i) - 96]--;
+            if (countAlpha[t.charAt(i) - 96] < 0) {
                 return false;
             }
         }
@@ -28,7 +22,6 @@ class Solution {
 
 class Solution {
     public boolean isAnagram(String s, String t) {
-
         if (s.length() != t.length()) {
             return false;
         }
@@ -43,10 +36,7 @@ class Solution {
     }
 }
 
-/***
-
-What if the inputs contain unicode characters? How would you adapt your solution to such case?
-Answer: Use a hash table instead of a fixed size counter.
-
-***/
-
+/**
+ * What if the inputs contain unicode characters? How would you adapt your solution to such case?
+ * Answer: Use a hash table or an array of size 256.
+ **/
